@@ -1,0 +1,303 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&display=swap');
+
+.base-font {
+  font-family: "Space Grotesk", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+.codespace {
+  font-family: "Google Sans Code", monospace;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+:root {
+    --primary-color: #1DB954;
+    --secondary-color: #191414;
+    --accent-color: #535353;
+    --bg-color: #000000;
+    --text-color: #FFFFFF;
+    --muted-text-color: #B3B3B3;
+    --highlight-color: #1ED760;
+}
+.pre-loader{
+    position: fixed;
+    top: 0.1;
+    left: 0.1;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px var(--bg-color);
+    z-index: 9999;
+}
+.pre-loader img{
+    height: 70vw;
+    animation: flicker1 3s infinite;
+}
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    overflow-x: hidden;
+    width: 100%;
+}
+body::-webkit-scrollbar {
+    display: none;
+}
+a{
+    text-decoration: none;
+}
+#main {
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    gap: 2rem;
+    font-family: "Space Grotesk", sans-serif;
+}
+
+/* nav */
+.nav {
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.8rem 2rem;
+    border-radius: 25px;
+    border: 1px solid var(--highlight-color);
+    background-color: var(--secondary-color);
+    font-size: 20px;
+    position: fixed;
+    transform: translateY(-110vh);
+    box-shadow: 0 0 10px var(--highlight-color);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--highlight-color);
+    border-radius: 50%;
+    text-decoration: none;
+    box-shadow: 0 0 5px var(--highlight-color);
+}
+.logo img {
+    height: 50px;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+}
+.menu a {
+    color: var(--text-color);
+    font-weight: 500;
+}
+.menu a:hover {
+    color: var(--highlight-color);
+    text-shadow: 0 0 5px var(--accent-color);
+    transition: color 0.3s ease;
+}
+
+/* Body */
+#content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2rem;
+}
+.hero{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+.hero .mid .svg-pg {
+    position: relative;
+    height: 46vw;
+    width: 46vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 5px solid transparent;
+    animation: flicker2 3s infinite;
+    z-index: -1;
+}
+.hero .mid img {
+    position: absolute;
+    height: 46vw;
+    animation: flicker1 3s infinite;
+}
+@keyframes flicker2 {
+    0%, 18%, 22%,53%,57%, 100% {
+    box-shadow:inset 0 0 50px #0289317c,
+                    0 0 50px #1ed75f7d;
+    }
+    20%, 34%,44%, 55%,77%, 81% {
+    box-shadow:inset 0 0 50px #03ae3f95,
+                    0 0 50px #005d21a7;
+    }
+}
+@keyframes flicker1 {
+    0%, 18%, 22%,25%,53%,57%, 100% {
+        filter: drop-shadow(0 0 10px #1ED760);
+    }
+    20%, 24%, 55% {
+        filter: drop-shadow(0 0 20px #1ed75f76);
+    }
+}
+.b{
+    position: relative;
+    transform: translate(-5vw,-0.5rem);
+}
+.b a{
+    position: absolute;
+    background: #10632dfb;
+    border: 3px solid var(--text-color);
+    color: var(--text-color);
+    border-radius: 30px;
+    padding: 0.2rem 1.5rem;
+    box-shadow:0 0 20px #1ED760;
+    font-weight: 600;
+    width: 10vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .4rem;
+}
+.b a:hover{
+    #left-arrow{
+        transform: translateX(0.3rem);
+        transition: 0.3s ease;
+    }    
+    #right-arrow{
+        transform: translateX(-0.3rem);
+        transition: 0.3s ease;
+    }
+    animation: flicker2 3s infinite;
+}
+#left-arrow{
+        animation: slide1 2s infinite;
+    }    
+#right-arrow{
+        animation: slide2 2s infinite;
+    }
+@keyframes slide1 {
+    0%, 100% {
+        transform: translateX(-0.2rem);
+    }
+    50% {
+        transform: translateX(0.2rem);
+    }
+}
+@keyframes slide2 {
+    0%, 100% {
+        transform: translateX(0.2rem);
+    }
+    50% {
+        transform: translateX(-0.2rem);
+    }
+}
+
+.u{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 35px;
+    font-weight: 400;
+    color: var(--text-color);
+    text-shadow: 0 0 10px var(--highlight-color);
+}
+.u .right{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 5rem;
+}
+.u .left{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 5rem;
+}
+
+.u a:hover{
+    color: var(--highlight-color);
+    text-shadow: 0 0 20px var(--text-color);
+    animation: flicker3 3s infinite;
+}
+@keyframes flicker3 {
+    0%, 18%, 22%,53%,57%, 100% {
+    text-shadow: 0 0 30px #028931c0,
+                    0 0 20px #1ed75fdb;
+    }
+    20%, 34%,44%, 55%,77%, 81% {
+    text-shadow: 0 0 30px #0ce658,
+                    0 0 20px #07c148bd;
+    }
+}
+.u a{
+    position: absolute;
+    color: var(--highlight-color);
+    /* border: 1px solid var(--highlight-color); */
+    padding: 0.8rem 0.8rem;
+    border-radius: 25px;
+    animation: flicker4 3s infinite;
+    animation-delay: 0.3s;
+}
+@keyframes flicker4 {
+    0%, 18%, 22%,25%,53%,57%, 100%{
+    text-shadow: 0 0 5cm #1ED760,
+                    0 0 50px #1ED760;
+    }
+    20%, 24%, 55%  {
+    text-shadow: 0 0 50px #1ED760,
+                    0 0 50px #1ED760;
+    }
+}
+.u .right #emerge{
+    transform: translate(-5rem,-10rem);
+    animation-delay: 0.2s;
+}
+.u .right #grow{
+    transform: translate(-5rem,10rem);
+    animation-delay: 0.1s;
+}
+.u .left #study{
+    transform: translate(5rem,-10rem);
+    animation-delay: 0.3s;
+}
+.u .left #build{
+    transform: translate(5rem,10rem);
+    animation-delay: 0.5s;
+}
+
+#home{
+    height: 97vh;
+    width: 100%;
+}

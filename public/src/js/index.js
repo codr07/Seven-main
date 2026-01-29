@@ -1,0 +1,14 @@
+gsap.to(".pre-loader",{
+    opacity:0,
+    scale:4,
+    delay:3,
+    duration:1,
+    display:"none",
+    ease:"ease.out"
+})
+gsap.to(".nav",{
+    translateY:-730,
+    delay:3.5,
+    duration:1,
+    ease:"ease"
+})
