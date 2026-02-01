@@ -42,7 +42,16 @@
 }
 .pre-loader img{
     height: 70vw;
-    animation: flicker1 3s infinite;
+    animation: flicker5 3s infinite;
+}
+@keyframes flicker5 {
+    
+    0%, 18%, 22%,25%,53%,57%, 100% {
+        filter: drop-shadow(0 0 10px #1ED760);
+    }
+    20%, 24%, 55% {
+        filter: drop-shadow(0 0 20px #1ed75f76);
+    }
 }
 body {
     background-color: var(--bg-color);
@@ -74,14 +83,16 @@ a{
     display: flex;
     justify-content: center;
     align-items: center;
+
     padding: 0.8rem 2rem;
     border-radius: 25px;
     border: 1px solid var(--highlight-color);
     background-color: var(--secondary-color);
     font-size: 20px;
     position: fixed;
-    transform: translateY(-110vh);
+    transform: translateY(-950vh);
     box-shadow: 0 0 10px var(--highlight-color);
+    z-index: 1000;
 }
 
 .logo {
@@ -120,7 +131,7 @@ a{
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    gap: 2rem;
+    gap: 5rem;
 }
 .hero{
     display: flex;
@@ -129,6 +140,9 @@ a{
     flex-direction: column;
     width: 100%;
     height: 100%;
+    border: 1px solid var(--highlight-color);
+    border-radius: 20px;
+    padding: 1rem 0;
 }
 .hero .mid .svg-pg {
     position: relative;
@@ -142,7 +156,8 @@ a{
     animation: flicker2 3s infinite;
     z-index: -1;
 }
-.hero .mid img {
+.hero .mid svg {
+    width: 60vw;
     position: absolute;
     height: 46vw;
     animation: flicker1 3s infinite;
@@ -165,9 +180,10 @@ a{
         filter: drop-shadow(0 0 20px #1ed75f76);
     }
 }
+
 .b{
     position: relative;
-    transform: translate(-5vw,-0.5rem);
+    transform: translate(-5vw,-2rem);
 }
 .b a{
     position: absolute;
@@ -268,7 +284,7 @@ a{
     padding: 0.8rem 0.8rem;
     border-radius: 25px;
     animation: flicker4 3s infinite;
-    animation-delay: 0.3s;
+    animation-delay: 2.3s;
 }
 @keyframes flicker4 {
     0%, 18%, 22%,25%,53%,57%, 100%{
@@ -296,8 +312,206 @@ a{
     transform: translate(5rem,10rem);
     animation-delay: 0.5s;
 }
-
 #home{
-    height: 97vh;
+    height: 100vh;
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#home .container1{
+    width: 0%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1rem;
+    position: relative;
+    z-index: 2;
+}
+.container1 .wrapper-home{
+    background-color: var(--primary-color);
+    height: 90%;
+    width: 90%;
+    border-radius: 20px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    padding: 4rem;
+    position: absolute;
+    transform: translate(0);
+    z-index: -2;
+}
+.container1 .wrapper-home :nth-child(1){
+    position: relative;
+    transform: translate(-2vw,-11rem);
+    z-index: -3;
+    }
+.container1 .wrapper-home :nth-child(1) span{
+    font-size: 17vw;
+    font-weight: 800;
+    color: var(--bg-color);
+    overflow: hidden;
+    position: absolute;
+    transform: translate(-40vw,-200px);
+    z-index: -4;
+}
+.container1 .wrapper-home :nth-child(2){
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 2rem;
+    flex-direction: column;
+    position: relative;
+    z-index: -3;
+}
+.container1 .wrapper-home :nth-child(2) span{
+    font-weight: 800;
+    color: var(--bg-color);
+    overflow: hidden;
+    position: absolute;
+    z-index: -4;
+}
+.container1 .wrapper-home :nth-child(2) span:nth-child(1){
+    font-size: 11vw;
+    transform: translate(58vw,1rem);
+}
+.container1 .wrapper-home :nth-child(2) span:nth-child(2){
+    font-size: 6vw;
+    color: var(--text-color);
+    transform: translate(38.4vw,7.1rem);
+}
+.container1 .wrapper-home :nth-child(2) span:nth-child(3){
+    font-size: 19vw;
+    transform: translate(-10vw,16.6rem);
+}
+section{
+    position: relative;
+}
+.sticky{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+}
+.sticky-header{
+    position: absolute;
+    top: 0%;
+    left: 25%;
+}
+.sticky-header h1{
+    position: relative;
+    text-align: center;
+    will-change: transform, opacity;
+    transform: translateY(0px);
+    font-size: 4vw;
+    /* opacity: 0; */
+}
+.card-container{
+    position: relative;
+    width: 75%;
+    display: flex;
+    perspective: 1000px;
+    will-change: width;
+}
+.card{
+    position: relative;
+    flex: 1;
+    aspect-ratio: 5/6;
+    transform-style: preserve-3d;
+    transform-origin: top;
+    transition: 0.2s ease-in-out;
+}
+
+#card-1{
+    border-radius: 20px 0 0 20px;
+}
+#card-3{
+    border-radius: 0 20px 20px 0;
+}
+.card-front, .card-back{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: inherit;
+    overflow: hidden;
+}
+.card-back{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transform: rotateY(180deg);
+    font-weight: 400;
+    padding: 2rem;
+}
+
+.card-back span{
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    opacity: 0.8;
+}
+#card-1 .card-back{
+    background-color: #1ED760;
+    box-shadow: 0 0 20px #1ed75fc1;
+    filter: brightness(120%);
+    color: var(--bg-color);
+}
+#card-2 .card-back{
+    background-color: #ff0000;
+    color: var(--text-color);
+    filter: brightness(120%);
+    box-shadow: 0 0 20px #ff0000c1;
+}
+#card-3 .card-back{
+    background-color: #ffffff;
+    color: var(--bg-color);
+    filter: brightness(120%);
+    box-shadow: 0 0 20px #ffffffc1;
+    span{
+        color: var(--bg-color);
+    }
+}
+.discover{
+    position: absolute;
+    bottom: 2rem;
+    font-size: 1.5rem;
+    border: 2px solid var(--highlight-color);
+    padding: 0.5rem 1.5rem;
+    border-radius: 30px;
+    transform: translateY(-10px);;
+    animation: flicker2 3s infinite;
+}
+.card-container{
+    background-color: #1DB954;
+    border-radius: 20px;
+    width: 0%;
+}
+.card-back .back1{
+    font-size: 3vw;
+}
+#card1-mid{
+    font-weight: 800;
+    font-size: 3vw;
+    transform: translate(7vw,9.7vw);
+    color: #ff0000e0;
+}
+#card2-mid{
+    font-weight: 800;
+    font-size: 4.1vw;
+    transform: translate(8.7vw,9.1vw) rotateZ(10deg);
+    color: #ffffffe0;
+}
+#card3-mid{
+    font-weight: 800;
+    font-size: 3vw;
+    transform: translate(7vw,9.7vw);
+    color: #ff0000e0;
 }
