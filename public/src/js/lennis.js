@@ -1,6 +1,7 @@
 // Initialize Lenis
 const lenis = new Lenis({
-  autoraf: true,
+  lerp : 0.4,
+  smooth: true,
 
 });
 

@@ -1,5 +1,9 @@
 {
   "dependencies": {
-    "ogl": "^1.0.11"
+    "@clerk/clerk-js": "^5.122.1",
+    "@material/web": "^2.4.1",
+    "@rollup/plugin-node-resolve": "^16.0.3",
+    "ogl": "^1.0.11",
+    "rollup": "^4.57.1"
   }
 }
