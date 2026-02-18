@@ -22,3 +22,11 @@ document.addEventListener('DOMContentLoaded', () => {
     animate();
   }
 });
+document.addEventListener('DOMContentLoaded', function () {
+    const dropdownBtn = document.querySelector('#btn');
+    const navlist = document.querySelector('.mob-nav-links');
+  
+    dropdownBtn.addEventListener('click', function () {
+      navlist.classList.toggle('show');
+    });
+  });

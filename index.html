@@ -11,61 +11,102 @@
     <meta name="keywords" content="Data Science, Machine Learning, AI, Full Stack Developer, Python, React, Bengaluru">
     
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/6pHJHvzqrxVLf46JF8n2weLrvGG3/social-images/social-1769979393919-Hand Full.png">
+    <meta property="og:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/6pHJHvzqrxVLf46JF8n2weLrvGG3/social-images/social-1771398380102-5EVEN_Institution_(2).webp">
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@5EVEN" />
-    <meta name="twitter:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/6pHJHvzqrxVLf46JF8n2weLrvGG3/social-images/social-1769979393919-Hand Full.png">
+    <meta name="twitter:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/6pHJHvzqrxVLf46JF8n2weLrvGG3/social-images/social-1771398380102-5EVEN_Institution_(2).webp">
     <meta property="og:title" content="5EVEN">
     <meta name="twitter:title" content="5EVEN">
     <meta property="og:description" content="Best place to boost your academia in completely new way">
     <meta name="twitter:description" content="Best place to boost your academia in completely new way">
-    <link rel="icon" type="image/svg+xml" href="https://storage.googleapis.com/gpt-engineer-file-uploads/6pHJHvzqrxVLf46JF8n2weLrvGG3/uploads/1769979348111-seven.svg">
+    <link rel="icon" type="image/svg+xml" href="/public/assets/images/branding/seven.svg">
 
     <link rel="stylesheet" href="/public/src/style/index.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <script type="importmap">
-      {
-        "imports": {
-          "@material/web/": "https://esm.run/@material/web/"
-        }
-      }
-    </script>
-  <script type="module">
-    import '@material/web/all.js';
-    import {styles as typescaleStyles} from '@material/web/typography/md-typescale-styles.js';
-
-    document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
-  </script>
 </head>
 <body>
-  <!-- <video src="/public/assets/images/img/graphics/Topographic Textures _ After Effects _ Topographic Design _ Topographic Map  _ Background hd(720P_HD).mp4" class="bg w-full h-full object-cover opacity-[0.02] z-" autoplay muted loop></video> -->
-    
-    <div class="cursor"></div>
-    <div id="body" class="flex flex-col min-h-screen w-full">
-      <div class="nav flex items-center justify-between w-full px-35 py-4 backdrop-blur-[10px] bg-[#ffffff10] border-b-[1px] border-[#ffffffa3]">
-        <a class="branding flex items-center gap-1" href="/">
-          <img src="/public/assets/images/branding/seven.svg" class="w-[35px]" alt="">
-          <p class="text-white text-[30px] font-bold">5EVEN</p>
+  <video src="/public/assets/components/graphics/Topographic Textures _ After Effects _ Topographic Design _ Topographic Map  _ Background hd(720P_HD).mp4" autoplay muted loop></video>
+    <div class="body-wrapper flex flex-col absolute px-1 top-0 left-0 w-full xl:h-full sm:h-auto z-20 overflow-hidden">
+      <div class="nav flex items-center justify-between w-full px-4 py-2">
+        <a href="index.html" class="logo flex items-center gap-2 text-[1.5rem] font-bold">
+          <img src="/public/assets/images/branding/seven_dark.svg" alt="5EVEN Logo" class="w-8 h-8">
+          <p>5EVEN</p>
         </a>
-        <div class="advertisement flex items-center gap-5 text-white justify-between items-center w-auto px-2 py-1">
-          <img src="/public/assets/images/img/graphics/flame.gif" alt="" draggable="false">
-          <a href="/cources.html" class="text-[18px]">Up to 10% off in GATE 2026 Mocktests</a>
-          <a href="/cources.html" class="btn adv text-[18px] bg-[#ee00ff] rounded-[24px] text-white px-2 py-[0.1rem] border-transparent border-[2px] hover:bg-transparent hover:text-[#ee00ff] hover:border-[#ee00ff] duration-[0.3s] ease-in-out">Get Started</a>
+        <div class="nav-links flex items-center gap-8 w-full justify-end">
+          <a href="/academics.html" class="nav-link">Academics</a>
+          <a href="/cources.html" class="nav-link">Courses</a>
+          <a href="/notes.html" class="nav-link">Notes</a>
+          <a href="/services.html" class="nav-link">Services</a>
+          <a href="/stars.html" class="nav-link">Stars</a>
+          <a href="/contact.html" class="nav-link">Contact</a>
+        </div>
+        <div class="mob-nav">
+          <i class="ri-menu-line text-2xl cursor-pointer" id="btn"></i>
+          <div class="mob-nav-links items-center gap-8 w-full justify-around">
+            <div class="flex flex-col">
+              <a href="/academics.html" class="nav-link">  Academics</a>
+              <a href="/cources.html" class="nav-link">  Courses</a>
+              <a href="/notes.html" class="nav-link">  Notes</a>
+            </div>
+            <div class="flex flex-col">
+              <a href="/services.html" class="nav-link">  Services</a>
+              <a href="/stars.html" class="nav-link">  Stars</a>
+              <a href="/contact.html" class="nav-link">  Contact</a>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="main flex items-start h-[90vh] w-full gap-10 text-white">
-        <div class="left flex flex-col items-start justify-around gap-2 w-[20%] py-27 h-full border-r-[1px] border-[#ffffffa3]">
-          <a href="index.html" class="projects active w-full flex items-center gap-5 text-[22.5px] font-bold border-t-[1px] border-b-[1px] bg-[#15003e] border-[#ffffffa3] py-2 pl-6"><i class="ri-projector-line"></i><p>Projects</p></a>
-          <a href="cources.html" class="cources w-full flex items-center gap-5 text-[22px] pl-3"><i class="ri-bilibili-line"></i><p>Cources</p></a>
-          <a href="notes.html" class="notes w-full flex items-center gap-5 text-[22px] pl-3"><i class="ri-file-copy-line"></i><p>Notes</p></a>
-          <a href="project-assist.html" class="project_assist w-full flex items-center gap-5 text-[22px] pl-3"><i class="ri-projector-line"></i><p>Project Assist</p></a>
-          <a href="certification.html" class="get_certified w-full flex items-center gap-5 text-[22px] pl-3"><i class="ri-certificate-2-line"></i><p>Get Certified</p></a>
-          <a href="stars.html" class="seven_stars w-full flex items-center gap-5 text-[22px] pl-3"><i class="ri-bard-line"></i><p>Seven Stars</p></a>
-          <a href="contact.html" class="contact w-full flex items-center gap-5 text-[22px] pl-3"><i class="ri-contacts-line"></i><p>Contact</p></a>
-        </div>
-        <div class="right"></div>
+      <div class="body flex items-center justify-center border-1 border-dashed border-black/90 rounded-lg w-full h-full px-15  py-10 relative overflow-hidden xl:gap-25 xl:flex-row z-19 sm:flex-col  sm:gap-10">
+         <div class="l top-0 left-0 w-full h-full flex items-center justify-between gap-10 flex-col">
+            <div class="card u flex gap-5 flex-col w-full h-full p-4  justify-between">
+              <p class=" text-xl font-bold">School Academics</p>
+              <div class="badges flex items-center justify-center gap-5 mt-4">
+                <div class="badge">Class 1 - 12</div>
+                <div class="badge">UG (All Universities)</div>
+                <div class="badge">PG (All Universities)</div>
+                <div class="badge">Open Learning</div>
+              </div>
+              <div class="btns flex items-center justify-center gap-5 mt-4">
+                <a href="/academics.html"   rel="noopener noreferrer" class="btn bg-black text-white px-4 py-2 rounded-md text-center w-full">Academics</a>
+                <a href="/notes.html"   rel="noopener noreferrer" class="btn bg-black text-white px-4 py-2 rounded-md text-center w-full">View Notes</a>
+              </div>
+            </div>
+            <div class="card lo flex gap-5 flex-col w-full h-full p-4  justify-between">
+              <p class=" text-xl font-bold">Cources & Certifications</p>
+              <div class="badges flex items-center justify-center gap-5 mt-4">
+                <div class="badge">Academic Cources</div>
+                <div class="badge">Corporate Cources</div>
+                <div class="badge">Skill Development</div>
+              </div>
+              <a href="/cources.html"   rel="noopener noreferrer" class="btn bg-black text-white px-4 py-2 rounded-md text-center w-full">View Courses</a>
+            </div>
+         </div>
+         <div class="card r w-full h-full flex gap-10 flex-col p-4  justify-between">
+              <p class=" text-xl font-bold">IT & MISC Services</p>
+              <div class="badges flex items-center justify-center gap-5 mt-4 flex-wrap">
+                <div class="badge">Website design and Development</div>
+                <div class="badge">Mobile App Development</div>
+                <div class="badge">Data Analysis and Visualization</div>
+                <div class="badge">AI and Machine Learning Solutions</div>
+                <div class="badge">Digital Marketing Services</div>
+                <div class="badge">IT Consultation</div>
+                <div class="badge">Graphics Design</div>
+                <div class="badge">Research Paper Writing</div>
+                <div class="badge">Resume Building</div>
+                <div class="badge">Internship Assistance</div>
+                <div class="badge">Freelance Projects</div>
+                <div class="badge">Corporate Training</div>
+                <div class="badge">Academic Projects</div>
+                
+              </div>
+              <a href="/services.html"   rel="noopener noreferrer" class="btn bg-black text-white px-4 py-2 rounded-md text-center w-full">View Services</a>
+         </div>
+      </div>
+      <div class="footer flex items-center justify-center gap-7 w-full py-2">
+        <img src="/public/assets/images/branding/seven_dark.svg" alt="5EVEN Logo" class="w-10 h-10">
+        <p class="text-sm text-gray-500">&copy; 2024 5EVEN. All rights reserved.</p>
       </div>
     </div>
 
