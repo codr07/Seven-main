@@ -59,7 +59,7 @@
         </div>
       </div>
       <div class="body flex-col items-center justify-center border-1 border-dashed border-black/90 rounded-lg w-full h-full px-15  py-10 relative overflow-hidden gap-25 z-19">
-         <div class="content flex flex-col items-start gap-10 w-full h-full">
+        <div class="content flex flex-col items-start gap-10 w-full h-full">
           <h1 class="text-5xl font-bold text-gray-800">Courses</h1>
           <p class="text-l text-gray-600">Explore our wide range of courses designed to enhance your IT skills and knowledge in various fields. From foundational courses to advanced specializations, we offer something for everyone.</p>
         </div>
@@ -73,7 +73,260 @@
           <p class="item item7">Courses.5EVEN</p>
           <p class="item item8">Courses.5EVEN</p>
         </div>
-      </div>
+        <div class="cources flex flex-col items-start gap-10 w-full h-auto z-11" id="coursesContainer">
+          <!-- Courses will be rendered here -->
+          
+          <script type="module">
+            const courses = [
+              {
+                category: "Coding Language Course",
+                items: [
+                  {
+                    name: "Basic Coding Language Training",
+                    details: [
+                      "Introduction to programming concepts",
+                      "Syntax and basic constructs",
+                      "Variables, data types, and operators",
+                      "Control structures: loops and conditional statements",
+                      "Functions and modular programming"
+                    ],
+                    duration: "3 Months",
+                    price: "₹14,999"
+                  },
+                  {
+                    name: "Data Structures and Algorithms (DSA)",
+                    details: [
+                      "Introduction to data structures (arrays, linked lists, stacks, queues)",
+                      "Basic algorithms (sorting, searching)",
+                      "Advanced data structures (trees, graphs)",
+                      "Algorithm design techniques (greedy, etc.)"
+                    ],
+                    duration: "5 Months",
+                    price: "₹22,999"
+                  }
+                ]
+              },
+              {
+                category: "Web Development",
+                items: [
+                  {
+                    name: "Basic Web Development",
+                    details: ["HTML, CSS fundamentals", "Introduction to responsive design", "Building static web pages"],
+                    duration: "2 Months",
+                    price: "₹4,999"
+                  },
+                  {
+                    name: "Advanced Frontend Development",
+                    details: ["JavaScript fundamentals", "DOM manipulation", "Asynchronous programming (Promises, async/await)"],
+                    duration: "4 Months",
+                    price: "₹18,999"
+                  },
+                  {
+                    name: "React Development",
+                    details: ["Introduction to React framework", "JSX syntax and components", "State management with Redux"],
+                    duration: "2 Months",
+                    price: "₹12,999"
+                  },
+                  {
+                    name: "MERN Stack Development",
+                    details: ["MongoDB fundamentals", "Express.js basics", "Node.js backend development", "Integration with React frontend"],
+                    duration: "5 Months",
+                    price: "₹24,999"
+                  },
+                  {
+                    name: "Full Stack Development",
+                    details: ["RESTful API design and implementation", "Authentication and authorization", "Deployment strategies and continuous integration"],
+                    duration: "8-9 Months",
+                    price: "₹44,999"
+                  }
+                ]
+              },
+              {
+                category: "Mathematical Aptitude",
+                items: [
+                  {
+                    name: "Numerical Analysis",
+                    details: ["Numerical methods for solving equations", "Interpolation and approximation techniques", "Numerical differentiation and integration"],
+                    duration: "1 Month",
+                    price: "₹2,999"
+                  },
+                  {
+                    name: "Statistics",
+                    details: ["Descriptive statistics (mean, median, mode)", "Probability theory", "Inferential statistics (Chi Square Distribution, hypothesis testing)"],
+                    duration: "3 Months",
+                    price: "₹6,999"
+                  }
+                ]
+              },
+              {
+                category: "ML/AI",
+                items: [
+                  {
+                    name: "Machine Learning Basics",
+                    details: ["Introduction to machine learning", "Linear regression, logistic regression", "Model evaluation and validation techniques"],
+                    duration: "3 Months",
+                    price: "₹16,999"
+                  },
+                  {
+                    name: "Advanced Machine Learning",
+                    details: ["Decision trees and ensemble methods", "Support Vector Machines (SVM)", "Neural networks and deep learning basics"],
+                    duration: "5 Months",
+                    price: "₹26,999"
+                  },
+                  {
+                    name: "AI Development",
+                    details: ["Natural Language Processing (NLP) basics", "Computer Vision fundamentals"],
+                    duration: "5 Months",
+                    price: "₹27,999"
+                  },
+                  {
+                    name: "Machine Learning with R",
+                    details: ["R programming language basics", "Data manipulation with tidyverse", "Statistical modeling and machine learning packages"],
+                    duration: "3 Months",
+                    price: "₹15,999"
+                  },
+                  {
+                    name: "Machine Learning with Python",
+                    details: ["Python libraries for data analysis (NumPy, Pandas)", "Scikit-learn for machine learning", "Deep learning frameworks (TensorFlow, PyTorch)"],
+                    duration: "5 Months",
+                    price: "₹28,999"
+                  }
+                ]
+              },
+              {
+                category: "Design",
+                items: [
+                  {
+                    name: "Graphic Design",
+                    details: ["Design principles and elements", "Adobe Illustrator basics"],
+                    duration: "2 Months",
+                    price: "₹11,999"
+                  },
+                  {
+                    name: "UI/UX Design",
+                    details: ["User interface design fundamentals", "Usability principles", "Prototyping tools (Adobe XD, Sketch)"],
+                    duration: "2 Months",
+                    price: "₹12,999"
+                  },
+                  {
+                    name: "3D Modeling and Animation (using Blender)",
+                    details: ["Introduction to Blender interface", "Modeling techniques", "Animation principles"],
+                    duration: "3 Months",
+                    price: "₹17,999"
+                  }
+                ]
+              },
+              {
+                category: "Self Enchancment Zone",
+                items: [
+                  {
+                    name: "Discord Management and Bot Management",
+                    details: ["Managing Discord servers", "Creating and managing bots", "Server moderation and security"],
+                    duration: "2 Months",
+                    price: "₹11,999"
+                  },
+                  {
+                    name: "Operating Systems",
+                    details: ["Introduction to operating systems", "Process management", "Memory management","Operating Systems"],
+                    duration: "4 Months",
+                    price: "₹12,999"
+                  },
+                  {
+                    name: "GitHub & GitLab",
+                    details: ["Introduction to Git and GitHub", "Version control basics", "Collaboration workflows"],
+                    duration: "2 Months",
+                    price: "₹1,999"
+                  },
+                  {
+                    name: "Canva Design",
+                    details: ["Introduction to Canva", "Design principles and best practices", "Creating presentations and social media graphics"],
+                    duration: "2 Months",
+                    price: "₹1,999"
+                  },
+                  {
+                    name: "Advanced PowerPoint",
+                    details: ["Advanced formatting techniques", "Animations and transitions", "Data visualization in PowerPoint"],
+                    duration: "3 Months",
+                    price: "₹2,999"
+                  },
+                  {
+                    name: "Photoshop : Basic to Advanced",
+                    details: ["Introduction to Photoshop", "Image editing and retouching", "Working with layers and masks","Advanced photo manipulation techniques","Creating digital art and composites"],
+                    duration: "4 Months",
+                    price: "₹10,999"
+                  },
+                  {
+                    name: "Lightroom : Basic to Advanced",
+                    details: ["Introduction to Lightroom", "Importing and organizing photos", "Basic and advanced editing techniques"],
+                    duration: "2 Months",
+                    price: "₹10,999"
+                  }
+                ]
+              }
+            ];
+          
+            const container = document.getElementById("coursesContainer");
+          
+            courses.forEach((group) => {
+              const section = document.createElement("section");
+              section.className = "w-full flex flex-col gap-5";
+          
+              const heading = document.createElement("h2");
+              heading.className = "text-3xl font-bold text-gray-800";
+              heading.textContent = group.category;
+              section.appendChild(heading);
+          
+              const grid = document.createElement("div");
+              grid.className = "grid grid-cols-1 md:grid-cols-2 gap-6 w-full";
+          
+              group.items.forEach((course) => {
+                const card = document.createElement("article");
+                card.className = "bg-white/70 backdrop-blur-sm rounded-xl border border-black/10 p-5 shadow-sm";
+          
+                const title = document.createElement("h3");
+                title.className = "text-xl font-semibold mb-3 text-gray-900";
+                title.textContent = course.name;
+          
+                const ul = document.createElement("ul");
+                ul.className = "list-disc ml-5 text-gray-700 space-y-1 mb-4";
+                course.details.forEach((point) => {
+                  const li = document.createElement("li");
+                  li.textContent = point;
+                  ul.appendChild(li);
+                });
+          
+                const meta = document.createElement("div");
+                meta.className = "flex items-center justify-between mt-4 pt-3 border-t border-black/10";
+                meta.innerHTML = `
+                  <span class="text-sm font-medium text-gray-600">Duration: ${course.duration}</span>
+                  <span class="text-lg font-bold text-gray-900">${course.price}</span>
+                `;
+
+                const buyButton = document.createElement("a");
+                buyButton.href = "#topmate#Link";
+                buyButton.className = "mt-4 inline-flex items-center justify-center rounded-lg border border-black/20 px-4 py-2 text-sm font-semibold text-gray-900 hover:bg-black hover:text-white transition-colors";
+                buyButton.textContent = "Buy Course";
+                buyButton.setAttribute("aria-label", `Buy ${course.name}`);
+          
+                card.append(title, ul, meta, buyButton);
+                grid.appendChild(card);
+              });
+          
+              section.appendChild(grid);
+              container.appendChild(section);
+            });
+          </script>
+        </div>
+        <div class="marque w-full h-20 overflow-hidden flex gap-19 items-center z-11 rounded-lg">
+          <p class="item item1">Courses.5EVEN</p>
+          <p class="item item2">Courses.5EVEN</p>
+          <p class="item item3">Courses.5EVEN</p>
+          <p class="item item4">Courses.5EVEN</p>
+          <p class="item item5">Courses.5EVEN</p>
+          <p class="item item6">Courses.5EVEN</p>
+          <p class="item item7">Courses.5EVEN</p>
+          <p class="item item8">Courses.5EVEN</p>
+        </div>
       <div class="footer flex items-center justify-center gap-7 w-full py-2">
         <img src="/public/assets/images/branding/seven_dark.svg" alt="5EVEN Logo" class="w-10 h-10">
         <p class="text-sm text-gray-500">&copy; 2024 5EVEN. All rights reserved.</p>
