@@ -305,7 +305,7 @@
           
               group.items.forEach((course) => {
                 const card = document.createElement("article");
-                card.className = "bg-white/70 backdrop-blur-sm rounded-xl border border-black/10 p-5 shadow-sm";
+                card.className = "bg-white/70 backdrop-blur-sm rounded-xl border border-black/10 p-5 shadow-sm flex flex-col justify-between h-full transition-transform hover:scale-105 cursor-pointer";
                 card.dataset.link = course.link;
           
                 const title = document.createElement("h3");
@@ -323,7 +323,10 @@
                 const meta = document.createElement("div");
                 meta.className = "flex items-center justify-between mt-4 pt-3 border-t border-black/10";
                 meta.innerHTML = `
-                  <span class="text-sm font-medium text-gray-600">Duration: ${course.duration}</span>
+                  <span class="inline-flex items-center gap-2 rounded-full border border-black/20 px-3 py-1 text-sm font-medium text-gray-700">
+                    <span id="pill" class="h-2 w-2 rounded-full bg-red-500"></span>
+                    Duration: ${course.duration}
+                  </span>
                   <span class="text-lg font-bold text-gray-900">${course.price}</span>
                 `;
 
