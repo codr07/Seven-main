@@ -335,3 +335,6 @@ article{
     opacity: 0.9;
   }
 }
+.tooltip{
+  cursor: help;
+}
