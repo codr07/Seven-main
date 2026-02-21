@@ -59,11 +59,96 @@
         </div>
       </div>
       <div class="body flex-col items-center justify-center border-1 border-dashed border-black/90 rounded-lg w-full h-full px-15  py-10 relative overflow-hidden gap-25 z-19">
-         <div class="content flex flex-col items-start gap-10 w-full h-full">
+        <div class="content flex flex-col items-start gap-10 w-full h-full">
           <h1 class="text-5xl font-bold text-gray-800">Notes</h1>
           <p class="text-l text-gray-600">Access our curated collection of study notes, summaries, and resources to support your learning journey. Whether you're preparing for exams or reviewing key concepts, our notes are designed to help you grasp complex topics quickly and effectively.</p>
         </div>
         <div class="marque w-full h-20 overflow-hidden flex gap-19 items-center z-11 rounded-lg">
+          <p class="item item1">Notes.5EVEN</p>
+          <p class="item item2">Notes.5EVEN</p>
+          <p class="item item3">Notes.5EVEN</p>
+          <p class="item item4">Notes.5EVEN</p>
+          <p class="item item5">Notes.5EVEN</p>
+          <p class="item item6">Notes.5EVEN</p>
+          <p class="item item7">Notes.5EVEN</p>
+          <p class="item item8">Notes.5EVEN</p>
+        </div>
+        <div class="cources flex flex-col items-start gap-10 w-full h-auto z-11" id="notesContainer">
+          <!-- notes will be rendered here -->
+          
+          <script type="module">
+            const notes = [
+              {
+                category: "Coding Language notes",
+                items: [
+                  {
+                    title: "Python CheatSheet",
+                    thumbnail: "https://memgraph.com/images/blog/in-memory-databases-that-work-great-with-python/cover.png",
+                    price: "₹1,999",
+                    link: "#topmate#Link"
+                  },
+                  {
+                    title: "Regression Analysis Notes",
+                    thumbnail: "/public/assets/images/img/thumb.png",
+                    price: "₹2,999",
+                    link: "#topmate#Link"
+                  }
+                ]
+              },
+
+            ];
+          
+            const container = document.getElementById("notesContainer");
+          
+            notes.forEach((group) => {
+              const section = document.createElement("section");
+              section.className = "w-full flex flex-col gap-5";
+          
+              const heading = document.createElement("h2");
+              heading.className = "text-3xl font-bold text-gray-800";
+              heading.textContent = group.category;
+              section.appendChild(heading);
+          
+              const grid = document.createElement("div");
+              grid.className = "grid grid-cols-1 md:grid-cols-2 gap-6 w-full";
+          
+              group.items.forEach((note) => {
+                const card = document.createElement("article");
+                card.className = "bg-white/70 backdrop-blur-sm rounded-xl border border-black/10 p-5 shadow-sm flex flex-col justify-between h-full transition-transform hover:scale-105 cursor-pointer";
+                card.dataset.link = note.link;
+
+                const thumb = document.createElement("div");
+                thumb.className = "w-full h-40 rounded-lg border border-black/10 bg-gray-100 bg-center bg-cover";
+                thumb.style.backgroundImage = note.thumbnail.startsWith("url(")
+                  ? note.thumbnail
+                  : `url("${note.thumbnail}")`;
+          
+                const title = document.createElement("h3");
+                title.className = "text-xl font-semibold mb-3 text-gray-900";
+                title.textContent = note.title;
+          
+                const meta = document.createElement("div");
+                meta.className = "flex items-center justify-between mt-4 pt-3 border-t border-black/10";
+                meta.innerHTML = `
+                  <span class="text-lg font-bold text-gray-900">${note.price}</span>
+                `;
+
+                const buyButton = document.createElement("a");
+                buyButton.href = card.dataset.link || "#";
+                buyButton.className = "mt-4 inline-flex items-center justify-center rounded-lg border border-black/20 px-4 py-2 text-sm font-semibold text-gray-900 hover:bg-black hover:text-white transition-colors";
+                buyButton.textContent = "Buy notes";
+                buyButton.setAttribute("aria-label", `Buy ${note.title}`);
+          
+                card.append(thumb, title, meta, buyButton);
+                grid.appendChild(card);
+              });
+          
+              section.appendChild(grid);
+              container.appendChild(section);
+            });
+          </script>
+        </div>
+        <div class="marque2 w-full h-20 overflow-hidden flex gap-19 items-center z-11 rounded-lg">
           <p class="item item1">Notes.5EVEN</p>
           <p class="item item2">Notes.5EVEN</p>
           <p class="item item3">Notes.5EVEN</p>

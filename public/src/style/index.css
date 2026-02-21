@@ -195,7 +195,7 @@ video{
   }
 }
 
-.marque {
+.marque, .marque2 {
   overflow: hidden;
   width: 100%;
   position: relative;
@@ -205,13 +205,26 @@ video{
     left: -200px;
   }
 }
-.item{
+.marque .item{
   position: absolute;
   left: calc(200px * 8);
   border: 1px dashed var(--primary-bg);
   padding: 0.5em 1em;
   border-radius: 20px;
   animation: scrollLeft 16s linear infinite;
+}
+.marque2 .item{
+  position: absolute;
+  right: calc(200px * 8);
+  border: 1px dashed var(--primary-bg);
+  padding: 0.5em 1em;
+  border-radius: 20px;
+  animation: scrollRight 16s linear infinite;
+}
+@keyframes scrollRight {
+  to{
+    right: -200px;
+  }
 }
 .item:nth-child(2) {
   animation-delay: calc(16s / 8 * (8 - 1) * -1);
