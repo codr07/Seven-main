@@ -70,12 +70,25 @@ export function renderContactDetails() {
           <i class="ri-mail-line text-2xl text-black"></i>
           <h3 class="text-xl font-bold">Email</h3>
         </div>
-        <div class="flex flex-col gap-2">
-          ${contactData.emails.map(email => `
-            <a href="mailto:${email}" class="text-gray-700 hover:text-black transition">
-              ${email}
+        <div class="flex flex-col gap-3">
+          <div class="flex flex-col gap-1">
+            <span class="text-xs text-gray-500 font-semibold">General</span>
+            <a href="mailto:${contactData.emails[0]}" class="text-sm text-gray-700 hover:text-black transition break-all">
+              ${contactData.emails[0]}
             </a>
-          `).join('')}
+          </div>
+          <div class="flex flex-col gap-1">
+            <span class="text-xs text-gray-500 font-semibold">Grievance</span>
+            <a href="mailto:${contactData.emails[1]}" class="text-sm text-gray-700 hover:text-black transition break-all">
+              ${contactData.emails[1]}
+            </a>
+          </div>
+          <div class="flex flex-col gap-1">
+            <span class="text-xs text-gray-500 font-semibold">Orders</span>
+            <a href="mailto:${contactData.emails[2]}" class="text-sm text-gray-700 hover:text-black transition break-all">
+              ${contactData.emails[2]}
+            </a>
+          </div>
         </div>
       </div>
 
@@ -85,7 +98,7 @@ export function renderContactDetails() {
           <i class="ri-globe-line text-2xl text-black"></i>
           <h3 class="text-xl font-bold">Website</h3>
         </div>
-        <a href="https://${contactData.website}" target="_blank" class="text-gray-700 hover:text-black transition">
+        <a href="${contactData.website}" target="_blank" class="text-sm text-gray-700 hover:text-black transition break-all">
           ${contactData.website}
         </a>
       </div>
