@@ -58,20 +58,32 @@
           </div>
         </div>
       </div>
-      <div class="body flex-col items-center justify-center border-1 border-dashed border-black/90 rounded-lg w-full h-full px-15  py-10 relative overflow-hidden gap-25 z-19">
-         <div class="content flex flex-col items-start gap-10 w-full h-full">
+      <div class="body flex-col items-center justify-center border-1 border-dashed border-black/90 rounded-lg w-full h-full px-15  py-10 relative overflow-hidden gap-25 z-19 gap-25 z-10">
+        <div class="marque w-full h-20 overflow-hidden flex gap-19 items-center z-11 rounded-lg">
+          <p class="item item1">Services.5EVEN</p>
+          <p class="item item2">Services.5EVEN</p>
+          <p class="item item3">Services.5EVEN</p>
+          <p class="item item4">Services.5EVEN</p>
+          <p class="item item5">Services.5EVEN</p>
+          <p class="item item6">Services.5EVEN</p>
+          <p class="item item7">Services.5EVEN</p>
+          <p class="item item8">Services.5EVEN</p>
+        </div>
+         <div class="content flex flex-col items-start gap-4 w-full h-full">
           <h1 class="text-5xl font-bold text-gray-800">5EVEN Stars</h1>
           <p class="text-l text-gray-600">Discover the exceptional individuals who make 5EVEN a place of excellence. Our Stars are students, faculty, and staff who go above and beyond in their pursuit of knowledge and innovation.</p>
+         </div>
+        <div class="stars-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
         </div>
-        <div class="marque w-full h-20 overflow-hidden flex gap-19 items-center z-11 rounded-lg">
-          <p class="item item1">Stars.5EVEN</p>
-          <p class="item item2">Stars.5EVEN</p>
-          <p class="item item3">Stars.5EVEN</p>
-          <p class="item item4">Stars.5EVEN</p>
-          <p class="item item5">Stars.5EVEN</p>
-          <p class="item item6">Stars.5EVEN</p>
-          <p class="item item7">Stars.5EVEN</p>
-          <p class="item item8">Stars.5EVEN</p>
+        <div class="marque2 w-full h-20 overflow-hidden flex gap-19 items-center z-11 rounded-lg">
+          <p class="item item1">Services.5EVEN</p>
+          <p class="item item2">Services.5EVEN</p>
+          <p class="item item3">Services.5EVEN</p>
+          <p class="item item4">Services.5EVEN</p>
+          <p class="item item5">Services.5EVEN</p>
+          <p class="item item6">Services.5EVEN</p>
+          <p class="item item7">Services.5EVEN</p>
+          <p class="item item8">Services.5EVEN</p>
         </div>
       </div>
       <div class="footer flex items-center justify-center gap-7 w-full py-2">
@@ -89,6 +101,19 @@
     <script src="https://unpkg.com/lenis@1.3.17/dist/lenis.min.js"></script> 
     <script type="module" src="/public/src/js/lennis.js"></script>
     <script type="module" src="/public/src/js/script.js"></script>
-    <script type="module" src="/public/src/js/index.js"></script>
+    <script type="module" src="/public/src/js/stars.js"></script>
+    <script type="module">
+      import { renderStarCards } from '/public/src/js/stars.js';
+      
+      function initializeStars() {
+        renderStarCards();
+      }
+      
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initializeStars);
+      } else {
+        initializeStars();
+      }
+    </script>
 </body>
 </html>

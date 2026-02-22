@@ -1,3 +1,18 @@
+import { renderFacultyCards, renderOwnerCards } from "./faculty.js";
+
+// Initialize faculty and owner sections
+function initializeSections() {
+  renderFacultyCards();
+  renderOwnerCards();
+}
+
+// Run immediately if DOM is ready
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initializeSections);
+} else {
+  initializeSections();
+}
+
 // gsap.utils.toArray("#emerge, #flow, #grow").forEach(el => {
 //   const speed = parseFloat(el.dataset.speed) || 1;
 
