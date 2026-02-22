@@ -1,18 +1,18 @@
 export const contactData = {
   address: {
-    line1: "123 Tech Street",
-    line2: "Bengaluru, Karnataka 560001",
+    line1: "Biswashati Road Sadpur",
+    line2: "Maslandapur, West Bengal, PIN - 743289",
     country: "India"
   },
-  website: "www.5even.in",
+  website: "https://www.5even.netlify.app",
   phones: [
-    "+91 98765 43210",
-    "+91 87654 32109"
+    "+91 80178 74821",
+    "+91 78659 89814"
   ],
   emails: [
-    "info@5even.in",
-    "support@5even.in",
-    "careers@5even.in"
+    "institution5even@gmail.com",
+    "grievance57institution@gmail.com",
+    "orders.seveninst@gmail.com"
   ],
   socials: {
     linkedin: "https://linkedin.com/company/5even",
@@ -21,7 +21,7 @@ export const contactData = {
     twitter: "https://twitter.com/5even",
     facebook: "https://facebook.com/5even"
   },
-  mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.5156033956014!2d77.6245!3d12.9716!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1d0000000001%3A0x0!2s5EVEN!5e0!3m2!1sen!2sin!4v1234567890"
+  mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3676.5744866861137!2d88.74297737535268!3d22.855227179291365!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f8b3ab6c139569%3A0xbf9c42b4f20db5d7!2sMaslandapur%2C%20West%20Bengal%20743289!5e0!3m2!1sen!2sin!4v1771725433377!5m2!1sen!2sin"
 };
 
 export function renderContactDetails() {
