@@ -70,9 +70,9 @@ export const facultyData = [
 export const ownerData = [
   {
     id: 1,
-    name: "Owner Name",
+    name: "Ritam Roy",
     role: "Founder & CEO",
-    image: "/public/assets/images/owners/owner1.jpg",
+    image: "/public/assets/images/owners/Ritam.jpeg",
     linkedinUrl: "#",
     portfolioUrl: "#",
     expertise: ["Strategic Leadership", "Business Development", "Innovation"],
@@ -80,11 +80,11 @@ export const ownerData = [
   },
   {
     id: 2,
-    name: "Owner Name",
+    name: "Sankha Saha",
     role: "Co-Founder & CTO",
-    image: "/public/assets/images/img/thumb.png",
-    linkedinUrl: "#",
-    portfolioUrl: "#",
+    image: "/public/assets/images/owners/Sankha.jpeg",
+    linkedinUrl: "https://www.linkedin.com/in/sankhasaha",
+    portfolioUrl: "https://codrss.tech",
     expertise: ["Technology Strategy", "Product Development", "Architecture"],
     bio: "Tech innovator passionate about educational technology"
   }
