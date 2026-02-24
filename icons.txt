@@ -1,6 +1,6 @@
 valorant_logo : https://images.icon-icons.com/3660/PNG/512/valorant_logo_play_riot_games_icon_228477.png"
 codm_logo : "https://www.svgrepo.com/show/515388/call-of-duty.svg"
-Counterstrike_logo : "https://cdn2.steamgriddb.com/icon/a3c88bf05d1323e0dee573219bd879ef.ico"
+Counterstrike_logo : "https://ih1.redbubble.net/image.4940990177.8257/raf,360x360,075,t,fafafa:ca443f4786.jpg"
 fifa_logo : "https://vectorseek.com/wp-content/uploads/2023/06/FIFA-Mobile-Logo-Vector-01.jpg"
 
 mp_logo : "https://www.callofduty.com/content/dam/atvi/callofduty/cod-touchui/blog/intel-cards/icons/jup_icon_mode_mp_control.png"

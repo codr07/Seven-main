@@ -144,7 +144,7 @@ export const ownerData = [
       {
         category: "FPS",
         game: "Counter-Strike 2",
-        logoUrl: "https://cdn2.steamgriddb.com/icon/a3c88bf05d1323e0dee573219bd879ef.ico",
+        logoUrl: "https://ih1.redbubble.net/image.4940990177.8257/raf,360x360,075,t,fafafa:ca443f4786.jpg",
         data: {
           serverName: "India West",
           peakRankActSeason: "Legendary Eagle Master (Premier Season 1)",
@@ -260,7 +260,7 @@ function createProfileModalIfNeeded() {
   modal.id = 'profile-modal';
   modal.className = 'fixed inset-0 z-50 hidden items-center justify-center bg-black/60 p-4';
   modal.innerHTML = `
-    <div class="profile-modal-content bg-white w-full max-w-4xl max-h-[90vh] overflow-y-auto overscroll-contain rounded-xl border-2 border-dashed border-black/90 p-6 md:p-8 relative" data-native-scroll="true">
+    <div class="profile-modal-content bg-white w-full max-w-6xl max-h-[90vh] overflow-y-auto overscroll-contain rounded-xl border-2 border-dashed border-black/90 p-6 md:p-8 relative" data-native-scroll="true">
       <button type="button" class="close-profile-modal absolute top-4 right-4 text-xl font-bold px-3 py-1 border border-black rounded-md hover:bg-black hover:text-white transition">×</button>
       <div class="profile-modal-body"></div>
     </div>
@@ -306,33 +306,33 @@ function buildProfileModalHtml(profile, type) {
   const renderGameData = (entry) => {
     if (entry.game === 'Call of Duty Mobile') {
       return `
-        <p class="text-sm text-wrap flex items-center gap-2"><img src="${entry.modeIcons?.mp || ''}" alt="MP" class="w-4 h-4 object-contain"> MP Rank current: ${entry.rankIcons?.mpLegendary ? `<img src="${entry.rankIcons.mpLegendary}" alt="MP Legendary" class="w-4 h-4 rounded-sm object-cover">` : ''} ${entry.data.mpRankCurrent}</p>
-        <p class="text-sm text-wrap">Number of MP Legendaries: ${entry.data.mpLegendaries}</p>
-        <p class="text-sm text-wrap flex items-center gap-2"><img src="${entry.modeIcons?.br || ''}" alt="BR" class="w-4 h-4 object-contain"> BR Rank current: ${entry.rankIcons?.brLegendary ? `<img src="${entry.rankIcons.brLegendary}" alt="BR Legendary" class="w-4 h-4 rounded-sm object-cover">` : ''} ${entry.data.brRankCurrent}</p>
-        <p class="text-sm text-wrap">Number of BR Legendaries: ${entry.data.brLegendaries}</p>
+        <p class="text-xs md:text-sm whitespace-nowrap flex items-center gap-2 min-w-max"><img src="${entry.modeIcons?.mp || ''}" alt="MP" class="w-4 h-4 object-contain"> MP Rank current: ${entry.rankIcons?.mpLegendary ? `<img src="${entry.rankIcons.mpLegendary}" alt="MP Legendary" class="w-4 h-4 rounded-sm object-cover">` : ''} ${entry.data.mpRankCurrent}</p>
+        <p class="text-xs md:text-sm whitespace-nowrap min-w-max">Number of MP Legendaries: ${entry.data.mpLegendaries}</p>
+        <p class="text-xs md:text-sm whitespace-nowrap flex items-center gap-2 min-w-max"><img src="${entry.modeIcons?.br || ''}" alt="BR" class="w-4 h-4 object-contain"> BR Rank current: ${entry.rankIcons?.brLegendary ? `<img src="${entry.rankIcons.brLegendary}" alt="BR Legendary" class="w-4 h-4 rounded-sm object-cover">` : ''} ${entry.data.brRankCurrent}</p>
+        <p class="text-xs md:text-sm whitespace-nowrap min-w-max">Number of BR Legendaries: ${entry.data.brLegendaries}</p>
       `;
     }
 
     if (entry.game === 'Valorant') {
       return `
-        <p class="text-sm text-wrap">Server name: ${entry.data.serverName}</p>
-        <p class="text-sm text-wrap flex items-center gap-2">Peak Rank with Act and season: ${entry.rankIcons?.peak ? `<img src="${entry.rankIcons.peak}" alt="Peak Rank" class="w-4 h-4 object-contain">` : ''} ${entry.data.peakRankActSeason}</p>
-        <p class="text-sm text-wrap flex items-center gap-2">Current Rank: ${entry.rankIcons?.current ? `<img src="${entry.rankIcons.current}" alt="Current Rank" class="w-4 h-4 object-contain">` : ''} ${entry.data.currentRank}</p>
+        <p class="text-xs md:text-sm whitespace-nowrap min-w-max">Server name: ${entry.data.serverName}</p>
+        <p class="text-xs md:text-sm whitespace-nowrap flex items-center gap-2 min-w-max">Peak Rank with Act and season: ${entry.rankIcons?.peak ? `<img src="${entry.rankIcons.peak}" alt="Peak Rank" class="w-4 h-4 object-contain">` : ''} ${entry.data.peakRankActSeason}</p>
+        <p class="text-xs md:text-sm whitespace-nowrap flex items-center gap-2 min-w-max">Current Rank: ${entry.rankIcons?.current ? `<img src="${entry.rankIcons.current}" alt="Current Rank" class="w-4 h-4 object-contain">` : ''} ${entry.data.currentRank}</p>
       `;
     }
 
     if (entry.game === 'Counter-Strike 2') {
       return `
-        <p class="text-sm text-wrap">Server name: ${entry.data.serverName}</p>
-        <p class="text-sm text-wrap">Peak Rank with Act and season: ${entry.data.peakRankActSeason}</p>
-        <p class="text-sm text-wrap">Current Rank: ${entry.data.currentRank}</p>
+        <p class="text-xs md:text-sm whitespace-nowrap min-w-max">Server name: ${entry.data.serverName}</p>
+        <p class="text-xs md:text-sm whitespace-nowrap min-w-max">Peak Rank with Act and season: ${entry.data.peakRankActSeason}</p>
+        <p class="text-xs md:text-sm whitespace-nowrap min-w-max">Current Rank: ${entry.data.currentRank}</p>
       `;
     }
 
     if (entry.game === 'FIFA') {
       return `
-        <p class="text-sm text-wrap">Peak OVR with season/year: ${entry.data.peakOvr} - ${entry.data.peakOvrSeasonYear}</p>
-        <p class="text-sm text-wrap">Current OVR: ${entry.data.currentOvr}</p>
+        <p class="text-xs md:text-sm whitespace-nowrap min-w-max">Peak OVR with season/year: ${entry.data.peakOvr} - ${entry.data.peakOvrSeasonYear}</p>
+        <p class="text-xs md:text-sm whitespace-nowrap min-w-max">Current OVR: ${entry.data.currentOvr}</p>
       `;
     }
 
@@ -368,7 +368,7 @@ function buildProfileModalHtml(profile, type) {
                 </div>
                 <i class="ri-gamepad-line text-xl text-gray-700"></i>
               </div>
-              <div class="mt-1 flex flex-col gap-1 text-sm text-gray-700">
+              <div class="mt-1 flex flex-col gap-1 text-gray-700 overflow-x-auto pb-1">
                 ${renderGameData(entry)}
               </div>
             </div>
@@ -379,11 +379,11 @@ function buildProfileModalHtml(profile, type) {
     : '';
   const researchBlock = profile.research && profile.research.length
     ? `
-      <div class="mt-2">
+      <div class="mt-2 border border-dashed border-black/40 rounded-md p-3 bg-gray-50/60">
         <p class="font-semibold text-gray-800">Research</p>
-        <div class="mt-1 flex flex-col gap-1 text-gray-700">
-          ${profile.research.map((topic) => `<p>• ${topic}</p>`).join('')}
-        </div>
+        <ul class="mt-2 list-disc pl-6 flex flex-col gap-3 text-gray-700 leading-7 text-[15px]">
+          ${profile.research.map((topic) => `<li class="break-words pr-2">${topic}</li>`).join('')}
+        </ul>
       </div>
     `
     : '';
