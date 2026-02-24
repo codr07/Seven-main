@@ -114,7 +114,7 @@ export const ownerData = [
         logoUrl: "https://www.svgrepo.com/show/515388/call-of-duty.svg",
         modeIcons: {
           mp: "https://www.callofduty.com/content/dam/atvi/callofduty/cod-touchui/blog/intel-cards/icons/jup_icon_mode_mp_control.png",
-          br: "https://static.wikia.nocookie.net/callofduty/images/a/a3/BattleRoyale_Logo_Warzone_MW.png/revision/latest?cb=20210805145851"
+          br: "https://static.wikia.nocookie.net/callofduty/images/a/a3/BattleRoyale_Logo_Warzone_MW.png"
         },
         rankIcons: {
           mpLegendary: "/public/assets/components/icons/mp leggy.jpeg",
@@ -159,6 +159,15 @@ export const ownerData = [
           peakOvr: 154,
           peakOvrSeasonYear: "Fifa Mobile (2021)",
           currentOvr: 112
+        }
+      },
+      {
+        category: "Strategy",
+        game: "Chess",
+        logoUrl: "https://www.shutterstock.com/image-vector/chess-pieces-vector-illustration-king-600nw-1940151418.jpg",
+        data: {
+          peakRating: 2100,
+          currentRating: 1950
         }
       }
     ],
