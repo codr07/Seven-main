@@ -79,7 +79,7 @@ export const ownerData = [
       {
         category: "FPS",
         game: "Call of Duty Mobile",
-        logoUrl: "https://img.icons8.com/ios11/512/FFFFFF/call-off-duty-mobile.png",
+        logoUrl: "https://www.svgrepo.com/show/515388/call-of-duty.svg",
         modeIcons: {
           mp: "https://www.callofduty.com/content/dam/atvi/callofduty/cod-touchui/blog/intel-cards/icons/jup_icon_mode_mp_control.png",
           br: "https://static.wikia.nocookie.net/callofduty/images/a/a3/BattleRoyale_Logo_Warzone_MW.png/revision/latest?cb=20210805145851"
@@ -111,7 +111,7 @@ export const ownerData = [
       {
         category: "FPS",
         game: "Call of Duty Mobile",
-        logoUrl: "https://img.icons8.com/ios11/512/FFFFFF/call-off-duty-mobile.png",
+        logoUrl: "https://www.svgrepo.com/show/515388/call-of-duty.svg",
         modeIcons: {
           mp: "https://www.callofduty.com/content/dam/atvi/callofduty/cod-touchui/blog/intel-cards/icons/jup_icon_mode_mp_control.png",
           br: "https://static.wikia.nocookie.net/callofduty/images/a/a3/BattleRoyale_Logo_Warzone_MW.png/revision/latest?cb=20210805145851"
@@ -132,7 +132,7 @@ export const ownerData = [
         game: "Valorant",
         logoUrl: "https://images.icon-icons.com/3660/PNG/512/valorant_logo_play_riot_games_icon_228477.png",
         rankIcons: {
-          peak: "https://static.wikia.nocookie.net/valorant/images/2/21/Immortal_2_Rank.png/revision/latest?cb=20200623203615",
+          peak: "https://cdn3.emoji.gg/emojis/6329-valorant-immortal-2.png",
           current: "https://cdn3.emoji.gg/emojis/4071-valorant-ascendant-3.png"
         },
         data: {
@@ -154,7 +154,7 @@ export const ownerData = [
       {
         category: "Sports",
         game: "FIFA",
-        logoUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5uf8AaEhWFTnu_aOtQpsORaPs0D64TezBHA&s",
+        logoUrl: "https://vectorseek.com/wp-content/uploads/2023/06/FIFA-Mobile-Logo-Vector-01.jpg",
         data: {
           peakOvr: 154,
           peakOvrSeasonYear: "Fifa Mobile (2021)",
@@ -260,13 +260,19 @@ function createProfileModalIfNeeded() {
   modal.id = 'profile-modal';
   modal.className = 'fixed inset-0 z-50 hidden items-center justify-center bg-black/60 p-4';
   modal.innerHTML = `
-    <div class="profile-modal-content bg-white w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-xl border-2 border-dashed border-black/90 p-6 md:p-8 relative">
+    <div class="profile-modal-content bg-white w-full max-w-4xl max-h-[90vh] overflow-y-auto overscroll-contain rounded-xl border-2 border-dashed border-black/90 p-6 md:p-8 relative" data-native-scroll="true">
       <button type="button" class="close-profile-modal absolute top-4 right-4 text-xl font-bold px-3 py-1 border border-black rounded-md hover:bg-black hover:text-white transition">×</button>
       <div class="profile-modal-body"></div>
     </div>
   `;
 
   document.body.appendChild(modal);
+
+  const modalContent = modal.querySelector('.profile-modal-content');
+  if (modalContent) {
+    modalContent.style.webkitOverflowScrolling = 'touch';
+    modalContent.style.touchAction = 'pan-y';
+  }
 
   modal.addEventListener('click', (event) => {
     if (event.target === modal || event.target.classList.contains('close-profile-modal')) {
@@ -300,9 +306,9 @@ function buildProfileModalHtml(profile, type) {
   const renderGameData = (entry) => {
     if (entry.game === 'Call of Duty Mobile') {
       return `
-        <p class="text-sm text-wrap flex items-center gap-2"><img src="${entry.modeIcons?.mp || ''}" alt="MP" class="w-4 h-4 object-contain"> MP Rank current: ${entry.data.mpRankCurrent}${entry.rankIcons?.mpLegendary ? ` <img src="${entry.rankIcons.mpLegendary}" alt="MP Legendary" class="w-4 h-4 rounded-sm object-cover">` : ''}</p>
+        <p class="text-sm text-wrap flex items-center gap-2"><img src="${entry.modeIcons?.mp || ''}" alt="MP" class="w-4 h-4 object-contain"> MP Rank current: ${entry.rankIcons?.mpLegendary ? `<img src="${entry.rankIcons.mpLegendary}" alt="MP Legendary" class="w-4 h-4 rounded-sm object-cover">` : ''} ${entry.data.mpRankCurrent}</p>
         <p class="text-sm text-wrap">Number of MP Legendaries: ${entry.data.mpLegendaries}</p>
-        <p class="text-sm text-wrap flex items-center gap-2"><img src="${entry.modeIcons?.br || ''}" alt="BR" class="w-4 h-4 object-contain"> BR Rank current: ${entry.data.brRankCurrent}${entry.rankIcons?.brLegendary ? ` <img src="${entry.rankIcons.brLegendary}" alt="BR Legendary" class="w-4 h-4 rounded-sm object-cover">` : ''}</p>
+        <p class="text-sm text-wrap flex items-center gap-2"><img src="${entry.modeIcons?.br || ''}" alt="BR" class="w-4 h-4 object-contain"> BR Rank current: ${entry.rankIcons?.brLegendary ? `<img src="${entry.rankIcons.brLegendary}" alt="BR Legendary" class="w-4 h-4 rounded-sm object-cover">` : ''} ${entry.data.brRankCurrent}</p>
         <p class="text-sm text-wrap">Number of BR Legendaries: ${entry.data.brLegendaries}</p>
       `;
     }
@@ -310,8 +316,8 @@ function buildProfileModalHtml(profile, type) {
     if (entry.game === 'Valorant') {
       return `
         <p class="text-sm text-wrap">Server name: ${entry.data.serverName}</p>
-        <p class="text-sm text-wrap flex items-center gap-2">Peak Rank with Act and season: ${entry.data.peakRankActSeason}${entry.rankIcons?.peak ? ` <img src="${entry.rankIcons.peak}" alt="Peak Rank" class="w-4 h-4 object-contain">` : ''}</p>
-        <p class="text-sm text-wrap flex items-center gap-2">Current Rank: ${entry.data.currentRank}${entry.rankIcons?.current ? ` <img src="${entry.rankIcons.current}" alt="Current Rank" class="w-4 h-4 object-contain">` : ''}</p>
+        <p class="text-sm text-wrap flex items-center gap-2">Peak Rank with Act and season: ${entry.rankIcons?.peak ? `<img src="${entry.rankIcons.peak}" alt="Peak Rank" class="w-4 h-4 object-contain">` : ''} ${entry.data.peakRankActSeason}</p>
+        <p class="text-sm text-wrap flex items-center gap-2">Current Rank: ${entry.rankIcons?.current ? `<img src="${entry.rankIcons.current}" alt="Current Rank" class="w-4 h-4 object-contain">` : ''} ${entry.data.currentRank}</p>
       `;
     }
 
@@ -436,16 +442,8 @@ function openProfileModal(type, id) {
   modal.classList.add('flex');
   document.body.style.overflow = 'hidden';
 
-  if (type === 'owner') {
-    const ownerQuery = encodeURIComponent(profile.name);
-    const ownerProfilePath = `/owners/profile?owner=${ownerQuery}`;
-    if (window.location.pathname + window.location.search !== ownerProfilePath) {
-      window.history.pushState({ profileType: 'owner', profileId: id }, '', ownerProfilePath);
-    }
-  }
-
-  if (window.lenis && typeof window.lenis.stop === 'function') {
-    window.lenis.stop();
+  if (window.customSmoothScroll && typeof window.customSmoothScroll.pause === 'function') {
+    window.customSmoothScroll.pause();
   }
 }
 
@@ -460,41 +458,13 @@ function closeProfileModal() {
   modal.classList.remove('flex');
   document.body.style.overflow = '';
 
-  if (window.location.pathname === '/owners/profile') {
-    window.history.pushState({}, '', '/stars.html');
-  }
-
-  if (window.lenis && typeof window.lenis.start === 'function') {
-    window.lenis.start();
+  if (window.customSmoothScroll && typeof window.customSmoothScroll.resume === 'function') {
+    window.customSmoothScroll.resume();
   }
 }
 
 export function initializeProfileView() {
   createProfileModalIfNeeded();
-  const modalContent = document.querySelector('#profile-modal .profile-modal-content');
-
-  if (modalContent) {
-    modalContent.addEventListener('wheel', (event) => {
-      const modal = document.getElementById('profile-modal');
-
-      if (!modal || modal.classList.contains('hidden')) {
-        return;
-      }
-
-      event.preventDefault();
-      modalContent.scrollTop += event.deltaY;
-    }, { passive: false });
-  }
-
-  if (window.location.pathname === '/owners/profile') {
-    const ownerName = new URLSearchParams(window.location.search).get('owner');
-    if (ownerName) {
-      const owner = ownerData.find((item) => item.name.toLowerCase() === ownerName.toLowerCase());
-      if (owner) {
-        openProfileModal('owner', owner.id);
-      }
-    }
-  }
 
   document.addEventListener('click', (event) => {
     const trigger = event.target.closest('.view-profile-btn');
