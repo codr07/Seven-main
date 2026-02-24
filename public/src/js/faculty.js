@@ -28,7 +28,7 @@ export const facultyData = [
     education: ["B.Sc in Zoology,NSOU"],
     rating: 4.5,
     image: "/public/assets/images/faculty/tanushree.png",
-    linkedinUrl: "#",
+    linkedinUrl: "https://www.linkedin.com/in/tanushree-biswas-07365432a",
     expertise: ["Graphics Design", "Illustration", "Adobe Creative Suite", "Zoology"],
     bio: "Experienced instructor with passion for teaching"
   },
