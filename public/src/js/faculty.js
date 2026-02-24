@@ -25,7 +25,7 @@ export const facultyData = [
     id: 3,
     name: "Jayanta Dey",
     department: "School Education",
-    education: ["10 + 2 , CBSE"],
+    education: ["10 + 2 , WBBSE"],
     rating: 4,
     image: "/public/assets/images/faculty/jayanta.png",
     linkedinUrl: "https://www.linkedin.com/in/joyanta-dey-8b1a943b2?utm_source=share_via&utm_content=profile&utm_medium=member_android",
