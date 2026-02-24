@@ -345,6 +345,13 @@ function buildProfileModalHtml(profile, type) {
       `;
     }
 
+    if (entry.game === 'Chess') {
+      return `
+        <p class="text-xs md:text-sm whitespace-nowrap min-w-max">Peak Rating: ${entry.data.peakRating}</p>
+        <p class="text-xs md:text-sm whitespace-nowrap min-w-max">Current Rating: ${entry.data.currentRating}</p>
+      `;
+    }
+
     return '';
   };
   const educationBlock = profile.education
