@@ -1,9 +1,10 @@
-import { renderFacultyCards, renderOwnerCards } from "./faculty.js";
+import { initializeProfileView, renderFacultyCards, renderOwnerCards } from "./faculty.js";
 
 // Initialize faculty and owner sections
 function initializeSections() {
   renderFacultyCards();
   renderOwnerCards();
+  initializeProfileView();
 }
 
 // Run immediately if DOM is ready

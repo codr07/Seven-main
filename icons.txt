@@ -1,0 +1,14 @@
+valorant_logo : https://images.icon-icons.com/3660/PNG/512/valorant_logo_play_riot_games_icon_228477.png"
+codm_logo : "https://img.icons8.com/ios11/512/FFFFFF/call-off-duty-mobile.png"
+Counterstrike_logo : "https://cdn2.steamgriddb.com/icon/a3c88bf05d1323e0dee573219bd879ef.ico"
+fifa_logo : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5uf8AaEhWFTnu_aOtQpsORaPs0D64TezBHA&s"
+
+mp_logo : "https://www.callofduty.com/content/dam/atvi/callofduty/cod-touchui/blog/intel-cards/icons/jup_icon_mode_mp_control.png"
+br_logo : "https://static.wikia.nocookie.net/callofduty/images/a/a3/BattleRoyale_Logo_Warzone_MW.png/revision/latest?cb=20210805145851"
+
+legendary_BR_logo : "https://github.com/codr07/Seven-main/blob/main/public/assets/components/icons/br%20leggy.jpeg"
+legendary_MP_logo : "https://github.com/codr07/Seven-main/blob/main/public/assets/components/icons/mp%20leggy.jpeg"
+
+Immortal2_logo : "https://static.wikia.nocookie.net/valorant/images/2/21/Immortal_2_Rank.png/revision/latest?cb=20200623203615"
+ascendant3_logo : "https://cdn3.emoji.gg/emojis/4071-valorant-ascendant-3.png"
+ 

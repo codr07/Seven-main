@@ -1,28 +1,6 @@
 export const facultyData = [
   {
     id: 1,
-    name: "Ritam Roy",
-    department: "STEM and Literature",
-    education: ["10 + 2 , CBSE"],
-    rating: 5,
-    image: "/public/assets/images/owners/Ritam.jpeg",
-    linkedinUrl: "#",
-    expertise: ["English", "Mathematics", "Science", "Literature"],
-    bio: "Expert in STEM and Literature education"
-  },
-  {
-    id: 2,
-    name: "Sankha Saha",
-    department: "Mathematics, Statistics, Technology",
-    education: ["B.Sc Statistics, CU","M.Sc Data Sc., AUB"],
-    rating: 5,
-    image: "/public/assets/images/owners/Sankha.jpeg",
-    linkedinUrl: "#",
-    expertise: ["Mathematics", "Statistics", "Data Science", "Technology"],
-    bio: "Expert in Mathematics, Statistics, Technology and Innovation"
-  },
-  {
-    id: 3,
     name: "Tanushree Biswas",
     department: "Zoology and Graphics Design",
     education: ["B.Sc in Zoology,NSOU"],
@@ -33,7 +11,7 @@ export const facultyData = [
     bio: "Experienced instructor with passion for teaching"
   },
   {
-    id: 4,
+    id: 2,
     name: "Rajat Howlader",
     department: "Mathematics and Statistics",
     education: ["B.Sc in Statistics, CU"],
@@ -44,7 +22,7 @@ export const facultyData = [
     bio: "Research-focused educator specializing in Mathematics and Statistics"
   },
   {
-    id: 5,
+    id: 3,
     name: "Jayanta Dey",
     department: "School Education",
     education: ["10 + 2 , CBSE"],
@@ -55,7 +33,7 @@ export const facultyData = [
     bio: "Dedicated teacher with expertise in early education and WBBSE curriculum"
   },
   {
-    id: 6,
+    id: 4,
     name: "Rahul Sen",
     department: "School Education",
     education: ["B.Com Accountancy"],
@@ -66,7 +44,7 @@ export const facultyData = [
     bio: "Expert in teaching early education and WBBSE curriculum"
   },
   {
-    id: 7,
+    id: 5,
     name: "Payel Saha",
     department: "Full Stack Development",
     education: ["M.Tech", "B.Tech"],
@@ -77,7 +55,7 @@ export const facultyData = [
     bio: "Industry veteran with hands-on development experience"
   },
   {
-    id: 8,
+    id: 6,
     name: "Vansh Bhatnagar",
     department: "Automation and robotics",
     education: ["B.Tech Electrical Engineering"],
@@ -97,6 +75,27 @@ export const ownerData = [
     image: "/public/assets/images/owners/Ritam.jpeg",
     linkedinUrl: "#",
     portfolioUrl: "#",
+    gamesPlayed: [
+      {
+        category: "FPS",
+        game: "Call of Duty Mobile",
+        logoUrl: "https://img.icons8.com/ios11/512/FFFFFF/call-off-duty-mobile.png",
+        modeIcons: {
+          mp: "https://www.callofduty.com/content/dam/atvi/callofduty/cod-touchui/blog/intel-cards/icons/jup_icon_mode_mp_control.png",
+          br: "https://static.wikia.nocookie.net/callofduty/images/a/a3/BattleRoyale_Logo_Warzone_MW.png/revision/latest?cb=20210805145851"
+        },
+        rankIcons: {
+          mpLegendary: "/public/assets/components/icons/mp leggy.jpeg",
+          brLegendary: "/public/assets/components/icons/br leggy.jpeg"
+        },
+        data: {
+          mpRankCurrent: "Legendary",
+          mpLegendaries: 2,
+          brRankCurrent: "Legendary",
+          brLegendaries: 1
+        }
+      }
+    ],
     expertise: ["Strategic Leadership", "Business Development", "Innovation"],
     bio: "Visionary leader dedicated to transforming education"
   },
@@ -104,9 +103,73 @@ export const ownerData = [
     id: 2,
     name: "Sankha Saha",
     role: "Co-Founder & CTO",
+    education: ["B.Sc Statistics, CU", "M.Sc Data Science, AUB"],
     image: "/public/assets/images/owners/Sankha.jpeg",
     linkedinUrl: "https://www.linkedin.com/in/sankhasaha",
     portfolioUrl: "https://codrss.tech",
+    gamesPlayed: [
+      {
+        category: "FPS",
+        game: "Call of Duty Mobile",
+        logoUrl: "https://img.icons8.com/ios11/512/FFFFFF/call-off-duty-mobile.png",
+        modeIcons: {
+          mp: "https://www.callofduty.com/content/dam/atvi/callofduty/cod-touchui/blog/intel-cards/icons/jup_icon_mode_mp_control.png",
+          br: "https://static.wikia.nocookie.net/callofduty/images/a/a3/BattleRoyale_Logo_Warzone_MW.png/revision/latest?cb=20210805145851"
+        },
+        rankIcons: {
+          mpLegendary: "/public/assets/components/icons/mp leggy.jpeg",
+          brLegendary: "/public/assets/components/icons/br leggy.jpeg"
+        },
+        data: {
+          mpRankCurrent: "Legendary",
+          mpLegendaries: 9,
+          brRankCurrent: "Legendary",
+          brLegendaries: 12
+        }
+      },
+      {
+        category: "FPS",
+        game: "Valorant",
+        logoUrl: "https://images.icon-icons.com/3660/PNG/512/valorant_logo_play_riot_games_icon_228477.png",
+        rankIcons: {
+          peak: "https://static.wikia.nocookie.net/valorant/images/2/21/Immortal_2_Rank.png/revision/latest?cb=20200623203615",
+          current: "https://cdn3.emoji.gg/emojis/4071-valorant-ascendant-3.png"
+        },
+        data: {
+          serverName: "Mumbai",
+          peakRankActSeason: "Immortal 2 #231 (Episode 8, Act 2)",
+          currentRank: "Ascendant 3"
+        }
+      },
+      {
+        category: "FPS",
+        game: "Counter-Strike 2",
+        logoUrl: "https://cdn2.steamgriddb.com/icon/a3c88bf05d1323e0dee573219bd879ef.ico",
+        data: {
+          serverName: "India West",
+          peakRankActSeason: "Legendary Eagle Master (Premier Season 1)",
+          currentRank: "Legendary Eagle"
+        }
+      },
+      {
+        category: "Sports",
+        game: "FIFA",
+        logoUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5uf8AaEhWFTnu_aOtQpsORaPs0D64TezBHA&s",
+        data: {
+          peakOvr: 154,
+          peakOvrSeasonYear: "Fifa Mobile (2021)",
+          currentOvr: 112
+        }
+      }
+    ],
+    research: [
+      "Time Series Forecasting of High-Volatility Stock Prices for Major Technology Conglomerates: A Comparative Study Using Gated Recurrent Unit (GRU) Architectures",
+      "Democratizing Machine Learning: A Foundational Study on AutoML Frameworks for Accessible AI",
+      "Mitigating Feature Mapping and Barren Plateau Challenges in Quantum Support Vector Machines for Classical Dataset Classification"
+    ],
+    books: [
+      "Coffee with C"
+    ],
     expertise: ["Technology Strategy", "Product Development", "Architecture"],
     bio: "Tech innovator passionate about educational technology"
   }
@@ -152,7 +215,10 @@ export function renderFacultyCards() {
           </div>
         </div>
       </div>
-      <a href="${faculty.linkedinUrl}" class="btn bg-black text-white px-4 py-2 rounded-md text-center text-sm hover:bg-gray-800 transition w-full">View LinkedIn Profile</a>
+      <div class="flex flex-col sm:flex-row gap-3 w-full">
+        <button type="button" data-profile-type="faculty" data-profile-id="${faculty.id}" class="view-profile-btn btn flex-1 bg-black text-white px-4 py-2 rounded-md text-center text-sm hover:bg-gray-800 transition">View Profile</button>
+        <a href="${faculty.linkedinUrl}" target="_blank" rel="noopener noreferrer" class="btn flex-1 bg-black text-white px-4 py-2 rounded-md text-center text-sm hover:bg-gray-800 transition">LinkedIn</a>
+      </div>
     </div>
   `).join('');
 }
@@ -173,13 +239,277 @@ export function renderOwnerCards() {
       <div class="owner-info flex flex-col gap-2 items-center justify-center text-center">
         <p class="text-xl font-bold">${owner.name}</p>
         <p class="text-sm text-gray-600"><span class="font-semibold">Role:</span> ${owner.role}</p>
+        ${owner.education ? `<p class="text-sm text-gray-600"><span class="font-semibold">Education:</span> ${owner.education.join(", ")}</p>` : ''}
         <p class="text-sm text-gray-600"><span class="font-semibold">Expertise:</span> ${owner.expertise.join(", ")}</p>
         <p class="text-sm text-gray-600">${owner.bio}</p>
       </div>
       <div class="flex gap-3 w-full">
-        <a href="${owner.linkedinUrl}" class="btn flex-1 bg-black text-white px-4 py-2 rounded-md text-center text-sm hover:bg-gray-800 transition">LinkedIn</a>
-        <a href="${owner.portfolioUrl}" class="btn flex-1 bg-black text-white px-4 py-2 rounded-md text-center text-sm hover:bg-gray-800 transition">Portfolio</a>
+        <button type="button" data-profile-type="owner" data-profile-id="${owner.id}" class="view-profile-btn btn flex-1 bg-black text-white px-4 py-2 rounded-md text-center text-sm hover:bg-gray-800 transition">View Profile</button>
+        <a href="${owner.linkedinUrl}" target="_blank" rel="noopener noreferrer" class="btn flex-1 bg-black text-white px-4 py-2 rounded-md text-center text-sm hover:bg-gray-800 transition">LinkedIn</a>
       </div>
     </div>
   `).join('');
+}
+
+function createProfileModalIfNeeded() {
+  if (document.getElementById('profile-modal')) {
+    return;
+  }
+
+  const modal = document.createElement('div');
+  modal.id = 'profile-modal';
+  modal.className = 'fixed inset-0 z-50 hidden items-center justify-center bg-black/60 p-4';
+  modal.innerHTML = `
+    <div class="profile-modal-content bg-white w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-xl border-2 border-dashed border-black/90 p-6 md:p-8 relative">
+      <button type="button" class="close-profile-modal absolute top-4 right-4 text-xl font-bold px-3 py-1 border border-black rounded-md hover:bg-black hover:text-white transition">×</button>
+      <div class="profile-modal-body"></div>
+    </div>
+  `;
+
+  document.body.appendChild(modal);
+
+  modal.addEventListener('click', (event) => {
+    if (event.target === modal || event.target.classList.contains('close-profile-modal')) {
+      closeProfileModal();
+    }
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      closeProfileModal();
+    }
+  });
+}
+
+function getProfileData(type, id) {
+  if (type === 'faculty') {
+    return facultyData.find((faculty) => faculty.id === id);
+  }
+
+  if (type === 'owner') {
+    return ownerData.find((owner) => owner.id === id);
+  }
+
+  return null;
+}
+
+function buildProfileModalHtml(profile, type) {
+  const headingLabel = type === 'faculty' ? 'Faculty Profile' : `${profile.role} Profile`;
+  const secondaryLabel = type === 'faculty' ? 'Department' : 'Role';
+  const secondaryValue = type === 'faculty' ? profile.department : profile.role;
+  const renderGameData = (entry) => {
+    if (entry.game === 'Call of Duty Mobile') {
+      return `
+        <p class="text-sm text-wrap flex items-center gap-2"><img src="${entry.modeIcons?.mp || ''}" alt="MP" class="w-4 h-4 object-contain"> MP Rank current: ${entry.data.mpRankCurrent}${entry.rankIcons?.mpLegendary ? ` <img src="${entry.rankIcons.mpLegendary}" alt="MP Legendary" class="w-4 h-4 rounded-sm object-cover">` : ''}</p>
+        <p class="text-sm text-wrap">Number of MP Legendaries: ${entry.data.mpLegendaries}</p>
+        <p class="text-sm text-wrap flex items-center gap-2"><img src="${entry.modeIcons?.br || ''}" alt="BR" class="w-4 h-4 object-contain"> BR Rank current: ${entry.data.brRankCurrent}${entry.rankIcons?.brLegendary ? ` <img src="${entry.rankIcons.brLegendary}" alt="BR Legendary" class="w-4 h-4 rounded-sm object-cover">` : ''}</p>
+        <p class="text-sm text-wrap">Number of BR Legendaries: ${entry.data.brLegendaries}</p>
+      `;
+    }
+
+    if (entry.game === 'Valorant') {
+      return `
+        <p class="text-sm text-wrap">Server name: ${entry.data.serverName}</p>
+        <p class="text-sm text-wrap flex items-center gap-2">Peak Rank with Act and season: ${entry.data.peakRankActSeason}${entry.rankIcons?.peak ? ` <img src="${entry.rankIcons.peak}" alt="Peak Rank" class="w-4 h-4 object-contain">` : ''}</p>
+        <p class="text-sm text-wrap flex items-center gap-2">Current Rank: ${entry.data.currentRank}${entry.rankIcons?.current ? ` <img src="${entry.rankIcons.current}" alt="Current Rank" class="w-4 h-4 object-contain">` : ''}</p>
+      `;
+    }
+
+    if (entry.game === 'Counter-Strike 2') {
+      return `
+        <p class="text-sm text-wrap">Server name: ${entry.data.serverName}</p>
+        <p class="text-sm text-wrap">Peak Rank with Act and season: ${entry.data.peakRankActSeason}</p>
+        <p class="text-sm text-wrap">Current Rank: ${entry.data.currentRank}</p>
+      `;
+    }
+
+    if (entry.game === 'FIFA') {
+      return `
+        <p class="text-sm text-wrap">Peak OVR with season/year: ${entry.data.peakOvr} - ${entry.data.peakOvrSeasonYear}</p>
+        <p class="text-sm text-wrap">Current OVR: ${entry.data.currentOvr}</p>
+      `;
+    }
+
+    return '';
+  };
+  const educationBlock = profile.education
+    ? `<p class="text-base text-gray-700"><span class="font-semibold">Education:</span> ${profile.education.join(', ')}</p>`
+    : '';
+  const ratingBlock = type === 'faculty'
+    ? `
+      <div class="flex items-center gap-3 mt-2">
+        <span class="font-semibold text-gray-700">Rating:</span>
+        <div class="flex gap-1">${renderStars(profile.rating)}</div>
+      </div>
+    `
+    : '';
+  const gamesBlock = profile.gamesPlayed && profile.gamesPlayed.length
+    ? `
+      <div class="mt-2">
+        <p class="font-semibold text-gray-800">Games Played & Ranks</p>
+        <div class="mt-2 flex flex-col gap-2">
+          ${profile.gamesPlayed.map((entry) => `
+            <div class="border border-dashed border-black/60 rounded-md p-3">
+              <div class="flex items-start justify-between gap-3">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-md border border-dashed border-black/70 flex items-center justify-center overflow-hidden bg-white">
+                    <img src="${entry.logoUrl || '/public/assets/images/img/thumb.png'}" alt="${entry.game} logo" class="w-8 h-8 object-contain" loading="lazy">
+                  </div>
+                  <div>
+                    <p class="font-semibold text-gray-800">${entry.game}</p>
+                    <p class="text-xs text-gray-600">${entry.category}</p>
+                  </div>
+                </div>
+                <i class="ri-gamepad-line text-xl text-gray-700"></i>
+              </div>
+              <div class="mt-1 flex flex-col gap-1 text-sm text-gray-700">
+                ${renderGameData(entry)}
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `
+    : '';
+  const researchBlock = profile.research && profile.research.length
+    ? `
+      <div class="mt-2">
+        <p class="font-semibold text-gray-800">Research</p>
+        <div class="mt-1 flex flex-col gap-1 text-gray-700">
+          ${profile.research.map((topic) => `<p>• ${topic}</p>`).join('')}
+        </div>
+      </div>
+    `
+    : '';
+  const booksBlock = profile.books && profile.books.length
+    ? `
+      <div class="mt-2 border border-dashed border-black/40 rounded-md p-3 bg-gray-50/60">
+        <p class="font-semibold text-gray-800">Written Books</p>
+        <ul class="mt-2 list-disc pl-6 flex flex-col gap-3 text-gray-700 leading-7 text-[15px]">
+          ${profile.books.map((book) => `<li class="break-words pr-2">${book}</li>`).join('')}
+        </ul>
+      </div>
+    `
+    : '';
+
+  return `
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+      <div class="md:col-span-1 flex flex-col items-center gap-4">
+        <img src="${profile.image}" alt="${profile.name}" class="w-52 h-52 object-cover rounded-full border-2 border-dashed border-black/90">
+        <div class="w-full flex flex-col gap-3">
+          <a href="${profile.linkedinUrl}" target="_blank" rel="noopener noreferrer" class="btn w-full bg-black text-white px-4 py-2 rounded-md text-center text-sm hover:bg-gray-800 transition">LinkedIn</a>
+          ${profile.portfolioUrl ? `<a href="${profile.portfolioUrl}" target="_blank" rel="noopener noreferrer" class="btn w-full bg-black text-white px-4 py-2 rounded-md text-center text-sm hover:bg-gray-800 transition">Portfolio</a>` : ''}
+        </div>
+      </div>
+      <div class="md:col-span-2 flex flex-col gap-4">
+        <p class="text-sm uppercase tracking-wide text-gray-500">${headingLabel}</p>
+        <h4 class="text-3xl font-bold">${profile.name}</h4>
+        <p class="text-base text-gray-700"><span class="font-semibold">${secondaryLabel}:</span> ${secondaryValue}</p>
+        ${educationBlock}
+        ${ratingBlock}
+        <p class="text-base text-gray-700"><span class="font-semibold">Expertise:</span> ${profile.expertise.join(', ')}</p>
+        ${gamesBlock}
+        ${researchBlock}
+        ${booksBlock}
+        <div class="mt-2">
+          <p class="font-semibold text-gray-800">Bio</p>
+          <p class="text-gray-700 leading-relaxed mt-1">${profile.bio}</p>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function openProfileModal(type, id) {
+  createProfileModalIfNeeded();
+
+  const profile = getProfileData(type, id);
+  const modal = document.getElementById('profile-modal');
+  const modalBody = modal?.querySelector('.profile-modal-body');
+
+  if (!profile || !modal || !modalBody) {
+    return;
+  }
+
+  modalBody.innerHTML = buildProfileModalHtml(profile, type);
+  modal.classList.remove('hidden');
+  modal.classList.add('flex');
+  document.body.style.overflow = 'hidden';
+
+  if (type === 'owner') {
+    const ownerQuery = encodeURIComponent(profile.name);
+    const ownerProfilePath = `/owners/profile?owner=${ownerQuery}`;
+    if (window.location.pathname + window.location.search !== ownerProfilePath) {
+      window.history.pushState({ profileType: 'owner', profileId: id }, '', ownerProfilePath);
+    }
+  }
+
+  if (window.lenis && typeof window.lenis.stop === 'function') {
+    window.lenis.stop();
+  }
+}
+
+function closeProfileModal() {
+  const modal = document.getElementById('profile-modal');
+
+  if (!modal) {
+    return;
+  }
+
+  modal.classList.add('hidden');
+  modal.classList.remove('flex');
+  document.body.style.overflow = '';
+
+  if (window.location.pathname === '/owners/profile') {
+    window.history.pushState({}, '', '/stars.html');
+  }
+
+  if (window.lenis && typeof window.lenis.start === 'function') {
+    window.lenis.start();
+  }
+}
+
+export function initializeProfileView() {
+  createProfileModalIfNeeded();
+  const modalContent = document.querySelector('#profile-modal .profile-modal-content');
+
+  if (modalContent) {
+    modalContent.addEventListener('wheel', (event) => {
+      const modal = document.getElementById('profile-modal');
+
+      if (!modal || modal.classList.contains('hidden')) {
+        return;
+      }
+
+      event.preventDefault();
+      modalContent.scrollTop += event.deltaY;
+    }, { passive: false });
+  }
+
+  if (window.location.pathname === '/owners/profile') {
+    const ownerName = new URLSearchParams(window.location.search).get('owner');
+    if (ownerName) {
+      const owner = ownerData.find((item) => item.name.toLowerCase() === ownerName.toLowerCase());
+      if (owner) {
+        openProfileModal('owner', owner.id);
+      }
+    }
+  }
+
+  document.addEventListener('click', (event) => {
+    const trigger = event.target.closest('.view-profile-btn');
+
+    if (!trigger) {
+      return;
+    }
+
+    const profileType = trigger.dataset.profileType;
+    const profileId = Number(trigger.dataset.profileId);
+
+    if (!profileType || Number.isNaN(profileId)) {
+      return;
+    }
+
+    openProfileModal(profileType, profileId);
+  });
 }
