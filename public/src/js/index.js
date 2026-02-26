@@ -30,3 +30,21 @@ if (document.readyState === "loading") {
 //   });
 // })
 
+gsap.to(".preload", {
+  opacity: 0,
+  display: "none",
+  zIndex: -1,
+  duration: 4.5,
+  delay: 1.5,
+  ease: "power2.out"
+}),
+gsap.from(".preload svg path", {
+  fill: " transparent",
+  stroke: "#000",
+  strokeWidth: "3px",
+  strokeDashoffset: 100,
+  strokeDasharray: 50,
+  duration: 3.5,
+  delay: 0.5,
+  ease: "power2.out"
+})

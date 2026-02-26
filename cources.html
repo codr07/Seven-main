@@ -43,7 +43,7 @@
           <a href="/contact.html" class="nav-link">Contact</a>
         </div>
         <div class="mob-nav">
-          <i class="ri-menu-line text-2xl cursor-pointer" id="btn"></i>
+          <i class="ri-menu-line text-2xl  " id="btn"></i>
           <div class="mob-nav-links items-center gap-8 w-full justify-around">
             <div class="flex flex-col">
               <a href="/academics.html" class="nav-link">  Academics</a>
@@ -91,7 +91,7 @@
                       "Functions and modular programming"
                     ],
                     duration: "3 Months",
-                    price: "₹14,999",
+                    price: "₹5,999",
                     link: "#topmate#Link"
                   },
                   {
@@ -103,7 +103,7 @@
                       "Algorithm design techniques (greedy, etc.)"
                     ],
                     duration: "5 Months",
-                    price: "₹22,999",
+                    price: "₹6,499",
                     link: "#topmate#Link"
                   }
                 ]
@@ -115,28 +115,28 @@
                     name: "Basic Web Development",
                     details: ["HTML, CSS fundamentals", "Introduction to responsive design", "Building static web pages"],
                     duration: "2 Months",
-                    price: "₹4,999",
+                    price: "₹5,999",
                     link: "#topmate#Link"
                   },
                   {
                     name: "Advanced Frontend Development",
                     details: ["JavaScript fundamentals", "DOM manipulation", "Asynchronous programming (Promises, async/await)"],
                     duration: "4 Months",
-                    price: "₹18,999",
+                    price: "₹21,999",
                     link: "#topmate#Link"
                   },
                   {
                     name: "React Development",
                     details: ["Introduction to React framework", "JSX syntax and components", "State management with Redux"],
                     duration: "2 Months",
-                    price: "₹12,999",
+                    price: "₹22,999",
                     link: "#topmate#Link"
                   },
                   {
                     name: "MERN Stack Development",
                     details: ["MongoDB fundamentals", "Express.js basics", "Node.js backend development", "Integration with React frontend"],
                     duration: "5 Months",
-                    price: "₹24,999",
+                    price: "₹54,999",
                     link: "#topmate#Link"
                   },
                   {
@@ -155,14 +155,14 @@
                     name: "Numerical Analysis",
                     details: ["Numerical methods for solving equations", "Interpolation and approximation techniques", "Numerical differentiation and integration"],
                     duration: "1 Month",
-                    price: "₹2,999",
+                    price: "₹1,999",
                     link: "#topmate#Link"
                   },
                   {
                     name: "Statistics",
                     details: ["Descriptive statistics (mean, median, mode)", "Probability theory", "Inferential statistics (Chi Square Distribution, hypothesis testing)"],
-                    duration: "3 Months",
-                    price: "₹6,999",
+                    duration: "per Month",
+                    price: "₹2,499",
                     link: "#topmate#Link"
                   }
                 ]
@@ -174,7 +174,7 @@
                     name: "Machine Learning Basics",
                     details: ["Introduction to machine learning", "Linear regression, logistic regression", "Model evaluation and validation techniques"],
                     duration: "3 Months",
-                    price: "₹16,999",
+                    price: "₹12,999",
                     link: "#topmate#Link"
                   },
                   {
@@ -254,7 +254,7 @@
                     name: "GitHub & GitLab",
                     details: ["Introduction to Git and GitHub", "Version control basics", "Collaboration workflows"],
                     duration: "2 Months",
-                    price: "₹1,999",
+                    price: "₹2,999",
                     link: "#topmate#Link"
                   },
                   {
@@ -305,7 +305,7 @@
           
               group.items.forEach((course) => {
                 const card = document.createElement("article");
-                card.className = "bg-white/70 backdrop-blur-sm rounded-xl border border-black/10 p-5 shadow-sm flex flex-col justify-between h-full transition-transform hover:scale-105 cursor-pointer";
+                card.className = "bg-white/70 backdrop-blur-sm rounded-xl border border-black/10 p-5 shadow-sm flex flex-col justify-between h-full transition-transform hover:scale-105  ";
                 card.dataset.link = course.link;
           
                 const title = document.createElement("h3");
@@ -361,13 +361,7 @@
       </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/DrawSVGPlugin.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollToPlugin.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollSmoother.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <script type="module" src="/public/src/js/lennis.js"></script>
     <script type="module" src="/public/src/js/script.js"></script>
     <script type="module" src="/public/src/js/index.js"></script>
 </body>

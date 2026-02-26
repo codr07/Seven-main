@@ -47,6 +47,9 @@ body{
   transition: 0.3s ease-in;
   overflow-x: hidden;
 }
+.custom-cursor-active{
+  cursor: none;
+}
 body::-webkit-scrollbar{
   display: none;
 }
@@ -337,4 +340,42 @@ article{
 }
 .tooltip{
   cursor: help;
+}
+.cursor{
+  position: fixed;
+  z-index: 1000;
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  border: 2px dashed var(--text-light-black);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s ease, height 0.2s ease, border-color 0.2s ease;
+}
+
+.cursor.cursor-hover{
+  width: 26px;
+  height: 26px;
+  border-color: var(--text-highlight);
+}
+.preload{
+  position: fixed;
+  background: var(--main-bg);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--main-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+}
+.preload svg{
+  width: 350px;
+  height: 350px;
+}
+.preload svg path{
+  height: auto;
+  background: none;
 }

@@ -3,7 +3,7 @@ export const starsData = [
     id: 1,
     name: "Star Name",
     designationNow: "Software Engineer at XYZ Corp",
-    pic: "/public/assets/images/stars/star1.jpg",
+    pic: "/public/assets/images/faculty/male.jpg",
     servicesTaken: ["Full Stack Development", "Interview Prep"],
     starReview: 5,
     textReview: "5EVEN transformed my career. The mentorship was exceptional and helped me land my dream job!"
@@ -12,7 +12,7 @@ export const starsData = [
     id: 2,
     name: "Star Name",
     designationNow: "Data Scientist at ABC Analytics",
-    pic: "/public/assets/images/stars/star2.jpg",
+    pic: "/public/assets/images/faculty/male.jpg",
     servicesTaken: ["Machine Learning", "Python Programming"],
     starReview: 5,
     textReview: "Outstanding learning experience. The practical projects prepared me perfectly for industry challenges."
@@ -21,7 +21,7 @@ export const starsData = [
     id: 3,
     name: "Star Name",
     designationNow: "AI Research Engineer at Tech Innovations",
-    pic: "/public/assets/images/stars/star3.jpg",
+    pic: "/public/assets/images/faculty/female.jpg",
     servicesTaken: ["AI Solutions", "Research Paper Writing"],
     starReview: 4.5,
     textReview: "Excellent curriculum and dedicated faculty. Highly recommended for anyone serious about tech careers."
