@@ -3,7 +3,7 @@ const services = [
     category: "Academics and Certification",
     items: [
       {
-        coverImage: "assets/images/img/thumb.png",
+        coverImage: "public/assets/images/img/thumb.png",
         title: "Mock and Rock (Mock Exams)",
         description: [
           "Attempt real exam-style mock tests designed around current academic and certification patterns.",
@@ -31,6 +31,7 @@ const services = [
         }
       },
       {
+        coverImage: "public/assets/images/img/thumb.png",
         title: "Project Documentation",
         description: [
           "Create complete project reports with proper structure, professional language, and institution-ready formatting.",
@@ -38,9 +39,27 @@ const services = [
           "Get support for editing, proofreading, and final polishing before submission or presentation."
         ],
         price: "₹500 - ₹1000",
-        link: "#topmate#ProjectDocumentation"
+        link: "#topmate#ProjectDocumentation",
+        view_details: {
+          cover: "public/assets/images/img/thumb.png",
+          title: "Project Documentation",
+          short_desc:
+            "Create complete project reports with proper structure, professional language, and institution-ready formatting.",
+          description: [
+            "Create complete project reports with proper structure, professional language, and institution-ready formatting.",
+            "Include system architecture, flowcharts, modules, and technical explanations in a clean and readable way.",
+            "Get support for editing, proofreading, and final polishing before submission or presentation."
+          ],
+          why_choose_this_course:
+            "This service is best for students and teams who want professionally structured, institution-ready documentation with clear technical presentation.",
+          certification_available: false,
+          certification_cost: "N/A",
+          public_review:
+            "Users value the clarity, formatting quality, and polished final output that improves academic and project submissions.",
+        }
       },
       {
+        coverImage: "public/assets/images/img/thumb.png",
         title: "Thesis Documentation",
         description: [
           "Develop end-to-end thesis documents with strong research structure, clarity, and academic tone.",
@@ -48,7 +67,24 @@ const services = [
           "Prepare a polished final version suitable for departmental evaluation, viva, and archive submission."
         ],
         price: "₹1500 - ₹2000",
-        link: "#topmate#ThesisDocumentation"
+        link: "#topmate#ThesisDocumentation",
+        view_details: {
+          cover: "public/assets/images/img/thumb.png",
+          title: "Thesis Documentation",
+          short_desc:
+            "Develop end-to-end thesis documents with strong research structure, clarity, and academic tone.",
+          description: [
+            "Develop end-to-end thesis documents with strong research structure, clarity, and academic tone.",
+            "Apply required citation style, chapter formatting, references, and review-friendly layout standards.",
+            "Prepare a polished final version suitable for departmental evaluation, viva, and archive submission."
+          ],
+          why_choose_this_course:
+            "This service is ideal for final-year scholars who need complete thesis support with academic compliance, readability, and submission-ready quality.",
+          certification_available: false,
+          certification_cost: "N/A",
+          public_review:
+            "Learners highlight this service for reducing thesis stress and delivering well-structured, review-friendly final documents.",
+        }
       }
     ]
   },
@@ -68,6 +104,7 @@ const services = [
     ],
     items: [
       {
+        coverImage: "public/assets/images/img/thumb.png",
         title: "Developer Portfolio Website",
         description: [
           "Basic: Rs. 4,999 - 9,999.",
@@ -76,9 +113,28 @@ const services = [
           "Enterprise: Rs. 1,80,000 - 3,50,000."
         ],
         price: "Rs. 4,999 - 3,50,000",
-        link: "#topmate#DeveloperPortfolioWebsite"
+        link: "#topmate#DeveloperPortfolioWebsite",
+        view_details: {
+          cover: "public/assets/images/img/thumb.png",
+          title: "Developer Portfolio Website",
+          short_desc:
+            "Build a modern developer portfolio website tailored to your skills, projects, and professional brand.",
+          description: [
+            "Basic: Rs. 4,999 - 9,999.",
+            "Professional: Rs. 15,000 - 30,000.",
+            "Premium: Rs. 60,000 - 1,20,000.",
+            "Enterprise: Rs. 1,80,000 - 3,50,000."
+          ],
+          why_choose_this_course:
+            "Perfect for developers who want a strong first impression with responsive design, project highlights, and recruiter-friendly presentation.",
+          certification_available: false,
+          certification_cost: "N/A",
+          public_review:
+            "Clients appreciate the clean UI, performance, and conversion-focused portfolio structure.",
+        }
       },
       {
+        coverImage: "public/assets/images/img/thumb.png",
         title: "IT Executive / Corporate Portfolio",
         description: [
           "Basic: Rs. 8,000 - 15,000.",
@@ -87,9 +143,28 @@ const services = [
           "Enterprise: Rs. 3,00,000 - 6,00,000."
         ],
         price: "Rs. 8,000 - 6,00,000",
-        link: "#topmate#CorporatePortfolio"
+        link: "#topmate#CorporatePortfolio",
+        view_details: {
+          cover: "public/assets/images/img/thumb.png",
+          title: "IT Executive / Corporate Portfolio",
+          short_desc:
+            "Create a premium corporate portfolio website with polished branding and stakeholder-focused messaging.",
+          description: [
+            "Basic: Rs. 8,000 - 15,000.",
+            "Professional: Rs. 30,000 - 60,000.",
+            "Premium: Rs. 1,20,000 - 2,50,000.",
+            "Enterprise: Rs. 3,00,000 - 6,00,000."
+          ],
+          why_choose_this_course:
+            "Best suited for professionals and executives who need a premium digital presence that reflects authority and credibility.",
+          certification_available: false,
+          certification_cost: "N/A",
+          public_review:
+            "Business users rate this service highly for brand consistency, professional look, and communication clarity.",
+        }
       },
       {
+        coverImage: "public/assets/images/img/thumb.png",
         title: "Ecommerce Development",
         description: [
           "Basic: Rs. 20,000 - 40,000.",
@@ -98,9 +173,28 @@ const services = [
           "Enterprise: Rs. 8,00,000 - 25,00,000."
         ],
         price: "Rs. 20,000 - 25,00,000",
-        link: "#topmate#EcommerceDevelopment"
+        link: "#topmate#EcommerceDevelopment",
+        view_details: {
+          cover: "public/assets/images/img/thumb.png",
+          title: "Ecommerce Development",
+          short_desc:
+            "Launch an end-to-end ecommerce platform with scalable architecture, optimized checkout, and growth-ready features.",
+          description: [
+            "Basic: Rs. 20,000 - 40,000.",
+            "Advanced: Rs. 80,000 - 1,50,000.",
+            "Premium: Rs. 2,50,000 - 6,00,000.",
+            "Enterprise: Rs. 8,00,000 - 25,00,000."
+          ],
+          why_choose_this_course:
+            "Ideal for businesses planning reliable online sales with secure payment flow, catalog scalability, and conversion-focused UX.",
+          certification_available: false,
+          certification_cost: "N/A",
+          public_review:
+            "Store owners praise this service for robust execution, smooth user journey, and measurable business outcomes.",
+        }
       },
       {
+        coverImage: "public/assets/images/img/thumb.png",
         title: "LMS Platform Development",
         description: [
           "Basic: Rs. 40,000 - 75,000.",
@@ -109,7 +203,25 @@ const services = [
           "Enterprise: Rs. 15,00,000 - 50,00,000."
         ],
         price: "Rs. 40,000 - 50,00,000",
-        link: "#topmate#LMSDevelopment"
+        link: "#topmate#LMSDevelopment",
+        view_details: {
+          cover: "public/assets/images/img/thumb.png",
+          title: "LMS Platform Development",
+          short_desc:
+            "Build a complete learning management platform with course delivery, user roles, tracking, and assessment workflows.",
+          description: [
+            "Basic: Rs. 40,000 - 75,000.",
+            "Advanced: Rs. 1,50,000 - 3,00,000.",
+            "Premium: Rs. 5,00,000 - 12,00,000.",
+            "Enterprise: Rs. 15,00,000 - 50,00,000."
+          ],
+          why_choose_this_course:
+            "Recommended for educators and organizations that need a flexible, scalable LMS with strong learner and admin experiences.",
+          certification_available: false,
+          certification_cost: "N/A",
+          public_review:
+            "Institutes report improved learner engagement and smoother content operations after deployment.",
+        }
       }
     ]
   },
@@ -117,6 +229,7 @@ const services = [
     category: "Public Commercial",
     items: [
       {
+        coverImage: "public/assets/images/img/thumb.png",
         title: "Custom Desktop Design",
         description: [
           "Design a personalized desktop setup with custom themes, widgets, icons, and wallpaper styling.",
@@ -124,9 +237,27 @@ const services = [
           "Get a complete look-and-feel package aligned with your workflow, personality, and device setup."
         ],
         price: "₹2000",
-        link: "#topmate#CustomDesktop"
+        link: "#topmate#CustomDesktop",
+        view_details: {
+          cover: "public/assets/images/img/thumb.png",
+          title: "Custom Desktop Design",
+          short_desc:
+            "Design a personalized desktop setup with custom themes, widgets, icons, and wallpaper styling.",
+          description: [
+            "Design a personalized desktop setup with custom themes, widgets, icons, and wallpaper styling.",
+            "Optimize layout, color harmony, and visual hierarchy for both aesthetics and daily usability.",
+            "Get a complete look-and-feel package aligned with your workflow, personality, and device setup."
+          ],
+          why_choose_this_course:
+            "Great for creators and professionals who want a premium desktop experience optimized for both appearance and productivity.",
+          certification_available: false,
+          certification_cost: "N/A",
+          public_review:
+            "Users love the personalized styling and noticeable improvement in their day-to-day visual workflow.",
+        }
       },
       {
+        coverImage: "public/assets/images/img/thumb.png",
         title: "Poster and Related Design",
         description: [
           "Create eye-catching poster concepts tailored for events, campaigns, launches, and promotions.",
@@ -134,9 +265,27 @@ const services = [
           "Deliver ready-to-use design outputs optimized for social media, banners, and physical prints."
         ],
         price: "₹500 - ₹1000",
-        link: "#topmate#PosterDesign"
+        link: "#topmate#PosterDesign",
+        view_details: {
+          cover: "public/assets/images/img/thumb.png",
+          title: "Poster and Related Design",
+          short_desc:
+            "Create eye-catching poster concepts tailored for events, campaigns, launches, and promotions.",
+          description: [
+            "Create eye-catching poster concepts tailored for events, campaigns, launches, and promotions.",
+            "Balance typography, visual assets, and messaging for high impact in print and digital formats.",
+            "Deliver ready-to-use design outputs optimized for social media, banners, and physical prints."
+          ],
+          why_choose_this_course:
+            "Ideal for brands and event teams looking for fast, high-impact visuals that communicate clearly across channels.",
+          certification_available: false,
+          certification_cost: "N/A",
+          public_review:
+            "Clients consistently mention strong visual appeal, timely delivery, and platform-ready outputs.",
+        }
       },
       {
+        coverImage: "public/assets/images/img/thumb.png",
         title: "Album Design",
         description: [
           "Build premium album layouts with consistent visual storytelling, pacing, and aesthetic continuity.",
@@ -144,7 +293,24 @@ const services = [
           "Produce print-ready and digital-ready album files with polished finishing and professional quality."
         ],
         price: "₹2000 - ₹5000",
-        link: "#topmate#AlbumDesign"
+        link: "#topmate#AlbumDesign",
+        view_details: {
+          cover: "public/assets/images/img/thumb.png",
+          title: "Album Design",
+          short_desc:
+            "Build premium album layouts with consistent visual storytelling, pacing, and aesthetic continuity.",
+          description: [
+            "Build premium album layouts with consistent visual storytelling, pacing, and aesthetic continuity.",
+            "Arrange photos, titles, and decorative elements using balanced composition and clean typography.",
+            "Produce print-ready and digital-ready album files with polished finishing and professional quality."
+          ],
+          why_choose_this_course:
+            "Perfect for clients who want elegant storytelling-oriented album layouts for personal, brand, or event collections.",
+          certification_available: false,
+          certification_cost: "N/A",
+          public_review:
+            "Customers praise the premium composition style and polished final presentation in both print and digital formats.",
+        }
       }
     ]
   }
@@ -376,7 +542,7 @@ function renderServices() {
 
       const viewButton = document.createElement("a");
       viewButton.href = `service-details.html?service=${encodeURIComponent(serviceSlug)}`;
-      viewButton.className = "inline-flex items-center justify-center rounded-lg border border-black/20 px-4 py-2 text-sm font-semibold text-gray-900 hover:bg-black hover:text-white transition-colors";
+      viewButton.className = "inline-flex items-center justify-center rounded-lg border border-black/20 px-4 py-2 text-sm font-semibold text-gray-900 hover:bg-black hover:text-white transition-colors w-full";
       viewButton.textContent = "View Service";
       viewButton.setAttribute("aria-label", `View ${service.title}`);
 
