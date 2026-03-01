@@ -281,10 +281,21 @@ function hashSeed(seedText) {
   return seedText.split("").reduce((acc, char) => acc + char.charCodeAt(0), 0);
 }
 
+function escapeSvgText(value = "") {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&apos;");
+}
+
 function createAcademicThumbnail(seedText, title, categoryLabel) {
   const seed = hashSeed(seedText);
   const hueA = seed % 360;
   const hueB = (seed * 1.7) % 360;
+  const safeTitle = escapeSvgText(title);
+  const safeCategoryLabel = escapeSvgText(categoryLabel);
   const initials =
     title
       .split(" ")
@@ -292,6 +303,7 @@ function createAcademicThumbnail(seedText, title, categoryLabel) {
       .slice(0, 2)
       .map((word) => word[0]?.toUpperCase() || "")
       .join("") || "A";
+  const safeInitials = escapeSvgText(initials);
 
   const svg = `
     <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
@@ -303,9 +315,9 @@ function createAcademicThumbnail(seedText, title, categoryLabel) {
       </defs>
       <rect width="1200" height="675" fill="url(#bg)"/>
       <rect x="36" y="36" width="1128" height="603" rx="24" fill="rgba(0,0,0,0.16)"/>
-      <text x="70" y="150" font-size="46" font-family="Arial, sans-serif" fill="white" opacity="0.9">${categoryLabel}</text>
-      <text x="70" y="325" font-size="170" font-family="Arial, sans-serif" font-weight="700" fill="white">${initials}</text>
-      <text x="70" y="530" font-size="58" font-family="Arial, sans-serif" font-weight="600" fill="white">${title}</text>
+      <text x="70" y="150" font-size="46" font-family="Arial, sans-serif" fill="white" opacity="0.9">${safeCategoryLabel}</text>
+      <text x="70" y="325" font-size="170" font-family="Arial, sans-serif" font-weight="700" fill="white">${safeInitials}</text>
+      <text x="70" y="530" font-size="58" font-family="Arial, sans-serif" font-weight="600" fill="white">${safeTitle}</text>
     </svg>
   `;
 
@@ -313,8 +325,8 @@ function createAcademicThumbnail(seedText, title, categoryLabel) {
 }
 
 function getUniqueAcademicCoverImage(item, category, index) {
-  if (item.thumbnail || item.coverImage) {
-    return item.thumbnail || item.coverImage;
+  if (item.cover || item.thumbnail || item.coverImage) {
+    return item.cover || item.thumbnail || item.coverImage;
   }
 
   const title = getAcademicTitle(item);
