@@ -108,7 +108,7 @@ const courses = [
       },
       {
         coverImage: "public/assets/images/img/thumb.png",
-        name: "Advanced Frontend Development",
+        name: "Web - Diamond",
         short_desc:
           "Build dynamic frontend apps with modern JavaScript and async programming.",
         details: [
@@ -118,10 +118,10 @@ const courses = [
         ],
         duration: "4 Months",
         price: "₹21,999",
-        link: "#topmate#Link",
+        link: "https://topmate.io/seven_oz/1984977",
         view_details: {
           cover: "public/assets/images/img/thumb.png",
-          title: "Advanced Frontend Development",
+          title: "Web - Diamond",
           short_desc:
             "Build dynamic frontend apps with modern JavaScript and async programming.",
           details: [
@@ -139,7 +139,7 @@ const courses = [
       },
       {
         coverImage: "public/assets/images/img/thumb.png",
-        name: "React Development",
+        name: "React Dom",
         short_desc:
           "Create reusable UI components and manage app state with React.",
         details: [
@@ -147,12 +147,12 @@ const courses = [
           "JSX syntax and components",
           "State management with Redux",
         ],
-        duration: "2 Months",
+        duration: "4 Months",
         price: "₹22,999",
-        link: "#topmate#Link",
+        link: "https://topmate.io/seven_oz/1984978",
         view_details: {
           cover: "public/assets/images/img/thumb.png",
-          title: "React Development",
+          title: "React Dom",
           short_desc:
             "Create reusable UI components and manage app state with React.",
           details: [
@@ -181,7 +181,7 @@ const courses = [
         ],
         duration: "5 Months",
         price: "₹54,999",
-        link: "#topmate#Link",
+        link: "https://topmate.io/seven_oz/1984979",
         view_details: {
           cover: "public/assets/images/img/thumb.png",
           title: "MERN Stack Development",
@@ -213,7 +213,7 @@ const courses = [
         ],
         duration: "8-9 Months",
         price: "₹44,999",
-        link: "#topmate#Link",
+        link: "https://topmate.io/seven_oz/1984980",
         view_details: {
           cover: "public/assets/images/img/thumb.png",
           title: "Full Stack Development",
@@ -249,7 +249,7 @@ const courses = [
         ],
         duration: "1 Month",
         price: "₹1,999",
-        link: "#topmate#Link",
+        link: "https://topmate.io/seven_oz/1984981",
         view_details: {
           cover: "public/assets/images/img/thumb.png",
           title: "Numerical Analysis",
@@ -278,9 +278,9 @@ const courses = [
           "Probability theory",
           "Inferential statistics (Chi Square Distribution, hypothesis testing)",
         ],
-        duration: "per Month",
+        duration: "5 Months",
         price: "₹2,499",
-        link: "#topmate#Link",
+        link: "https://topmate.io/seven_oz/1984983",
         view_details: {
           cover: "public/assets/images/img/thumb.png",
           title: "Statistics",
@@ -316,7 +316,7 @@ const courses = [
         ],
         duration: "3 Months",
         price: "₹12,999",
-        link: "#topmate#Link",
+        link: "https://topmate.io/seven_oz/1984996",
         view_details: {
           cover: "public/assets/images/img/thumb.png",
           title: "Machine Learning Basics",
@@ -329,8 +329,8 @@ const courses = [
           ],
           why_choose_this_course:
             "This course is designed for beginners who want to start learning machine learning concepts and techniques.",
-          certification_available: false,
-          certification_cost: "N/A",
+          certification_available: true,
+          certification_cost: "₹1,199",
           public_review:
             "Students consistently rate this course highly for its clear explanations and practical approach to learning machine learning basics.",
         },
@@ -347,7 +347,7 @@ const courses = [
         ],
         duration: "5 Months",
         price: "₹26,999",
-        link: "#topmate#Link",
+        link: "https://topmate.io/seven_oz/1984997",
         view_details: {
           cover: "public/assets/images/img/thumb.png",
           title: "Advanced Machine Learning",
@@ -377,7 +377,7 @@ const courses = [
         ],
         duration: "5 Months",
         price: "₹27,999",
-        link: "#topmate#Link",
+        link: "https://topmate.io/seven_oz/1985001",
         view_details: {
           cover: "public/assets/images/img/thumb.png",
           title: "AI Development",
@@ -407,7 +407,7 @@ const courses = [
         ],
         duration: "3 Months",
         price: "₹15,999",
-        link: "#topmate#Link",
+        link: "https://topmate.io/seven_oz/1985003",
         view_details: {
           cover: "public/assets/images/img/thumb.png",
           title: "Machine Learning with R",
@@ -438,7 +438,7 @@ const courses = [
         ],
         duration: "5 Months",
         price: "₹28,999",
-        link: "#topmate#Link",
+        link: "https://topmate.io/seven_oz/1985004",
         view_details: {
           cover: "public/assets/images/img/thumb.png",
           title: "Machine Learning with Python",
@@ -470,7 +470,7 @@ const courses = [
         details: ["Design principles and elements", "Adobe Illustrator basics"],
         duration: "2 Months",
         price: "₹11,999",
-        link: "#topmate#Link",
+        link: "https://topmate.io/seven_oz/1985005",
         view_details: {
           cover: "public/assets/images/img/thumb.png",
           title: "Graphic Design",
@@ -500,7 +500,7 @@ const courses = [
         ],
         duration: "2 Months",
         price: "₹12,999",
-        link: "#topmate#Link",
+        link: "https://topmate.io/seven_oz/1985006",
         view_details: {
           cover: "public/assets/images/img/thumb.png",
           title: "UI/UX Design",
@@ -531,7 +531,7 @@ const courses = [
         ],
         duration: "3 Months",
         price: "₹17,999",
-        link: "#topmate#Link",
+        link: "https://topmate.io/seven_oz/1985008",
         view_details: {
           cover: "public/assets/images/img/thumb.png",
           title: "3D Modeling and Animation (using Blender)",
@@ -567,7 +567,7 @@ const courses = [
         ],
         duration: "12 Months",
         price: "₹4999",
-        link: "#topmate#Link",
+        link: "https://topmate.io/seven_oz/1985020",
         view_details: {
           cover: "public/assets/images/img/thumb.png",
           title: "Spoken English",
@@ -598,7 +598,7 @@ const courses = [
         ],
         duration: "2 Months",
         price: "₹11,999",
-        link: "#topmate#Link",
+        link: "https://topmate.io/seven_oz/1985021",
         view_details: {
           cover: "public/assets/images/img/thumb.png",
           title: "Discord Management and Bot Management",
@@ -619,39 +619,6 @@ const courses = [
       },
       {
         coverImage: "public/assets/images/img/thumb.png",
-        name: "Operating Systems",
-        short_desc:
-          "Understand core OS concepts including processes and memory management.",
-        details: [
-          "Introduction to operating systems",
-          "Process management",
-          "Memory management",
-          "Operating Systems",
-        ],
-        duration: "4 Months",
-        price: "₹12,999",
-        link: "#topmate#Link",
-        view_details: {
-          cover: "public/assets/images/img/thumb.png",
-          title: "Operating Systems",
-          short_desc:
-            "Understand core OS concepts including processes and memory management.",
-          details: [
-            "Introduction to operating systems",
-            "Process management",
-            "Memory management",
-            "Operating Systems",
-          ],
-          why_choose_this_course:
-            "This course builds a strong foundation in OS concepts essential for programming and system design interviews.",
-          certification_available: false,
-          certification_cost: "N/A",
-          public_review:
-            "Students appreciate the simplified explanations of complex operating system concepts.",
-        },
-      },
-      {
-        coverImage: "public/assets/images/img/thumb.png",
         name: "GitHub & GitLab",
         short_desc:
           "Learn version control workflows for team collaboration and projects.",
@@ -662,7 +629,7 @@ const courses = [
         ],
         duration: "2 Months",
         price: "₹2,999",
-        link: "#topmate#Link",
+        link: "https://topmate.io/seven_oz/1985027",
         view_details: {
           cover: "public/assets/images/img/thumb.png",
           title: "GitHub & GitLab",
@@ -683,68 +650,6 @@ const courses = [
       },
       {
         coverImage: "public/assets/images/img/thumb.png",
-        name: "Canva Design",
-        short_desc:
-          "Design social posts and presentations quickly using Canva.",
-        details: [
-          "Introduction to Canva",
-          "Design principles and best practices",
-          "Creating presentations and social media graphics",
-        ],
-        duration: "2 Months",
-        price: "₹1,999",
-        link: "#topmate#Link",
-        view_details: {
-          cover: "public/assets/images/img/thumb.png",
-          title: "Canva Design",
-          short_desc:
-            "Design social posts and presentations quickly using Canva.",
-          details: [
-            "Introduction to Canva",
-            "Design principles and best practices",
-            "Creating presentations and social media graphics",
-          ],
-          why_choose_this_course:
-            "This course helps learners create polished visual content quickly without advanced design tools.",
-          certification_available: false,
-          certification_cost: "N/A",
-          public_review:
-            "Students like the practical templates and quick design workflow covered in sessions.",
-        },
-      },
-      {
-        coverImage: "public/assets/images/img/thumb.png",
-        name: "Advanced PowerPoint",
-        short_desc:
-          "Create professional decks with advanced formatting and animations.",
-        details: [
-          "Advanced formatting techniques",
-          "Animations and transitions",
-          "Data visualization in PowerPoint",
-        ],
-        duration: "3 Months",
-        price: "₹2,999",
-        link: "#topmate#Link",
-        view_details: {
-          cover: "public/assets/images/img/thumb.png",
-          title: "Advanced PowerPoint",
-          short_desc:
-            "Create professional decks with advanced formatting and animations.",
-          details: [
-            "Advanced formatting techniques",
-            "Animations and transitions",
-            "Data visualization in PowerPoint",
-          ],
-          why_choose_this_course:
-            "This course is designed for learners who want to present ideas clearly with impactful and professional slide decks.",
-          certification_available: false,
-          certification_cost: "N/A",
-          public_review:
-            "Learners report significant improvement in presentation quality and confidence.",
-        },
-      },
-      {
-        coverImage: "public/assets/images/img/thumb.png",
         name: "Photoshop : Basic to Advanced",
         short_desc:
           "Master Photoshop from basics to advanced editing and compositing.",
@@ -757,7 +662,7 @@ const courses = [
         ],
         duration: "4 Months",
         price: "₹10,999",
-        link: "#topmate#Link",
+        link: "https://topmate.io/seven_oz/1985055",
         view_details: {
           cover: "public/assets/images/img/thumb.png",
           title: "Photoshop : Basic to Advanced",
@@ -790,7 +695,7 @@ const courses = [
         ],
         duration: "2 Months",
         price: "₹10,999",
-        link: "#topmate#Link",
+        link: "https://topmate.io/seven_oz/1985056",
         view_details: {
           cover: "public/assets/images/img/thumb.png",
           title: "Lightroom : Basic to Advanced",
