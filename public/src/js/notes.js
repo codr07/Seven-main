@@ -6,6 +6,7 @@ const notes = [
         title: "Python CheatSheet",
         thumbnail: "https://memgraph.com/images/blog/in-memory-databases-that-work-great-with-python/cover.png",
         shortDescription: "Quick reference guide for Python syntax, built-ins, and practical coding patterns.",
+        type: "Coding Language notes",
         price: "₹1,999",
         link: "#topmate#Link",
         view_details: {
@@ -30,6 +31,7 @@ const notes = [
         title: "Regression Analysis Notes",
         thumbnail: "/public/assets/images/img/thumb.png",
         shortDescription: "Compact notes on core regression concepts, assumptions, metrics, and interpretation.",
+        type: "Statistics Notes",
         price: "₹2,999",
         link: "#topmate#Link",
         view_details: {
@@ -57,7 +59,8 @@ const notes = [
 const NOTES_FALLBACK_IMAGE = "/public/assets/images/img/thumb.png";
 
 const NOTES_CATEGORY_META = {
-  "Coding Language notes": { icon: "ri-book-open-line", label: "Notes" }
+  "Coding Language notes": { icon: "ri-book-open-line", label: "Notes" },
+  "Statistics Notes": { icon: "ri-bar-chart-line", label: "Statistics Notes" }
 };
 
 function getNoteTitle(note) {
