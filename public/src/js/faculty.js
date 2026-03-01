@@ -49,15 +49,15 @@ export const facultyData = [
   },
   {
     id: 5,
-    name: "Payel Saha",
-    department: "Full Stack Development",
-    education: ["M.Tech", "B.Tech"],
+    name: "Priya Dutta",
+    department: "English and Geography(WBBSE) ( upto class 10) and Accounts",
+    education: ["M.Com (Accounting and finance)", "B.Com (Accounting and finance)"],
     edu_toggle:"y",
     rating: 4.9,
-    image: "/public/assets/images/faculty/female.jpg",
-    linkedinUrl: "#",
-    expertise: ["React", "Node.js", "Database Design"],
-    bio: "Industry veteran with hands-on development experience"
+    image: "/public/assets/images/faculty/priya.png",
+    linkedinUrl: "https://www.linkedin.com/in/priya-paul-71a99728a",
+    expertise: ["English", "Geography", "Accounts","Finance"],
+    bio: "Experienced educator with expertise in English, Geography for School Students and Accounts for UG students"
   },
   {
     id: 6,
@@ -70,6 +70,30 @@ export const facultyData = [
     linkedinUrl: "https://www.linkedin.com/in/vansh-bhatnagar-80ab051b5",
     expertise: ["Automation", "Robotics", "Control Systems"],
     bio: "Expert in automation and robotics with practical industry experience"
+  },
+  {
+    id: 7,
+    name: "Payel Saha",
+    department: "School Education",
+    education: ["B.Tech Electrical Engineering"],
+    edu_toggle:"n",
+    rating: 4.2,
+    image: "/public/assets/images/faculty/female.jpg",
+    linkedinUrl: "#",
+    expertise: ["Automation", "Robotics", "Control Systems"],
+    bio: "Expert in automation and robotics with practical industry experience"
+  },
+  {
+    id: 8,
+    name: "Ritisha Dutta",
+    department: "Class 1-5 School Education",
+    education: ["B. A Journalism and mass communication"],
+    edu_toggle:"y",
+    rating: 4.6,
+    image: "/public/assets/images/faculty/female.jpg",
+    linkedinUrl: "#",
+    expertise: ["English", "Geography", "Accounts"],
+    bio: "Expert in teaching School Education subjects"
   }
 ];
 
@@ -109,7 +133,7 @@ export const ownerData = [
     id: 2,
     name: "Sankha Saha",
     role: "Co-Founder & CTO",
-    education: ["B.Sc Statistics, CU", "M.Sc Data Science, AUB"],
+    education: ["B.Sc Statistics ( CU )", "M.Sc Data Science ( AUB )"],
     image: "/public/assets/images/owners/Sankha.jpeg",
     linkedinUrl: "https://www.linkedin.com/in/sankhasaha",
     portfolioUrl: "https://codrss.tech",

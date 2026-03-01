@@ -1,7 +1,7 @@
 export const starsData = [
   {
     id: 1,
-    name: "Star Name",
+    name: "Raju Roy",
     designationNow: "Software Engineer at XYZ Corp",
     pic: "/public/assets/images/faculty/male.jpg",
     servicesTaken: ["Full Stack Development", "Interview Prep"],
@@ -10,7 +10,7 @@ export const starsData = [
   },
   {
     id: 2,
-    name: "Star Name",
+    name: "Sushant Sharma",
     designationNow: "Data Scientist at ABC Analytics",
     pic: "/public/assets/images/faculty/male.jpg",
     servicesTaken: ["Machine Learning", "Python Programming"],
@@ -19,7 +19,7 @@ export const starsData = [
   },
   {
     id: 3,
-    name: "Star Name",
+    name: "Priya Patel",
     designationNow: "AI Research Engineer at Tech Innovations",
     pic: "/public/assets/images/faculty/female.jpg",
     servicesTaken: ["AI Solutions", "Research Paper Writing"],
