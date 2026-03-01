@@ -140,8 +140,79 @@ const SERVICE_CATEGORY_META = {
   "Public Commercial": { icon: "ri-store-2-line", label: "Commercial" }
 };
 
-function getServiceCoverImage(service) {
-  return service.coverImage || SERVICE_FALLBACK_IMAGE;
+function getServiceTitle(service) {
+  return service.title || service.name || "Untitled Service";
+}
+
+function normalizeServiceItem(service) {
+  const title = getServiceTitle(service);
+  const shortDescription =
+    service.shortDescription ||
+    service.short_desc ||
+    service.Short_desc ||
+    (Array.isArray(service.description) && service.description.length > 0
+      ? service.description[0]
+      : "Tailored service designed for practical and measurable outcomes.");
+
+  return {
+    ...service,
+    title,
+    shortDescription,
+    price: service.price || "TBD",
+    link: service.link || "#",
+  };
+}
+
+const normalizedServices = services.map((group) => ({
+  ...group,
+  items: Array.isArray(group.items)
+    ? group.items.map(normalizeServiceItem)
+    : [],
+}));
+
+function hashSeed(seedText) {
+  return seedText.split("").reduce((acc, char) => acc + char.charCodeAt(0), 0);
+}
+
+function createServiceThumbnail(seedText, title, categoryLabel) {
+  const seed = hashSeed(seedText);
+  const hueA = seed % 360;
+  const hueB = (seed * 1.8) % 360;
+  const initials =
+    title
+      .split(" ")
+      .filter(Boolean)
+      .slice(0, 2)
+      .map((word) => word[0]?.toUpperCase() || "")
+      .join("") || "S";
+
+  const svg = `
+    <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+      <defs>
+        <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="hsl(${hueA}, 85%, 55%)"/>
+          <stop offset="100%" stop-color="hsl(${hueB}, 85%, 45%)"/>
+        </linearGradient>
+      </defs>
+      <rect width="1200" height="675" fill="url(#bg)"/>
+      <rect x="36" y="36" width="1128" height="603" rx="24" fill="rgba(0,0,0,0.16)"/>
+      <text x="70" y="150" font-size="46" font-family="Arial, sans-serif" fill="white" opacity="0.9">${categoryLabel}</text>
+      <text x="70" y="325" font-size="170" font-family="Arial, sans-serif" font-weight="700" fill="white">${initials}</text>
+      <text x="70" y="530" font-size="58" font-family="Arial, sans-serif" font-weight="600" fill="white">${title}</text>
+    </svg>
+  `;
+
+  return `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`;
+}
+
+function getUniqueServiceCoverImage(service, category, index) {
+  if (service.thumbnail || service.coverImage) {
+    return service.thumbnail || service.coverImage;
+  }
+
+  const title = getServiceTitle(service);
+  const seedText = `${category}-${index}-${title}`;
+  return createServiceThumbnail(seedText, title, category);
 }
 
 function getServiceShortDescription(service) {
@@ -234,7 +305,7 @@ function renderServices() {
     return;
   }
 
-  services.forEach((group) => {
+  normalizedServices.forEach((group) => {
     const section = document.createElement("section");
     section.className = "w-full flex flex-col gap-5";
 
@@ -246,13 +317,18 @@ function renderServices() {
     const grid = document.createElement("div");
     grid.className = "grid grid-cols-1 md:grid-cols-2 gap-6 w-full";
 
-    group.items.forEach((service) => {
+    group.items.forEach((service, index) => {
       const card = document.createElement("article");
       card.className = "bg-white/70 backdrop-blur-sm rounded-xl border border-black/10 p-5 shadow-sm flex flex-col justify-between h-full transition-transform hover:scale-105";
       card.dataset.link = service.link;
 
       const badgeMeta = getServiceCategoryMeta(group.category);
-      const imageWrap = createServiceImage(getServiceCoverImage(service), service.title, badgeMeta);
+      const imageWrap = createServiceImage(
+        getUniqueServiceCoverImage(service, group.category, index) ||
+          SERVICE_FALLBACK_IMAGE,
+        service.title,
+        badgeMeta,
+      );
 
       const title = document.createElement("h3");
       title.className = "text-xl font-semibold mb-2 text-gray-900";

@@ -26,8 +26,75 @@ const NOTES_CATEGORY_META = {
   "Coding Language notes": { icon: "ri-book-open-line", label: "Notes" }
 };
 
-function getNoteCoverImage(note) {
-  return note.thumbnail || note.coverImage || NOTES_FALLBACK_IMAGE;
+function getNoteTitle(note) {
+  return note.title || note.name || "Untitled Note";
+}
+
+function normalizeNoteItem(note) {
+  const title = getNoteTitle(note);
+  const shortDescription =
+    note.shortDescription ||
+    note.short_desc ||
+    note.Short_desc ||
+    "Concise, exam-focused notes designed for faster revision.";
+
+  return {
+    ...note,
+    title,
+    shortDescription,
+    price: note.price || "TBD",
+    link: note.link || "#",
+  };
+}
+
+const normalizedNotes = notes.map((group) => ({
+  ...group,
+  items: Array.isArray(group.items) ? group.items.map(normalizeNoteItem) : [],
+}));
+
+function hashSeed(seedText) {
+  return seedText.split("").reduce((acc, char) => acc + char.charCodeAt(0), 0);
+}
+
+function createNoteThumbnail(seedText, title, categoryLabel) {
+  const seed = hashSeed(seedText);
+  const hueA = seed % 360;
+  const hueB = (seed * 1.8) % 360;
+  const initials =
+    title
+      .split(" ")
+      .filter(Boolean)
+      .slice(0, 2)
+      .map((word) => word[0]?.toUpperCase() || "")
+      .join("") || "N";
+
+  const svg = `
+    <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+      <defs>
+        <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="hsl(${hueA}, 85%, 55%)"/>
+          <stop offset="100%" stop-color="hsl(${hueB}, 85%, 45%)"/>
+        </linearGradient>
+      </defs>
+      <rect width="1200" height="675" fill="url(#bg)"/>
+      <rect x="36" y="36" width="1128" height="603" rx="24" fill="rgba(0,0,0,0.16)"/>
+      <text x="70" y="150" font-size="46" font-family="Arial, sans-serif" fill="white" opacity="0.9">${categoryLabel}</text>
+      <text x="70" y="325" font-size="170" font-family="Arial, sans-serif" font-weight="700" fill="white">${initials}</text>
+      <text x="70" y="530" font-size="58" font-family="Arial, sans-serif" font-weight="600" fill="white">${title}</text>
+    </svg>
+  `;
+
+  return `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`;
+}
+
+function getUniqueNoteCoverImage(note, category, index) {
+  if (note.thumbnail || note.coverImage) {
+    return note.thumbnail || note.coverImage;
+  }
+
+  const title = getNoteTitle(note);
+  const seedText = `${category}-${index}-${title}`;
+  return createNoteThumbnail(seedText, title, category);
 }
 
 function getNoteShortDescription(note) {
@@ -67,7 +134,7 @@ function renderNotes() {
     return;
   }
 
-  notes.forEach((group) => {
+  normalizedNotes.forEach((group) => {
     const section = document.createElement("section");
     section.className = "w-full flex flex-col gap-5";
 
@@ -79,13 +146,13 @@ function renderNotes() {
     const grid = document.createElement("div");
     grid.className = "grid grid-cols-1 md:grid-cols-2 gap-6 w-full";
 
-    group.items.forEach((note) => {
+    group.items.forEach((note, index) => {
       const card = document.createElement("article");
       card.className = "bg-white/70 backdrop-blur-sm rounded-xl border border-black/10 p-5 shadow-sm flex flex-col justify-between h-full transition-transform hover:scale-105";
       card.dataset.link = note.link;
 
       const badgeMeta = getNotesCategoryMeta(group.category);
-      const imageWrap = createNoteImage(getNoteCoverImage(note), note.title, badgeMeta);
+      const imageWrap = createNoteImage(getUniqueNoteCoverImage(note, group.category, index) || NOTES_FALLBACK_IMAGE, note.title, badgeMeta);
 
       const title = document.createElement("h3");
       title.className = "text-xl font-semibold mb-2 text-gray-900";

@@ -49,7 +49,7 @@ export const facultyData = [
   },
   {
     id: 5,
-    name: "Priya Dutta",
+    name: "Priya Paul",
     department: "English and Geography(WBBSE) ( upto class 10) and Accounts",
     education: ["M.Com (Accounting and finance)", "B.Com (Accounting and finance)"],
     edu_toggle:"y",
