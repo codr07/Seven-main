@@ -1,4 +1,26 @@
 document.addEventListener('DOMContentLoaded', () => {
+  const toCleanPath = (pathname) => {
+    if (!pathname) return '/';
+
+    const normalizedPath = pathname.replace(/\/+/g, '/');
+    if (normalizedPath === '/' || normalizedPath === '/index' || normalizedPath === '/index.html') {
+      return '/';
+    }
+
+    const withoutHtml = normalizedPath.replace(/\.html?$/i, '');
+    const withoutTrailingSlash = withoutHtml.length > 1 ? withoutHtml.replace(/\/$/, '') : withoutHtml;
+    return withoutTrailingSlash || '/';
+  };
+
+  const cleanPath = toCleanPath(window.location.pathname);
+  if (cleanPath !== window.location.pathname) {
+    window.history.replaceState(
+      window.history.state,
+      '',
+      `${cleanPath}${window.location.search}${window.location.hash}`
+    );
+  }
+
   const canUseCustomCursor =
     window.matchMedia('(hover: hover) and (pointer: fine)').matches &&
     !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
