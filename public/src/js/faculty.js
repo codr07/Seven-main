@@ -4,6 +4,7 @@ export const facultyData = [
     name: "Tanushree Biswas",
     department: "Zoology and Graphics Design",
     education: ["B.Sc in Zoology,NSOU"],
+    edu_toggle:"y",
     rating: 4.5,
     image: "/public/assets/images/faculty/tanushree.png",
     linkedinUrl: "https://www.linkedin.com/in/tanushree-biswas-07365432a",
@@ -15,6 +16,7 @@ export const facultyData = [
     name: "Rajat Howlader",
     department: "Mathematics and Statistics",
     education: ["B.Sc in Statistics, CU"],
+    edu_toggle:"y",
     rating: 4.5,
     image: "/public/assets/images/faculty/rajat.png",
     linkedinUrl: "https://www.linkedin.com/in/rajat-howlader-516a8a317",
@@ -26,6 +28,7 @@ export const facultyData = [
     name: "Jayanta Dey",
     department: "School Education",
     education: ["10 + 2 , WBBSE"],
+    edu_toggle:"n",
     rating: 4,
     image: "/public/assets/images/faculty/jayanta.png",
     linkedinUrl: "https://www.linkedin.com/in/joyanta-dey-8b1a943b2?utm_source=share_via&utm_content=profile&utm_medium=member_android",
@@ -37,6 +40,7 @@ export const facultyData = [
     name: "Rahul Sen",
     department: "School Education",
     education: ["B.Com Accountancy"],
+    edu_toggle:"y",
     rating: 4.1,
     image: "/public/assets/images/faculty/rahul.png",
     linkedinUrl: "#",
@@ -48,6 +52,7 @@ export const facultyData = [
     name: "Payel Saha",
     department: "Full Stack Development",
     education: ["M.Tech", "B.Tech"],
+    edu_toggle:"y",
     rating: 4.9,
     image: "/public/assets/images/faculty/female.jpg",
     linkedinUrl: "#",
@@ -59,6 +64,7 @@ export const facultyData = [
     name: "Vansh Bhatnagar",
     department: "Automation and robotics",
     education: ["B.Tech Electrical Engineering"],
+    edu_toggle:"y",
     rating: 4.4,
     image: "/public/assets/images/faculty/vansh.png",
     linkedinUrl: "https://www.linkedin.com/in/vansh-bhatnagar-80ab051b5",
@@ -216,7 +222,7 @@ export function renderFacultyCards() {
       <div class="faculty-info flex flex-col gap-2 items-center justify-center text-center">
         <p class="text-xl font-bold">${faculty.name}</p>
         <p class="text-sm text-gray-600"><span class="font-semibold">Department:</span> ${faculty.department}</p>
-        <p class="text-sm text-gray-600"><span class="font-semibold">Education:</span> ${faculty.education.join(", ")}</p>
+        ${faculty.edu_toggle === "y" ? `<p class="text-sm text-gray-600"><span class="font-semibold">Education:</span> ${faculty.education.join(", ")}</p>` : ''}
         <div class="flex flex-col items-center gap-2">
           <span class="text-sm text-gray-600 font-semibold">Rating:</span>
           <div class="flex gap-1 justify-center">
