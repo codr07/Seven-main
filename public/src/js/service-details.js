@@ -9,14 +9,28 @@ function getServiceFromQuery() {
       ...item,
       category: group.category,
       slug: createServiceSlug(item.title),
-      coverImage: item.thumbnail || item.coverImage,
-      details: Array.isArray(item.description) && item.description.length > 0
+      coverImage: item.view_details?.cover || item.thumbnail || item.coverImage,
+      details: Array.isArray(item.view_details?.description) && item.view_details.description.length > 0
+        ? item.view_details.description
+        : Array.isArray(item.description) && item.description.length > 0
         ? item.description
         : [
             item.shortDescription || "Tailored service designed for practical and measurable outcomes.",
             "Personalized workflow and guidance based on your exact requirement.",
             "Delivery support and post-handover clarity for smooth execution."
           ],
+      detailTitle: item.view_details?.title || item.title,
+      detailShortDesc:
+        item.view_details?.short_desc ||
+        item.shortDescription ||
+        item.short_desc ||
+        "Tailored service designed for practical and measurable outcomes.",
+      whyChoose:
+        item.view_details?.why_choose_this_course ||
+        "This service is designed for practical, outcome-driven delivery with personalized support.",
+      publicReview:
+        item.view_details?.public_review ||
+        "Clients appreciate the clarity, quality, and delivery support provided in this service.",
       addons: Array.isArray(group.addons) ? group.addons : [],
       rank: index + 1,
     }))
@@ -49,8 +63,8 @@ function renderServiceDetails(container, service) {
         <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/35 to-transparent"></div>
         <div class="absolute bottom-0 left-0 right-0 p-5 sm:p-7">
           <span class="mb-3 inline-flex items-center rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-gray-900">${service.category}</span>
-          <h1 class="text-2xl font-bold text-white sm:text-3xl lg:text-4xl">${service.title}</h1>
-          <p class="mt-2 max-w-3xl text-sm text-white/95 sm:text-base">${service.shortDescription || "Tailored service designed for practical and measurable outcomes."}</p>
+          <h1 class="text-2xl font-bold text-white sm:text-3xl lg:text-4xl">${service.detailTitle}</h1>
+          <p class="mt-2 max-w-3xl text-sm text-white/95 sm:text-base">${service.detailShortDesc}</p>
         </div>
       </div>
 
@@ -66,6 +80,16 @@ function renderServiceDetails(container, service) {
           <div class="rounded-xl border border-black/10 bg-white p-5">
             <h2 class="text-lg font-bold text-gray-900">Available Add-ons</h2>
             ${addonMarkup}
+          </div>
+
+          <div class="rounded-xl border border-black/10 bg-white p-5">
+            <h2 class="text-lg font-bold text-gray-900">Why Choose This Service</h2>
+            <p class="mt-3 text-sm leading-relaxed text-gray-700">${service.whyChoose}</p>
+          </div>
+
+          <div class="rounded-xl border border-black/10 bg-white p-5">
+            <h2 class="text-lg font-bold text-gray-900">Public Review</h2>
+            <p class="mt-3 text-sm leading-relaxed text-gray-700">${service.publicReview}</p>
           </div>
         </div>
 

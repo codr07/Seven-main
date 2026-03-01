@@ -178,7 +178,7 @@ function renderNotes() {
       `;
 
       const actions = document.createElement("div");
-      actions.className = "mt-4 grid grid-cols-2 gap-3";
+      actions.className = "mt-4";
 
       const noteSlug = createNoteSlug(note.title);
 
@@ -188,13 +188,7 @@ function renderNotes() {
       viewButton.textContent = "View Note";
       viewButton.setAttribute("aria-label", `View ${note.title}`);
 
-      const buyButton = document.createElement("a");
-      buyButton.href = card.dataset.link || "#";
-      buyButton.className = "inline-flex items-center justify-center rounded-lg border border-black/20 px-4 py-2 text-sm font-semibold text-gray-900 hover:bg-black hover:text-white transition-colors";
-      buyButton.textContent = "Buy notes";
-      buyButton.setAttribute("aria-label", `Buy ${note.title}`);
-
-      actions.append(viewButton, buyButton);
+      actions.append(viewButton);
       card.append(imageWrap, title, shortDescription, meta, actions);
       grid.appendChild(card);
     });

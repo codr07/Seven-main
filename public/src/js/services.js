@@ -3,6 +3,7 @@ const services = [
     category: "Academics and Certification",
     items: [
       {
+        coverImage: "assets/images/img/thumb.png",
         title: "Mock and Rock (Mock Exams)",
         description: [
           "Attempt real exam-style mock tests designed around current academic and certification patterns.",
@@ -10,7 +11,24 @@ const services = [
           "Receive targeted improvement strategies and revision guidance to boost confidence before final exams."
         ],
         price: "₹500 - ₹2000",
-        link: "#topmate#MockAndRock"
+        link: "#topmate#MockAndRock",
+        view_details: {
+          cover: "public/assets/images/img/thumb.png",
+          title: "Mock and Rock (Mock Exams)",
+          short_desc:
+            "Attempt real exam-style mock tests designed around current academic and certification patterns.",
+          description: [
+          "Attempt real exam-style mock tests designed around current academic and certification patterns.",
+          "Get section-wise performance breakdowns to identify weak areas, time-management gaps, and scoring trends.",
+          "Receive targeted improvement strategies and revision guidance to boost confidence before final exams."
+        ],
+          why_choose_this_course:
+            "This course is ideal for students preparing for competitive exams or certifications who want to simulate the actual test environment, identify their strengths and weaknesses, and receive actionable feedback to improve their performance before the final exam.",
+          certification_available: false,
+          certification_cost: "N/A",
+          public_review:
+            "Students consistently rate this course highly for its in-depth coverage of mock exam preparation and practical feedback.",
+        }
       },
       {
         title: "Project Documentation",
@@ -352,7 +370,7 @@ function renderServices() {
       meta.innerHTML = `<span class="text-lg font-bold text-gray-900">${service.price}</span>`;
 
       const actions = document.createElement("div");
-      actions.className = "mt-4 grid grid-cols-2 gap-3";
+      actions.className = "mt-4";
 
       const serviceSlug = createServiceSlug(service.title);
 
@@ -362,13 +380,7 @@ function renderServices() {
       viewButton.textContent = "View Service";
       viewButton.setAttribute("aria-label", `View ${service.title}`);
 
-      const buyButton = document.createElement("a");
-      buyButton.href = card.dataset.link || "#";
-      buyButton.className = "inline-flex items-center justify-center rounded-lg border border-black/20 px-4 py-2 text-sm font-semibold text-gray-900 hover:bg-black hover:text-white transition-colors";
-      buyButton.textContent = "Buy service";
-      buyButton.setAttribute("aria-label", `Buy ${service.title}`);
-
-      actions.append(viewButton, buyButton);
+      actions.append(viewButton);
       card.append(imageWrap, title, shortDescription, meta, actions);
       grid.appendChild(card);
     });
