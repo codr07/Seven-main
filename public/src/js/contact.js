@@ -5,10 +5,7 @@ export const contactData = {
     country: "India"
   },
   website: "https://www.5even.netlify.app",
-  phones: [
-    "+91 80178 74821",
-    "+91 78659 89814"
-  ],
+  phoneNotice: "to be added later",
   emails: [
     "institution5even@gmail.com",
     "grievance57institution@gmail.com",
@@ -56,11 +53,9 @@ export function renderContactDetails() {
           <h3 class="text-xl font-bold">Phone</h3>
         </div>
         <div class="flex flex-col gap-2">
-          ${contactData.phones.map(phone => `
-            <a href="tel:${phone}" class="text-gray-700 hover:text-black transition">
-              ${phone}
-            </a>
-          `).join('')}
+          <a href="#" class="text-gray-700 hover:text-black transition">
+            ${contactData.phoneNotice}
+          </a>
         </div>
       </div>
 
@@ -126,6 +121,21 @@ export function renderContactDetails() {
             <i class="ri-facebook-fill"></i>
           </a>
         </div>
+      </div>
+    </div>
+
+    <!-- Contact Form Section -->
+    <div class="contact-form-section flex flex-col gap-4 mt-8 w-full">
+      <h3 class="text-2xl font-bold">Send Us a Message</h3>
+      <div class="bg-white/70 backdrop-blur-sm rounded-xl border border-black/10 p-5 shadow-sm">
+        <form class="grid grid-cols-1 md:grid-cols-2 gap-4" action="https://formsubmit.co/orders.seveninst@gmail.com" method="post">
+          <input type="text" name="Full Name" required placeholder="Full Name" class="rounded-lg border border-black/20 px-4 py-2 text-sm bg-white">
+          <input type="email" name="Email" required placeholder="Email Address" class="rounded-lg border border-black/20 px-4 py-2 text-sm bg-white">
+          <input type="text" name="_subject" required placeholder="Subject" class="rounded-lg border border-black/20 px-4 py-2 text-sm bg-white md:col-span-2">
+          <input type="tel" name="Phone" placeholder="Phone Number" class="rounded-lg border border-black/20 px-4 py-2 text-sm bg-white md:col-span-2">
+          <textarea name="Message" rows="5" required placeholder="Write your message" class="rounded-lg border border-black/20 px-4 py-2 text-sm bg-white md:col-span-2"></textarea>
+          <button type="submit" class="md:col-span-2 inline-flex items-center justify-center rounded-lg border border-black/20 px-4 py-3 text-sm font-semibold text-gray-900 hover:bg-black hover:text-white transition-colors">Send Message</button>
+        </form>
       </div>
     </div>
 
