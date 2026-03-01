@@ -23,73 +23,218 @@ const academics = [
           why_choose_this_course:
             "Our Classes 1-4 program is designed to nurture young minds with a strong academic foundation. We focus on personalized learning, engaging content, and expert guidance to ensure every child thrives in their early educational years.",
           certification_available: false,
-          certification_cost: "₹1,999",
+          certification_cost: "₹400",
           public_review:
             "This program has been a game-changer for my child! The personalized attention and engaging lessons have made a huge difference in their confidence and academic performance. Highly recommend for parents looking to give their kids a strong start!",
         }
       },
       {
-        title: "Classes 5-10",
+        title: "Classes 5-6",
+        cover: "public/assets/images/img/thumb.png",
         shortDescription:
-          "Structured academic support for Classes 5 to 10, focused on concept clarity, regular practice, and exam readiness.",
+          "Structured academic support for Classes 5 to 6, focused on concept clarity, regular practice, and exam readiness.",
         price: "Contact for details",
         link: "/contact.html",
+        viewDetails: {
+          cover: "public/assets/images/img/thumb.png",
+          title: "Classes 5-6 - Structured Academic Support",
+          short_desc:
+            "Our Classes 5-6 program strengthens core concepts and develops exam confidence through structured teaching, regular practice, and focused guidance.",
+          details: [
+            "Concept Clarity: Topic-wise teaching to build strong fundamentals across key school subjects.",
+            "Regular Practice: Worksheets, assignments, and revision plans to improve consistency.",
+            "Exam Readiness: Test strategies and time-management techniques for better scores.",
+            "Doubt Resolution: Dedicated sessions to clear doubts and reinforce weak areas.",
+          ],
+          why_choose_this_course:
+            "This program is ideal for students who need strong academic discipline, continuous support, and measurable improvement from middle to secondary school levels.",
+          certification_available: false,
+          certification_cost: "₹500",
+          public_review:
+            "The structured approach helped my child become more confident and consistent in studies. The regular tests and feedback made a clear difference.",
+        },
       },
       {
-        title: "Classes 11-12",
+        title: "Classes 7-8",
+        cover: "public/assets/images/img/thumb.png",
+        shortDescription:
+          "Structured academic support for Classes 7 to 8, focused on concept clarity, regular practice, and exam readiness.",
+        price: "Contact for details",
+        link: "/contact.html",
+        viewDetails: {
+          cover: "public/assets/images/img/thumb.png",
+          title: "Classes 7-8 - Structured Academic Support",
+          short_desc:
+            "Our Classes 7-8 program strengthens core concepts and develops exam confidence through structured teaching, regular practice, and focused guidance.",
+          details: [
+            "Concept Clarity: Topic-wise teaching to build strong fundamentals across key school subjects.",
+            "Regular Practice: Worksheets, assignments, and revision plans to improve consistency.",
+            "Exam Readiness: Test strategies and time-management techniques for better scores.",
+            "Doubt Resolution: Dedicated sessions to clear doubts and reinforce weak areas.",
+          ],
+          why_choose_this_course:
+            "This program is ideal for students who need strong academic discipline, continuous support, and measurable improvement from middle to secondary school levels.",
+          certification_available: false,
+          certification_cost: "₹550",
+          public_review:
+            "The structured approach helped my child become more confident and consistent in studies. The regular tests and feedback made a clear difference.",
+        },
+      },
+      {
+        title: "Classes 9-10",
+        cover: "public/assets/images/img/thumb.png",
+        shortDescription:
+          "Structured academic support for Classes 9 to 10, focused on concept clarity, regular practice, and exam readiness.",
+        price: "Contact for details",
+        link: "/contact.html",
+        viewDetails: {
+          cover: "public/assets/images/img/thumb.png",
+          title: "Classes 9-10 - Structured Academic Support",
+          short_desc:
+            "Our Classes 9-10 program strengthens core concepts and develops exam confidence through structured teaching, regular practice, and focused guidance.",
+          details: [
+            "Concept Clarity: Topic-wise teaching to build strong fundamentals across key school subjects.",
+            "Regular Practice: Worksheets, assignments, and revision plans to improve consistency.",
+            "Exam Readiness: Test strategies and time-management techniques for better scores.",
+            "Doubt Resolution: Dedicated sessions to clear doubts and reinforce weak areas.",
+          ],
+          why_choose_this_course:
+            "This program is ideal for students who need strong academic discipline, continuous support, and measurable improvement from middle to secondary school levels.",
+          certification_available: false,
+          certification_cost: "₹600",
+          public_review:
+            "The structured approach helped my child become more confident and consistent in studies. The regular tests and feedback made a clear difference.",
+        },
+      },
+      {
+        title: "Classes 11",
+        cover: "public/assets/images/img/thumb.png",
         shortDescription:
           "Specialized coaching for all stream students in Classes 11 and 12, including board and competitive exam preparation.",
         price: "Contact for details",
         link: "/contact.html",
+        viewDetails: {
+          cover: "public/assets/images/img/thumb.png",
+          title: "Classes 11 - Specialized Coaching",
+          short_desc:
+            "Our Classes 11 coaching provides in-depth subject support for Science, Commerce, and Arts streams with strong focus on board and entrance exam preparation.",
+          details: [
+            "Stream-Specific Support: Tailored teaching for PCM, PCB, Commerce, and Humanities.",
+            "Board Preparation: Chapter completion plans aligned with school syllabus and boards.",
+            "Competitive Orientation: Foundation support for major entrance examinations.",
+            "Performance Reviews: Frequent evaluations with personalized improvement plans.",
+          ],
+          why_choose_this_course:
+            "This course combines conceptual depth, exam strategy, and targeted mentoring to help students perform confidently in high-stakes academic years.",
+          certification_available: false,
+          certification_cost: "₹800",
+          public_review:
+            "The coaching is focused and practical. I improved my board preparation and exam strategy a lot through regular practice and mentoring.",
+        },
+      },
+      {
+        title: "Classes 12",
+        cover: "public/assets/images/img/thumb.png",
+        shortDescription:
+          "Structured academic support for Classes 12, focused on concept clarity, regular practice, and exam readiness.",
+        price: "Contact for details",
+        link: "/contact.html",
+        viewDetails: {
+          cover: "public/assets/images/img/thumb.png",
+          title: "Classes 12 - Structured Academic Support",
+          short_desc:
+            "Our Classes 12 program strengthens core concepts and develops exam confidence through structured teaching, regular practice, and focused guidance.",
+          details: [
+            "Concept Clarity: Topic-wise teaching to build strong fundamentals across key school subjects.",
+            "Regular Practice: Worksheets, assignments, and revision plans to improve consistency.",
+            "Exam Readiness: Test strategies and time-management techniques for better scores.",
+            "Doubt Resolution: Dedicated sessions to clear doubts and reinforce weak areas.",
+          ],
+          why_choose_this_course:
+            "This program is ideal for students who need strong academic discipline, continuous support, and measurable improvement from middle to secondary school levels.",
+          certification_available: false,
+          certification_cost: "₹1000",
+          public_review:
+            "The structured approach helped my child become more confident and consistent in studies. The regular tests and feedback made a clear difference.",
+        },
       },
       {
         title: "UG & PG Programs",
+        cover: "public/assets/images/img/thumb.png",
         shortDescription:
           "Undergraduate: BCA, B.Tech, B.Sc Maths, Statistics, and BA English. Postgraduate: M.Sc Data Science, MCA, and M.Tech.",
         price: "Contact for details",
         link: "/contact.html",
+        viewDetails: {
+          cover: "public/assets/images/img/thumb.png",
+          title: "UG & PG Programs - Advanced Academic Guidance",
+          short_desc:
+            "We provide comprehensive guidance for UG and PG learners across technical and non-technical programs, with academic mentoring and subject-focused support.",
+          details: [
+            "Program Coverage: Support for BCA, B.Tech, B.Sc, BA, MCA, M.Sc, and M.Tech tracks.",
+            "Subject Depth: Advanced concept sessions for university-level coursework.",
+            "Project Assistance: Guidance for assignments, mini-projects, and final submissions.",
+            "Career Alignment: Academic pathways connected to career and skill goals.",
+          ],
+          why_choose_this_course:
+            "This offering is designed for college students seeking deeper understanding, better grades, and practical direction in their academic journey.",
+          certification_available: false,
+          certification_cost: "₹1200",
+          public_review:
+            "Excellent support for my university subjects and projects. The mentors are knowledgeable and explain advanced topics very clearly.",
+        },
       },
       {
-        title: "Personalized Tutoring",
+        title: "Online Tutoring",
+        cover: "public/assets/images/img/thumb.png",
         shortDescription:
           "One-on-one sessions tailored to your needs to improve understanding, study habits, and confidence.",
         price: "Contact for details",
         link: "/contact.html",
-      },
-      {
-        title: "Study Resources",
-        shortDescription:
-          "Access practice exams, flashcards, and interactive quizzes for exam preparation and better performance.",
-        price: "Contact for details",
-        link: "/contact.html",
-      },
-      {
-        title: "Academic Coaching",
-        shortDescription:
-          "Goal-based coaching to improve time management, strategy, and long-term academic growth.",
-        price: "Contact for details",
-        link: "/contact.html",
-      },
-      {
-        title: "Expert-Led Workshops",
-        shortDescription:
-          "Interactive workshops on practical topics delivered by industry experts and experienced educators.",
-        price: "Contact for details",
-        link: "/contact.html",
+        viewDetails: {
+          cover: "public/assets/images/img/thumb.png",
+          title: "Personalized Tutoring - One-on-One Learning",
+          short_desc:
+            "Our personalized tutoring sessions focus on individual pace, strengths, and goals to deliver targeted academic improvement.",
+          details: [
+            "Individual Learning Plans: Customized lessons based on student needs and goals.",
+            "Flexible Scheduling: Convenient session timings for school and college students.",
+            "Focused Improvement: Intensive support for weak subjects and exam preparation.",
+            "Confidence Building: Encouraging mentorship with regular progress discussions.",
+          ],
+          why_choose_this_course:
+            "Perfect for learners who need dedicated attention, adaptive teaching, and fast academic progress through one-on-one guidance.",
+          certification_available: false,
+          certification_cost: "5% Discount on all",
+          public_review:
+            "The one-on-one format helped me understand difficult topics quickly. The sessions are very focused and motivating.",
+        },
       },
       {
         title: "Progress Tracking & Analytics",
+        cover: "public/assets/images/img/thumb.png",
         shortDescription:
           "Track strengths and improvement areas with detailed analytics and performance insights.",
         price: "Contact for details",
         link: "/contact.html",
-      },
-      {
-        title: "Mentorship Program",
-        shortDescription:
-          "Connect with mentors for guided academic and professional development.",
-        price: "Contact for details",
-        link: "/contact.html",
+        viewDetails: {
+          cover: "public/assets/images/img/thumb.png",
+          title: "Progress Tracking & Analytics - Performance Insights",
+          short_desc:
+            "We provide data-backed academic tracking to identify strengths, weaknesses, and actionable next steps for continuous improvement.",
+          details: [
+            "Performance Dashboards: Clear reports for tests and learning trends.",
+            "Strength Analysis: Highlight areas of strong understanding.",
+            "Gap Identification: Detect topics requiring focused attention.",
+            "Action Plans: Personalized recommendations for next-stage improvement.",
+          ],
+          why_choose_this_course:
+            "This feature ensures smarter learning decisions by converting performance data into practical strategies for better outcomes.",
+          certification_available: false,
+          certification_cost: "To be discussed",
+          public_review:
+            "The analytics reports made it easy to understand where to focus. It helped us plan studies in a much smarter way.",
+        },
       },
     ],
   },
