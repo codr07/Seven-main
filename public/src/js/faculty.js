@@ -1,3 +1,5 @@
+import { escapeHtml, sanitizeUrl } from "./security.js";
+
 export const facultyData = [
   {
     id: 1,
@@ -230,6 +232,55 @@ export function renderStars(rating) {
   return starsHTML;
 }
 
+function sanitizeProfileData(profile) {
+  if (!profile || typeof profile !== "object") {
+    return {};
+  }
+
+  const urlFields = new Set([
+    "linkedinUrl",
+    "portfolioUrl",
+    "image",
+    "logoUrl",
+    "mp",
+    "br",
+    "mpLegendary",
+    "brLegendary",
+    "peak",
+    "current",
+  ]);
+
+  const sanitizeValue = (value, key = "") => {
+    if (Array.isArray(value)) {
+      return value.map((entry) => sanitizeValue(entry));
+    }
+
+    if (value && typeof value === "object") {
+      return Object.fromEntries(
+        Object.entries(value).map(([nestedKey, nestedValue]) => [
+          nestedKey,
+          sanitizeValue(nestedValue, nestedKey),
+        ]),
+      );
+    }
+
+    if (typeof value === "string") {
+      if (urlFields.has(key)) {
+        return sanitizeUrl(value, {
+          allowDataImage: true,
+          fallback: key.toLowerCase().includes("url") ? "#" : "/public/assets/images/img/thumb.png",
+        });
+      }
+
+      return escapeHtml(value);
+    }
+
+    return value;
+  };
+
+  return sanitizeValue(profile);
+}
+
 export function renderFacultyCards() {
   const facultyGrid = document.querySelector('.faculty-grid');
   
@@ -240,26 +291,29 @@ export function renderFacultyCards() {
   
   console.log('Rendering faculty cards:', facultyData.length);
   
-  facultyGrid.innerHTML = facultyData.map(faculty => `
+  facultyGrid.innerHTML = facultyData.map((faculty) => {
+    const safeFaculty = sanitizeProfileData(faculty);
+    return `
     <div class="faculty-card flex flex-col gap-4 p-6 border-2 border-dashed border-black/90 rounded-lg hover:shadow-lg transition-shadow items-center justify-center">
-      <img src="${faculty.image}" alt="${faculty.name}" class="w-32 h-32 object-cover rounded-full">
+      <img src="${safeFaculty.image}" alt="${safeFaculty.name}" class="w-32 h-32 object-cover rounded-full">
       <div class="faculty-info flex flex-col gap-2 items-center justify-center text-center">
-        <p class="text-xl font-bold">${faculty.name}</p>
-        <p class="text-sm text-gray-600"><span class="font-semibold">Department:</span> ${faculty.department}</p>
-        ${faculty.edu_toggle === "y" ? `<p class="text-sm text-gray-600"><span class="font-semibold">Education:</span> ${faculty.education.join(", ")}</p>` : ''}
+        <p class="text-xl font-bold">${safeFaculty.name}</p>
+        <p class="text-sm text-gray-600"><span class="font-semibold">Department:</span> ${safeFaculty.department}</p>
+        ${safeFaculty.edu_toggle === "y" ? `<p class="text-sm text-gray-600"><span class="font-semibold">Education:</span> ${(safeFaculty.education || []).join(", ")}</p>` : ''}
         <div class="flex flex-col items-center gap-2">
           <span class="text-sm text-gray-600 font-semibold">Rating:</span>
           <div class="flex gap-1 justify-center">
-            ${renderStars(faculty.rating)}
+            ${renderStars(safeFaculty.rating)}
           </div>
         </div>
       </div>
       <div class="flex flex-col sm:flex-row gap-3 w-full">
-        <button type="button" data-profile-type="faculty" data-profile-id="${faculty.id}" class="view-profile-btn btn flex-1 bg-black text-white px-4 py-2 rounded-md text-center text-sm hover:bg-gray-800 transition">View Profile</button>
-        <a href="${faculty.linkedinUrl}" target="_blank" rel="noopener noreferrer" class="btn flex-1 bg-black text-white px-4 py-2 rounded-md text-center text-sm hover:bg-gray-800 transition">LinkedIn</a>
+        <button type="button" data-profile-type="faculty" data-profile-id="${safeFaculty.id}" class="view-profile-btn btn flex-1 bg-black text-white px-4 py-2 rounded-md text-center text-sm hover:bg-gray-800 transition">View Profile</button>
+        <a href="${safeFaculty.linkedinUrl}" target="_blank" rel="noopener noreferrer" class="btn flex-1 bg-black text-white px-4 py-2 rounded-md text-center text-sm hover:bg-gray-800 transition">LinkedIn</a>
       </div>
     </div>
-  `).join('');
+  `;
+  }).join('');
 }
 
 export function renderOwnerCards() {
@@ -272,22 +326,25 @@ export function renderOwnerCards() {
   
   console.log('Rendering owner cards:', ownerData.length);
   
-  ownerGrid.innerHTML = ownerData.map(owner => `
+  ownerGrid.innerHTML = ownerData.map((owner) => {
+    const safeOwner = sanitizeProfileData(owner);
+    return `
     <div class="owner-card flex flex-col gap-4 p-6 border-2 border-dashed border-black/90 rounded-lg hover:shadow-lg transition-shadow items-center justify-center">
-      <img src="${owner.image}" alt="${owner.name}" class="w-32 h-32 object-cover rounded-full">
+      <img src="${safeOwner.image}" alt="${safeOwner.name}" class="w-32 h-32 object-cover rounded-full">
       <div class="owner-info flex flex-col gap-2 items-center justify-center text-center">
-        <p class="text-xl font-bold">${owner.name}</p>
-        <p class="text-sm text-gray-600"><span class="font-semibold">Role:</span> ${owner.role}</p>
-        ${owner.education ? `<p class="text-sm text-gray-600"><span class="font-semibold">Education:</span> ${owner.education.join(", ")}</p>` : ''}
-        <p class="text-sm text-gray-600"><span class="font-semibold">Expertise:</span> ${owner.expertise.join(", ")}</p>
-        <p class="text-sm text-gray-600">${owner.bio}</p>
+        <p class="text-xl font-bold">${safeOwner.name}</p>
+        <p class="text-sm text-gray-600"><span class="font-semibold">Role:</span> ${safeOwner.role}</p>
+        ${safeOwner.education ? `<p class="text-sm text-gray-600"><span class="font-semibold">Education:</span> ${safeOwner.education.join(", ")}</p>` : ''}
+        <p class="text-sm text-gray-600"><span class="font-semibold">Expertise:</span> ${(safeOwner.expertise || []).join(", ")}</p>
+        <p class="text-sm text-gray-600">${safeOwner.bio}</p>
       </div>
       <div class="flex gap-3 w-full">
-        <button type="button" data-profile-type="owner" data-profile-id="${owner.id}" class="view-profile-btn btn flex-1 bg-black text-white px-4 py-2 rounded-md text-center text-sm hover:bg-gray-800 transition">View Profile</button>
-        <a href="${owner.linkedinUrl}" target="_blank" rel="noopener noreferrer" class="btn flex-1 bg-black text-white px-4 py-2 rounded-md text-center text-sm hover:bg-gray-800 transition">LinkedIn</a>
+        <button type="button" data-profile-type="owner" data-profile-id="${safeOwner.id}" class="view-profile-btn btn flex-1 bg-black text-white px-4 py-2 rounded-md text-center text-sm hover:bg-gray-800 transition">View Profile</button>
+        <a href="${safeOwner.linkedinUrl}" target="_blank" rel="noopener noreferrer" class="btn flex-1 bg-black text-white px-4 py-2 rounded-md text-center text-sm hover:bg-gray-800 transition">LinkedIn</a>
       </div>
     </div>
-  `).join('');
+  `;
+  }).join('');
 }
 
 function createProfileModalIfNeeded() {
@@ -339,6 +396,7 @@ function getProfileData(type, id) {
 }
 
 function buildProfileModalHtml(profile, type) {
+  profile = sanitizeProfileData(profile);
   const headingLabel = type === 'faculty' ? 'Faculty Profile' : `${profile.role} Profile`;
   const secondaryLabel = type === 'faculty' ? 'Department' : 'Role';
   const secondaryValue = type === 'faculty' ? profile.department : profile.role;

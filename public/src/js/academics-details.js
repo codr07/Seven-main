@@ -1,8 +1,9 @@
 import { normalizedAcademics, createAcademicSlug } from "./academics.js";
+import { escapeHtml, sanitizeSlugParam, sanitizeUrl } from "./security.js";
 
 function getAcademicFromQuery() {
   const params = new URLSearchParams(window.location.search);
-  const slug = params.get("academic") || "";
+  const slug = sanitizeSlugParam(params.get("academic") || "");
 
   const allAcademics = normalizedAcademics.flatMap((group) =>
     group.items.map((item, index) => {
@@ -76,16 +77,30 @@ function renderMissing(container) {
 
 function renderAcademicDetails(container, academic) {
   const detailPoints = Array.isArray(academic.details) ? academic.details : [];
+  const safeCover = sanitizeUrl(academic.coverImage || "public/assets/images/img/thumb.png", {
+    allowDataImage: true,
+    fallback: "/public/assets/images/img/thumb.png",
+  });
+  const safeCategory = escapeHtml(academic.category);
+  const safeTitle = escapeHtml(academic.detailTitle);
+  const safeShortDesc = escapeHtml(academic.detailShortDesc);
+  const safeWhyChoose = escapeHtml(academic.whyChoose);
+  const safePublicReview = escapeHtml(academic.publicReview);
+  const safePrice = escapeHtml(academic.price || "Contact for details");
+  const safeRank = escapeHtml(academic.rank);
+  const safeCertificationCost = escapeHtml(academic.certificationCost);
+  const safeLink = sanitizeUrl(academic.link || "contact.html");
+  const safeDetailPoints = detailPoints.map((point) => `<li>${escapeHtml(point)}</li>`).join("");
 
   container.innerHTML = `
     <section class="overflow-hidden rounded-2xl border border-black/15 bg-white/80 shadow-lg backdrop-blur-sm">
       <div class="relative h-56 w-full sm:h-72 lg:h-80">
-        <img src="${academic.coverImage}" alt="${academic.detailTitle}" class="h-full w-full object-cover" />
+        <img src="${safeCover}" alt="${safeTitle}" class="h-full w-full object-cover" />
         <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/35 to-transparent"></div>
         <div class="absolute bottom-0 left-0 right-0 p-5 sm:p-7">
-          <span class="mb-3 inline-flex items-center rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-gray-900">${academic.category}</span>
-          <h1 class="text-2xl font-bold text-white sm:text-3xl lg:text-4xl">${academic.detailTitle}</h1>
-          <p class="mt-2 max-w-3xl text-sm text-white/95 sm:text-base">${academic.detailShortDesc}</p>
+          <span class="mb-3 inline-flex items-center rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-gray-900">${safeCategory}</span>
+          <h1 class="text-2xl font-bold text-white sm:text-3xl lg:text-4xl">${safeTitle}</h1>
+          <p class="mt-2 max-w-3xl text-sm text-white/95 sm:text-base">${safeShortDesc}</p>
         </div>
       </div>
 
@@ -94,38 +109,38 @@ function renderAcademicDetails(container, academic) {
           <div class="rounded-xl border border-black/10 bg-white p-5">
             <h2 class="text-lg font-bold text-gray-900">Academic Details</h2>
             <ul class="mt-3 list-disc space-y-2 pl-5 text-sm text-gray-700">
-              ${detailPoints.map((point) => `<li>${point}</li>`).join("")}
+              ${safeDetailPoints}
             </ul>
           </div>
 
           <div class="rounded-xl border border-black/10 bg-white p-5">
             <h2 class="text-lg font-bold text-gray-900">Why Choose This Program</h2>
-            <p class="mt-3 text-sm leading-relaxed text-gray-700">${academic.whyChoose}</p>
+            <p class="mt-3 text-sm leading-relaxed text-gray-700">${safeWhyChoose}</p>
           </div>
 
           <div class="rounded-xl border border-black/10 bg-white p-5">
             <h2 class="text-lg font-bold text-gray-900">Public Review</h2>
-            <p class="mt-3 text-sm leading-relaxed text-gray-700">${academic.publicReview}</p>
+            <p class="mt-3 text-sm leading-relaxed text-gray-700">${safePublicReview}</p>
           </div>
         </div>
 
         <aside class="space-y-4">
           <div class="rounded-xl border border-black/10 bg-white p-5">
             <p class="text-xs font-semibold uppercase tracking-wide text-gray-500">Price</p>
-            <p class="mt-1 text-2xl font-bold text-gray-900">${academic.price || "Contact for details"}</p>
+            <p class="mt-1 text-2xl font-bold text-gray-900">${safePrice}</p>
           </div>
 
           <div class="rounded-xl border border-black/10 bg-white p-5">
             <p class="text-xs font-semibold uppercase tracking-wide text-gray-500">Academic Code</p>
-            <p class="mt-1 text-base font-bold text-gray-900">AC-${academic.rank}</p>
+            <p class="mt-1 text-base font-bold text-gray-900">AC-${safeRank}</p>
           </div>
 
           <div class="rounded-xl border border-black/10 bg-white p-5">
             ${certificationToggleMarkup(academic.certificationAvailable)}
-            <p class="mt-3 text-sm text-gray-700"><span class="font-semibold">Monthly Cost:</span> ${academic.certificationCost}</p>
+            <p class="mt-3 text-sm text-gray-700"><span class="font-semibold">Monthly Cost:</span> ${safeCertificationCost}</p>
           </div>
 
-          <a href="${academic.link || "contact.html"}" class="inline-flex w-full items-center justify-center rounded-lg border border-black/20 bg-black px-4 py-3 text-sm font-semibold text-white hover:bg-white hover:text-black transition-colors">
+          <a href="${safeLink}" class="inline-flex w-full items-center justify-center rounded-lg border border-black/20 bg-black px-4 py-3 text-sm font-semibold text-white hover:bg-white hover:text-black transition-colors">
             Book a Session
           </a>
         </aside>

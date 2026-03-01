@@ -1,3 +1,5 @@
+import { escapeHtml, sanitizeUrl } from "./security.js";
+
 export const contactData = {
   address: {
     line1: "Biswashati Road Sadpur",
@@ -31,6 +33,25 @@ export function renderContactDetails() {
   
   console.log('Rendering contact details');
   
+  const addressLine1 = escapeHtml(contactData.address?.line1);
+  const addressLine2 = escapeHtml(contactData.address?.line2);
+  const addressCountry = escapeHtml(contactData.address?.country);
+  const phoneNotice = escapeHtml(contactData.phoneNotice);
+  const emailGeneral = escapeHtml(contactData.emails?.[0]);
+  const emailGrievance = escapeHtml(contactData.emails?.[1]);
+  const emailOrders = escapeHtml(contactData.emails?.[2]);
+  const emailGeneralHref = sanitizeUrl(`mailto:${contactData.emails?.[0] || ""}`);
+  const emailGrievanceHref = sanitizeUrl(`mailto:${contactData.emails?.[1] || ""}`);
+  const emailOrdersHref = sanitizeUrl(`mailto:${contactData.emails?.[2] || ""}`);
+  const websiteHref = sanitizeUrl(contactData.website);
+  const websiteLabel = escapeHtml(contactData.website);
+  const linkedinHref = sanitizeUrl(contactData.socials?.linkedin);
+  const youtubeHref = sanitizeUrl(contactData.socials?.youtube);
+  const instagramHref = sanitizeUrl(contactData.socials?.instagram);
+  const twitterHref = sanitizeUrl(contactData.socials?.twitter);
+  const facebookHref = sanitizeUrl(contactData.socials?.facebook);
+  const mapEmbedUrl = sanitizeUrl(contactData.mapEmbedUrl, { fallback: "" });
+
   contactContainer.innerHTML = `
     <div class="contact-grid grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
       <!-- Address Section -->
@@ -40,9 +61,9 @@ export function renderContactDetails() {
           <h3 class="text-xl font-bold">Address</h3>
         </div>
         <div class="text-gray-700">
-          <p>${contactData.address.line1}</p>
-          <p>${contactData.address.line2}</p>
-          <p>${contactData.address.country}</p>
+          <p>${addressLine1}</p>
+          <p>${addressLine2}</p>
+          <p>${addressCountry}</p>
         </div>
       </div>
 
@@ -54,7 +75,7 @@ export function renderContactDetails() {
         </div>
         <div class="flex flex-col gap-2">
           <a href="#" class="text-gray-700 hover:text-black transition">
-            ${contactData.phoneNotice}
+            ${phoneNotice}
           </a>
         </div>
       </div>
@@ -68,20 +89,20 @@ export function renderContactDetails() {
         <div class="flex flex-col gap-3">
           <div class="flex flex-col gap-1">
             <span class="text-xs text-gray-500 font-semibold">General</span>
-            <a href="mailto:${contactData.emails[0]}" class="text-sm text-gray-700 hover:text-black transition break-all">
-              ${contactData.emails[0]}
+            <a href="${emailGeneralHref}" class="text-sm text-gray-700 hover:text-black transition break-all">
+              ${emailGeneral}
             </a>
           </div>
           <div class="flex flex-col gap-1">
             <span class="text-xs text-gray-500 font-semibold">Grievance</span>
-            <a href="mailto:${contactData.emails[1]}" class="text-sm text-gray-700 hover:text-black transition break-all">
-              ${contactData.emails[1]}
+            <a href="${emailGrievanceHref}" class="text-sm text-gray-700 hover:text-black transition break-all">
+              ${emailGrievance}
             </a>
           </div>
           <div class="flex flex-col gap-1">
             <span class="text-xs text-gray-500 font-semibold">Orders</span>
-            <a href="mailto:${contactData.emails[2]}" class="text-sm text-gray-700 hover:text-black transition break-all">
-              ${contactData.emails[2]}
+            <a href="${emailOrdersHref}" class="text-sm text-gray-700 hover:text-black transition break-all">
+              ${emailOrders}
             </a>
           </div>
         </div>
@@ -93,8 +114,8 @@ export function renderContactDetails() {
           <i class="ri-globe-line text-2xl text-black"></i>
           <h3 class="text-xl font-bold">Website</h3>
         </div>
-        <a href="${contactData.website}" target="_blank" class="text-sm text-gray-700 hover:text-black transition break-all">
-          ${contactData.website}
+        <a href="${websiteHref}" target="_blank" rel="noopener noreferrer" class="text-sm text-gray-700 hover:text-black transition break-all">
+          ${websiteLabel}
         </a>
       </div>
 
@@ -105,19 +126,19 @@ export function renderContactDetails() {
           <h3 class="text-xl font-bold">Follow Us</h3>
         </div>
         <div class="flex gap-4 flex-wrap">
-          <a href="${contactData.socials.linkedin}" target="_blank" title="LinkedIn" class="flex items-center justify-center w-10 h-10 bg-black text-white rounded-full hover:bg-gray-800 transition">
+          <a href="${linkedinHref}" target="_blank" rel="noopener noreferrer" title="LinkedIn" class="flex items-center justify-center w-10 h-10 bg-black text-white rounded-full hover:bg-gray-800 transition">
             <i class="ri-linkedin-fill"></i>
           </a>
-          <a href="${contactData.socials.youtube}" target="_blank" title="YouTube" class="flex items-center justify-center w-10 h-10 bg-black text-white rounded-full hover:bg-gray-800 transition">
+          <a href="${youtubeHref}" target="_blank" rel="noopener noreferrer" title="YouTube" class="flex items-center justify-center w-10 h-10 bg-black text-white rounded-full hover:bg-gray-800 transition">
             <i class="ri-youtube-fill"></i>
           </a>
-          <a href="${contactData.socials.instagram}" target="_blank" title="Instagram" class="flex items-center justify-center w-10 h-10 bg-black text-white rounded-full hover:bg-gray-800 transition">
+          <a href="${instagramHref}" target="_blank" rel="noopener noreferrer" title="Instagram" class="flex items-center justify-center w-10 h-10 bg-black text-white rounded-full hover:bg-gray-800 transition">
             <i class="ri-instagram-fill"></i>
           </a>
-          <a href="${contactData.socials.twitter}" target="_blank" title="Twitter" class="flex items-center justify-center w-10 h-10 bg-black text-white rounded-full hover:bg-gray-800 transition">
+          <a href="${twitterHref}" target="_blank" rel="noopener noreferrer" title="Twitter" class="flex items-center justify-center w-10 h-10 bg-black text-white rounded-full hover:bg-gray-800 transition">
             <i class="ri-twitter-x-fill"></i>
           </a>
-          <a href="${contactData.socials.facebook}" target="_blank" title="Facebook" class="flex items-center justify-center w-10 h-10 bg-black text-white rounded-full hover:bg-gray-800 transition">
+          <a href="${facebookHref}" target="_blank" rel="noopener noreferrer" title="Facebook" class="flex items-center justify-center w-10 h-10 bg-black text-white rounded-full hover:bg-gray-800 transition">
             <i class="ri-facebook-fill"></i>
           </a>
         </div>
@@ -128,7 +149,8 @@ export function renderContactDetails() {
     <div class="contact-form-section flex flex-col gap-4 mt-8 w-full">
       <h3 class="text-2xl font-bold">Send Us a Message</h3>
       <div class="bg-white/70 backdrop-blur-sm rounded-xl border border-black/10 p-5 shadow-sm">
-        <form class="grid grid-cols-1 md:grid-cols-2 gap-4" action="https://formsubmit.co/orders.seveninst@gmail.com" method="post">
+        <form class="grid grid-cols-1 md:grid-cols-2 gap-4" action="https://formsubmit.co/orders.seveninst@gmail.com" method="post" autocomplete="off">
+          <input type="hidden" name="_template" value="table">
           <input type="text" name="Full Name" required placeholder="Full Name" class="rounded-lg border border-black/20 px-4 py-2 text-sm bg-white">
           <input type="email" name="Email" required placeholder="Email Address" class="rounded-lg border border-black/20 px-4 py-2 text-sm bg-white">
           <input type="text" name="_subject" required placeholder="Subject" class="rounded-lg border border-black/20 px-4 py-2 text-sm bg-white md:col-span-2">
@@ -143,7 +165,7 @@ export function renderContactDetails() {
     <div class="map-section flex flex-col gap-4 mt-8 w-full">
       <h3 class="text-2xl font-bold">Find Us on Map</h3>
       <iframe 
-        src="${contactData.mapEmbedUrl}" 
+        src="${mapEmbedUrl}" 
         width="100%" 
         height="400" 
         style="border:2px dashed rgba(0,0,0,0.9); border-radius: 8px;" 

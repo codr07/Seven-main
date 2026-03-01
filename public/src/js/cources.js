@@ -1,3 +1,5 @@
+import { escapeHtml, sanitizeUrl } from "./security.js";
+
 const courses = [
   {
     category: "Coding Language Course",
@@ -992,14 +994,16 @@ function createCourseImage(coverImage, title, badgeMeta) {
 
   const image = document.createElement("img");
   image.className = "w-full h-full object-cover";
-  image.src = coverImage;
-  image.alt = title;
+  image.src = sanitizeUrl(coverImage, { allowDataImage: true, fallback: COURSE_FALLBACK_IMAGE });
+  image.alt = escapeHtml(title);
   image.loading = "lazy";
 
   const badge = document.createElement("span");
   badge.className =
     "absolute top-3 left-3 inline-flex items-center gap-2 rounded-full bg-black/80 text-white px-3 py-1 text-xs font-semibold";
-  badge.innerHTML = `<i class="${badgeMeta.icon}"></i>${badgeMeta.label}`;
+  const icon = document.createElement("i");
+  icon.className = badgeMeta.icon;
+  badge.append(icon, escapeHtml(badgeMeta.label));
 
   imageWrap.append(image, badge);
   return imageWrap;
@@ -1121,7 +1125,7 @@ function openCourseDetails(course) {
 
   modalDuration.textContent = `Duration: ${course.duration}`;
   modalPrice.textContent = `Price: ${course.price}`;
-  modalBuyNow.href = course.link || "#";
+  modalBuyNow.href = sanitizeUrl(course.link || "#");
 
   modal.classList.remove("hidden");
   modal.classList.add("flex");
@@ -1175,13 +1179,15 @@ function renderCourses() {
       const meta = document.createElement("div");
       meta.className =
         "sm:flex items-center sm:justify-between sm:w-full mt-2 pt-3 border-t border-black/10";
-      meta.innerHTML = `
-        <span class="inline-flex items-center gap-2 rounded-full border border-black/20 px-3 py-1 text-sm font-medium text-gray-700">
-          <span class="h-2 w-2 rounded-full bg-red-500"></span>
-          Duration: ${course.duration}
-        </span>
-        <span class="text-lg font-bold text-gray-900">${course.price}</span>
-      `;
+      const durationSpan = document.createElement("span");
+      durationSpan.className = "inline-flex items-center gap-2 rounded-full border border-black/20 px-3 py-1 text-sm font-medium text-gray-700";
+      durationSpan.innerHTML = '<span class="h-2 w-2 rounded-full bg-red-500"></span>';
+      durationSpan.append(`Duration: ${course.duration}`);
+
+      const priceSpan = document.createElement("span");
+      priceSpan.className = "text-lg font-bold text-gray-900";
+      priceSpan.textContent = course.price;
+      meta.append(durationSpan, priceSpan);
 
       const viewButton = document.createElement("a");
       const courseSlug = createCourseSlug(courseTitle);

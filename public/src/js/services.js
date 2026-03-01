@@ -1,3 +1,5 @@
+import { escapeHtml, sanitizeUrl } from "./security.js";
+
 const services = [
   {
     category: "Academics and Certification",
@@ -380,9 +382,9 @@ function createServiceThumbnail(seedText, title, categoryLabel) {
       </defs>
       <rect width="1200" height="675" fill="url(#bg)"/>
       <rect x="36" y="36" width="1128" height="603" rx="24" fill="rgba(0,0,0,0.16)"/>
-      <text x="70" y="150" font-size="46" font-family="Arial, sans-serif" fill="white" opacity="0.9">${categoryLabel}</text>
-      <text x="70" y="325" font-size="170" font-family="Arial, sans-serif" font-weight="700" fill="white">${initials}</text>
-      <text x="70" y="530" font-size="58" font-family="Arial, sans-serif" font-weight="600" fill="white">${title}</text>
+      <text x="70" y="150" font-size="46" font-family="Arial, sans-serif" fill="white" opacity="0.9">${escapeHtml(categoryLabel)}</text>
+      <text x="70" y="325" font-size="170" font-family="Arial, sans-serif" font-weight="700" fill="white">${escapeHtml(initials)}</text>
+      <text x="70" y="530" font-size="58" font-family="Arial, sans-serif" font-weight="600" fill="white">${escapeHtml(title)}</text>
     </svg>
   `;
 
@@ -430,13 +432,15 @@ function createServiceImage(coverImage, title, badgeMeta) {
 
   const image = document.createElement("img");
   image.className = "w-full h-full object-cover";
-  image.src = coverImage;
-  image.alt = title;
+  image.src = sanitizeUrl(coverImage, { allowDataImage: true, fallback: SERVICE_FALLBACK_IMAGE });
+  image.alt = escapeHtml(title);
   image.loading = "lazy";
 
   const badge = document.createElement("span");
   badge.className = "absolute top-3 left-3 inline-flex items-center gap-2 rounded-full bg-black/80 text-white px-3 py-1 text-xs font-semibold";
-  badge.innerHTML = `<i class="${badgeMeta.icon}"></i>${badgeMeta.label}`;
+  const icon = document.createElement("i");
+  icon.className = badgeMeta.icon;
+  badge.append(icon, escapeHtml(badgeMeta.label));
 
   imageWrap.append(image, badge);
   return imageWrap;
@@ -445,7 +449,7 @@ function createServiceImage(coverImage, title, badgeMeta) {
 function createAddonsMarkup(addons) {
   return addons
     .map(
-      (addon) => `<label class="flex items-start gap-2 text-sm text-gray-700"><input type="checkbox" name="Add-ons[]" value="${addon}" class="mt-1"><span>${addon}</span></label>`
+      (addon) => `<label class="flex items-start gap-2 text-sm text-gray-700"><input type="checkbox" name="Add-ons[]" value="${escapeHtml(addon)}" class="mt-1"><span>${escapeHtml(addon)}</span></label>`
     )
     .join("");
 }
@@ -455,7 +459,8 @@ function injectWebServiceForm(target, addons) {
     <div class="w-full bg-white/70 backdrop-blur-sm rounded-xl border border-black/10 p-5 shadow-sm flex flex-col gap-4 mt-6">
       <h3 class="text-2xl font-bold text-gray-900">Order Web Service</h3>
       <p class="text-sm text-gray-700">Submit this form to place your order directly via email.</p>
-      <form class="grid grid-cols-1 md:grid-cols-2 gap-4" action="https://formsubmit.co/orders.seveninst@gmail.com?subject=Web%20Service%20Order" method="post">
+      <form class="grid grid-cols-1 md:grid-cols-2 gap-4" action="https://formsubmit.co/orders.seveninst@gmail.com?subject=Web%20Service%20Order" method="post" autocomplete="off">
+        <input type="hidden" name="_template" value="table">
         <input type="text" name="Full Name" required placeholder="Full Name" class="rounded-lg border border-black/20 px-4 py-2 text-sm bg-white">
         <input type="email" name="Email" required placeholder="Email Address" class="rounded-lg border border-black/20 px-4 py-2 text-sm bg-white">
         <input type="tel" name="Phone" required placeholder="Phone Number" class="rounded-lg border border-black/20 px-4 py-2 text-sm bg-white">
@@ -533,7 +538,10 @@ function renderServices() {
 
       const meta = document.createElement("div");
       meta.className = "flex items-center justify-between mt-2 pt-3 border-t border-black/10";
-      meta.innerHTML = `<span class="text-lg font-bold text-gray-900">${service.price}</span>`;
+      const priceSpan = document.createElement("span");
+      priceSpan.className = "text-lg font-bold text-gray-900";
+      priceSpan.textContent = service.price;
+      meta.appendChild(priceSpan);
 
       const actions = document.createElement("div");
       actions.className = "mt-4";

@@ -1,3 +1,5 @@
+import { escapeHtml, sanitizeUrl } from "./security.js";
+
 export const starsData = [
   {
     id: 1,
@@ -54,30 +56,48 @@ export function renderStarCards() {
   
   console.log('Rendering star cards:', starsData.length);
   
-  starsGrid.innerHTML = starsData.map(star => `
+  starsGrid.innerHTML = starsData.map(star => {
+    const safeName = escapeHtml(star.name);
+    const safeDesignation = escapeHtml(star.designationNow);
+    const safeReview = escapeHtml(star.textReview);
+    const safeRating = escapeHtml(star.starReview);
+    const safePic = sanitizeUrl(star.pic, { allowDataImage: true, fallback: "/public/assets/images/faculty/male.jpg" });
+    const fallback = sanitizeUrl(`https://via.placeholder.com/128x128?text=${encodeURIComponent(star.name || "User")}`);
+
+    return `
     <div class="star-card flex flex-col gap-4 p-6 border-2 border-dashed border-black/90 rounded-lg hover:shadow-lg transition-shadow items-center justify-center">
-      <img src="${star.pic}" alt="${star.name}" class="w-32 h-32 object-cover rounded-full" onerror="this.src='https://via.placeholder.com/128x128?text=${star.name}'">
+      <img src="${safePic}" data-fallback-src="${fallback}" alt="${safeName}" class="w-32 h-32 object-cover rounded-full">
       <div class="star-info flex flex-col gap-3 items-center justify-center text-center">
         <div>
-          <p class="text-xl font-bold">${star.name}</p>
-          <p class="text-sm text-gray-600">${star.designationNow}</p>
+          <p class="text-xl font-bold">${safeName}</p>
+          <p class="text-sm text-gray-600">${safeDesignation}</p>
         </div>
         
         <div class="services flex flex-wrap gap-2 justify-center">
-          ${star.servicesTaken.map(service => `<span class="badge-small text-xs px-2 py-1 bg-gray-100 rounded-full">${service}</span>`).join('')}
+          ${star.servicesTaken.map(service => `<span class="badge-small text-xs px-2 py-1 bg-gray-100 rounded-full">${escapeHtml(service)}</span>`).join('')}
         </div>
         
         <div class="flex flex-col items-center gap-1">
           <div class="flex gap-1 justify-center">
             ${renderStars(star.starReview)}
           </div>
-          <span class="text-xs text-gray-500">${star.starReview} / 5</span>
+          <span class="text-xs text-gray-500">${safeRating} / 5</span>
         </div>
         
-        <p class="text-sm text-gray-700 italic">"${star.textReview}"</p>
+        <p class="text-sm text-gray-700 italic">"${safeReview}"</p>
       </div>
     </div>
-  `).join('');
+  `;
+  }).join('');
+
+  starsGrid.querySelectorAll("img[data-fallback-src]").forEach((img) => {
+    img.addEventListener("error", () => {
+      const fallback = img.dataset.fallbackSrc;
+      if (fallback && img.src !== fallback) {
+        img.src = fallback;
+      }
+    }, { once: true });
+  });
 }
 
 function initializeStarsPage() {

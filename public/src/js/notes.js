@@ -1,3 +1,5 @@
+import { escapeHtml, sanitizeUrl } from "./security.js";
+
 const notes = [
   {
     category: "Coding Language notes",
@@ -197,13 +199,15 @@ function createNoteImage(coverImage, title, badgeMeta) {
 
   const image = document.createElement("img");
   image.className = "w-full h-full object-cover";
-  image.src = coverImage;
-  image.alt = title;
+  image.src = sanitizeUrl(coverImage, { allowDataImage: true, fallback: NOTES_FALLBACK_IMAGE });
+  image.alt = escapeHtml(title);
   image.loading = "lazy";
 
   const badge = document.createElement("span");
   badge.className = "absolute top-3 left-3 inline-flex items-center gap-2 rounded-full bg-black/80 text-white px-3 py-1 text-xs font-semibold";
-  badge.innerHTML = `<i class="${badgeMeta.icon}"></i>${badgeMeta.label}`;
+  const icon = document.createElement("i");
+  icon.className = badgeMeta.icon;
+  badge.append(icon, escapeHtml(badgeMeta.label));
 
   imageWrap.append(image, badge);
   return imageWrap;
@@ -248,13 +252,15 @@ function renderNotes() {
       const meta = document.createElement("div");
       meta.className =
         "sm:flex items-center sm:justify-between sm:w-full mt-2 pt-3 border-t border-black/10";
-      meta.innerHTML = `
-        <span class="inline-flex items-center gap-2 rounded-full border border-black/20 px-3 py-1 text-sm font-medium text-gray-700">
-          <span class="h-2 w-2 rounded-full bg-red-500"></span>
-          Type: ${noteType}
-        </span>
-        <span class="text-lg font-bold text-gray-900">${note.price}</span>
-      `;
+      const typeSpan = document.createElement("span");
+      typeSpan.className = "inline-flex items-center gap-2 rounded-full border border-black/20 px-3 py-1 text-sm font-medium text-gray-700";
+      typeSpan.innerHTML = '<span class="h-2 w-2 rounded-full bg-red-500"></span>';
+      typeSpan.append(`Type: ${noteType}`);
+
+      const priceSpan = document.createElement("span");
+      priceSpan.className = "text-lg font-bold text-gray-900";
+      priceSpan.textContent = note.price;
+      meta.append(typeSpan, priceSpan);
 
       const noteSlug = createNoteSlug(note.title);
 
