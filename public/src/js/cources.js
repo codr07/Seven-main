@@ -48,7 +48,7 @@ const courses = [
         ],
         duration: "5 Months",
         price: "₹6,499",
-        link: "#topmate#Link",
+        link: "https://topmate.io/seven_oz/1980024",
         view_details: {
           cover: "public/assets/images/img/thumb.png",
           title: "Data Structures and Algorithms (DSA)",
@@ -75,7 +75,7 @@ const courses = [
     items: [
       {
         coverImage: "public/assets/images/img/thumb.png",
-        name: "Basic Web Development",
+        name: "Basic - Rookie",
         short_desc:
           "Learn HTML and CSS fundamentals to build responsive static websites.",
         details: [
@@ -85,7 +85,7 @@ const courses = [
         ],
         duration: "2 Months",
         price: "₹5,999",
-        link: "#topmate#Link",
+        link: "https://topmate.io/seven_oz/1984758",
         view_details: {
           cover: "public/assets/images/img/thumb.png",
           title: "Basic Web Development",
