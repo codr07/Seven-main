@@ -231,6 +231,15 @@ function getServiceCategoryMeta(category) {
   return SERVICE_CATEGORY_META[category] || { icon: "ri-service-line", label: "Service" };
 }
 
+function createServiceSlug(title = "") {
+  return title
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, "")
+    .trim()
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-");
+}
+
 function createServiceImage(coverImage, title, badgeMeta) {
   const imageWrap = document.createElement("div");
   imageWrap.className = "relative w-full h-44 rounded-lg border border-black/10 overflow-hidden mb-4";
@@ -342,13 +351,25 @@ function renderServices() {
       meta.className = "flex items-center justify-between mt-2 pt-3 border-t border-black/10";
       meta.innerHTML = `<span class="text-lg font-bold text-gray-900">${service.price}</span>`;
 
+      const actions = document.createElement("div");
+      actions.className = "mt-4 grid grid-cols-2 gap-3";
+
+      const serviceSlug = createServiceSlug(service.title);
+
+      const viewButton = document.createElement("a");
+      viewButton.href = `service-details.html?service=${encodeURIComponent(serviceSlug)}`;
+      viewButton.className = "inline-flex items-center justify-center rounded-lg border border-black/20 px-4 py-2 text-sm font-semibold text-gray-900 hover:bg-black hover:text-white transition-colors";
+      viewButton.textContent = "View Service";
+      viewButton.setAttribute("aria-label", `View ${service.title}`);
+
       const buyButton = document.createElement("a");
       buyButton.href = card.dataset.link || "#";
-      buyButton.className = "mt-4 inline-flex items-center justify-center rounded-lg border border-black/20 px-4 py-2 text-sm font-semibold text-gray-900 hover:bg-black hover:text-white transition-colors";
+      buyButton.className = "inline-flex items-center justify-center rounded-lg border border-black/20 px-4 py-2 text-sm font-semibold text-gray-900 hover:bg-black hover:text-white transition-colors";
       buyButton.textContent = "Buy service";
       buyButton.setAttribute("aria-label", `Buy ${service.title}`);
 
-      card.append(imageWrap, title, shortDescription, meta, buyButton);
+      actions.append(viewButton, buyButton);
+      card.append(imageWrap, title, shortDescription, meta, actions);
       grid.appendChild(card);
     });
 
@@ -370,3 +391,5 @@ if (document.readyState === "loading") {
 } else {
   renderServices();
 }
+
+export { normalizedServices, createServiceSlug };
