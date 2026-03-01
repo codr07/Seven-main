@@ -58,13 +58,12 @@ const notes = [
 
 const NOTES_FALLBACK_IMAGE = "/public/assets/images/img/thumb.png";
 
-const NOTES_CATEGORY_META = {
-  "Coding Language notes": { icon: "ri-book-open-line", label: "Notes" },
-  "Statistics Notes": { icon: "ri-bar-chart-line", label: "Statistics Notes" }
-};
-
 function getNoteTitle(note) {
   return note.title || note.name || "Untitled Note";
+}
+
+function getNoteType(note, fallbackCategory = "Notes") {
+  return note.type || fallbackCategory || "Notes";
 }
 
 function normalizeNoteItem(note) {
@@ -78,6 +77,7 @@ function normalizeNoteItem(note) {
   return {
     ...note,
     title,
+    type: getNoteType(note),
     shortDescription,
     price: note.price || "TBD",
     link: note.link || "#",
@@ -88,6 +88,29 @@ const normalizedNotes = notes.map((group) => ({
   ...group,
   items: Array.isArray(group.items) ? group.items.map(normalizeNoteItem) : [],
 }));
+
+function buildNotesByType(groups) {
+  const groupedByType = new Map();
+
+  groups.forEach((group) => {
+    group.items.forEach((note) => {
+      const noteType = getNoteType(note, group.category);
+
+      if (!groupedByType.has(noteType)) {
+        groupedByType.set(noteType, {
+          category: noteType,
+          items: [],
+        });
+      }
+
+      groupedByType.get(noteType).items.push(note);
+    });
+  });
+
+  return Array.from(groupedByType.values());
+}
+
+const notesByType = buildNotesByType(normalizedNotes);
 
 function hashSeed(seedText) {
   return seedText.split("").reduce((acc, char) => acc + char.charCodeAt(0), 0);
@@ -143,7 +166,20 @@ function getNoteShortDescription(note) {
 }
 
 function getNotesCategoryMeta(category) {
-  return NOTES_CATEGORY_META[category] || { icon: "ri-sticky-note-line", label: "Notes" };
+  const normalizedCategory = String(category || "").toLowerCase();
+
+  if (normalizedCategory.includes("stat")) {
+    return { icon: "ri-bar-chart-line", label: category || "Notes" };
+  }
+
+  if (normalizedCategory.includes("code") || normalizedCategory.includes("language")) {
+    return { icon: "ri-book-open-line", label: category || "Notes" };
+  }
+
+  return {
+    icon: "ri-sticky-note-line",
+    label: category || "Notes",
+  };
 }
 
 function createNoteSlug(title = "") {
@@ -180,7 +216,7 @@ function renderNotes() {
     return;
   }
 
-  normalizedNotes.forEach((group) => {
+  notesByType.forEach((group) => {
     const section = document.createElement("section");
     section.className = "w-full flex flex-col gap-5";
 
@@ -197,8 +233,9 @@ function renderNotes() {
       card.className = "bg-white/70 backdrop-blur-sm rounded-xl border border-black/10 p-5 shadow-sm flex flex-col justify-between h-full transition-transform hover:scale-105";
       card.dataset.link = note.link;
 
-      const badgeMeta = getNotesCategoryMeta(group.category);
-      const imageWrap = createNoteImage(getUniqueNoteCoverImage(note, group.category, index) || NOTES_FALLBACK_IMAGE, note.title, badgeMeta);
+      const noteType = getNoteType(note, group.category);
+      const badgeMeta = getNotesCategoryMeta(noteType);
+      const imageWrap = createNoteImage(getUniqueNoteCoverImage(note, noteType, index) || NOTES_FALLBACK_IMAGE, note.title, badgeMeta);
 
       const title = document.createElement("h3");
       title.className = "text-xl font-semibold mb-2 text-gray-900";
@@ -214,7 +251,7 @@ function renderNotes() {
       meta.innerHTML = `
         <span class="inline-flex items-center gap-2 rounded-full border border-black/20 px-3 py-1 text-sm font-medium text-gray-700">
           <span class="h-2 w-2 rounded-full bg-red-500"></span>
-          Type: Note
+          Type: ${noteType}
         </span>
         <span class="text-lg font-bold text-gray-900">${note.price}</span>
       `;

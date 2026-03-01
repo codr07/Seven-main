@@ -7,7 +7,8 @@ function getNoteFromQuery() {
   const allNotes = normalizedNotes.flatMap((group) =>
     group.items.map((item, index) => ({
       ...item,
-      category: group.category,
+      category: item.type || group.category,
+      type: item.type || group.category,
       slug: createNoteSlug(item.title),
       coverImage: item.thumbnail || item.coverImage,
       details: Array.isArray(item.details) && item.details.length > 0
@@ -71,7 +72,7 @@ function renderNoteDetails(container, note) {
 
           <div class="rounded-xl border border-black/10 bg-white p-5">
             <p class="text-xs font-semibold uppercase tracking-wide text-gray-500">Collection</p>
-            <p class="mt-1 text-base font-bold text-gray-900">Item #${note.rank}</p>
+            <p class="mt-1 text-base font-bold text-gray-900">${note.type || note.category || "Notes"}</p>
           </div>
 
           <a href="${note.link || "#"}" target="_blank" rel="noopener noreferrer" class="inline-flex w-full items-center justify-center rounded-lg border border-black/20 bg-black px-4 py-3 text-sm font-semibold text-white hover:bg-white hover:text-black transition-colors">
