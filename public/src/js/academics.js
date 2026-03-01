@@ -231,8 +231,15 @@ function renderAcademics() {
       shortDescription.textContent = item.shortDescription;
 
       const meta = document.createElement("div");
-      meta.className = "flex items-center justify-between mt-2 pt-3 border-t border-black/10";
-      meta.innerHTML = `<span class="text-lg font-bold text-gray-900">${item.price}</span>`;
+      meta.className =
+        "sm:flex items-center sm:justify-between sm:w-full mt-2 pt-3 border-t border-black/10";
+      meta.innerHTML = `
+        <span class="inline-flex items-center gap-2 rounded-full border border-black/20 px-3 py-1 text-sm font-medium text-gray-700">
+          <span class="h-2 w-2 rounded-full bg-red-500"></span>
+          Type: Academic
+        </span>
+        <span class="text-lg font-bold text-gray-900">${item.price}</span>
+      `;
 
       const actionButton = document.createElement("a");
       actionButton.href = card.dataset.link || "/contact.html";

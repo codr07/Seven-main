@@ -564,7 +564,7 @@ const courses = [
           "Confidence building in speaking",
         ],
         duration: "12 Months",
-        price: "₹5000",
+        price: "₹4999",
         link: "#topmate#Link",
         view_details: {
           cover: "public/assets/images/img/thumb.png",

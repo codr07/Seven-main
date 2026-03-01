@@ -7,15 +7,49 @@ const notes = [
         thumbnail: "https://memgraph.com/images/blog/in-memory-databases-that-work-great-with-python/cover.png",
         shortDescription: "Quick reference guide for Python syntax, built-ins, and practical coding patterns.",
         price: "₹1,999",
-        link: "#topmate#Link"
+        link: "#topmate#Link",
+        view_details: {
+          cover: "public/assets/images/img/thumb.png",
+          title: "Python CheatSheet",
+          short_desc:
+            "Quick reference guide for Python syntax, built-ins, and practical coding patterns.",
+          description: [
+          "Quick reference guide for Python syntax, built-ins, and practical coding patterns.",
+          "Covers essential concepts like data structures, control flow, functions, and modules.",
+          "Receive targeted improvement strategies and revision guidance to boost confidence before final exams."
+        ],
+          why_choose_this_course:
+            "Ideal for students seeking a concise, exam-focused resource to quickly review key Python concepts and coding patterns before their final exams.",
+          certification_available: false,
+          certification_cost: "N/A",
+          public_review:
+            "This Python CheatSheet was a lifesaver during my exam prep! It condensed all the essential syntax and coding patterns into one easy-to-use guide. The targeted improvement strategies helped me focus on my weak areas, and I felt much more confident going into the exam. Highly recommend for any student looking for a quick review resource!",
+        }
       },
       {
         title: "Regression Analysis Notes",
         thumbnail: "/public/assets/images/img/thumb.png",
         shortDescription: "Compact notes on core regression concepts, assumptions, metrics, and interpretation.",
         price: "₹2,999",
-        link: "#topmate#Link"
-      }
+        link: "#topmate#Link",
+        view_details: {
+          cover: "public/assets/images/img/thumb.png",
+          title: "Regression Analysis Notes",
+          short_desc:
+            "Compact notes on core regression concepts, assumptions, metrics, and interpretation.",
+          description: [
+          "Compact notes on core regression concepts, assumptions, metrics, and interpretation.",
+          "Covers essential concepts like linear regression, logistic regression, and model evaluation.",
+          "Receive targeted improvement strategies and revision guidance to boost confidence before final exams."
+        ],
+          why_choose_this_course:
+            "Ideal for students seeking a concise, exam-focused resource to quickly review key regression analysis concepts before their final exams.",
+          certification_available: false,
+          certification_cost: "N/A",
+          public_review:
+            "These Regression Analysis Notes were incredibly helpful during my exam prep! The concise format made it easy to review all the key concepts quickly. The targeted improvement strategies helped me identify my weak areas and focus my revision efforts more effectively. Highly recommend!",
+        }
+      },
     ]
   }
 ];
@@ -172,24 +206,26 @@ function renderNotes() {
       shortDescription.textContent = getNoteShortDescription(note);
 
       const meta = document.createElement("div");
-      meta.className = "flex items-center justify-between mt-2 pt-3 border-t border-black/10";
+      meta.className =
+        "sm:flex items-center sm:justify-between sm:w-full mt-2 pt-3 border-t border-black/10";
       meta.innerHTML = `
+        <span class="inline-flex items-center gap-2 rounded-full border border-black/20 px-3 py-1 text-sm font-medium text-gray-700">
+          <span class="h-2 w-2 rounded-full bg-red-500"></span>
+          Type: Note
+        </span>
         <span class="text-lg font-bold text-gray-900">${note.price}</span>
       `;
-
-      const actions = document.createElement("div");
-      actions.className = "mt-4";
 
       const noteSlug = createNoteSlug(note.title);
 
       const viewButton = document.createElement("a");
       viewButton.href = `notes-details.html?note=${encodeURIComponent(noteSlug)}`;
-      viewButton.className = "inline-flex items-center justify-center rounded-lg border border-black/20 px-4 py-2 text-sm font-semibold text-gray-900 hover:bg-black hover:text-white transition-colors";
+      viewButton.className =
+        "mt-4 inline-flex items-center justify-center rounded-lg border border-black/20 px-4 py-2 text-sm font-semibold text-gray-900 hover:bg-black hover:text-white transition-colors";
       viewButton.textContent = "View Note";
       viewButton.setAttribute("aria-label", `View ${note.title}`);
 
-      actions.append(viewButton);
-      card.append(imageWrap, title, shortDescription, meta, actions);
+      card.append(imageWrap, title, shortDescription, meta, viewButton);
       grid.appendChild(card);
     });
 
