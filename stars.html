@@ -95,18 +95,5 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script type="module" src="/public/src/js/script.js"></script>
     <script type="module" src="/public/src/js/stars.js"></script>
-    <script type="module">
-      import { renderStarCards } from '/public/src/js/stars.js';
-      
-      function initializeStars() {
-        renderStarCards();
-      }
-      
-      if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", initializeStars);
-      } else {
-        initializeStars();
-      }
-    </script>
 </body>
 </html>

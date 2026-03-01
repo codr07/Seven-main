@@ -144,3 +144,13 @@ export function renderContactDetails() {
     </div>
   `;
 }
+
+function initializeContactPage() {
+  renderContactDetails();
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initializeContactPage);
+} else {
+  initializeContactPage();
+}

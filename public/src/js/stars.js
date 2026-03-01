@@ -79,3 +79,13 @@ export function renderStarCards() {
     </div>
   `).join('');
 }
+
+function initializeStarsPage() {
+  renderStarCards();
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initializeStarsPage);
+} else {
+  initializeStarsPage();
+}
