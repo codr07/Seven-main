@@ -331,6 +331,15 @@ function getAcademicsCategoryMeta(category) {
   );
 }
 
+function createAcademicSlug(title = "") {
+  return title
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, "")
+    .trim()
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-");
+}
+
 function createAcademicImage(coverImage, title, badgeMeta) {
   const imageWrap = document.createElement("div");
   imageWrap.className =
@@ -408,11 +417,24 @@ function renderAcademics() {
       const actionButton = document.createElement("a");
       actionButton.href = card.dataset.link || "/contact.html";
       actionButton.className =
-        "mt-4 inline-flex items-center justify-center rounded-lg border border-black/20 px-4 py-2 text-sm font-semibold text-gray-900 hover:bg-black hover:text-white transition-colors";
+        "inline-flex items-center justify-center rounded-lg border border-black/20 px-4 py-2 text-sm font-semibold text-gray-900 hover:bg-black hover:text-white transition-colors";
       actionButton.textContent = "Book a Session";
       actionButton.setAttribute("aria-label", `Book session for ${item.title}`);
 
-      card.append(imageWrap, title, shortDescription, meta, actionButton);
+      const academicSlug = createAcademicSlug(item.title);
+
+      const viewButton = document.createElement("a");
+      viewButton.href = `academics-details.html?academic=${encodeURIComponent(academicSlug)}`;
+      viewButton.className =
+        "inline-flex items-center justify-center rounded-lg border border-black/20 px-4 py-2 text-sm font-semibold text-gray-900 hover:bg-black hover:text-white transition-colors";
+      viewButton.textContent = "View Details";
+      viewButton.setAttribute("aria-label", `View details for ${item.title}`);
+
+      const actions = document.createElement("div");
+      actions.className = "mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3";
+      actions.append(viewButton, actionButton);
+
+      card.append(imageWrap, title, shortDescription, meta, actions);
       grid.appendChild(card);
     });
 
@@ -438,3 +460,5 @@ if (document.readyState === "loading") {
 } else {
   renderAcademics();
 }
+
+export { normalizedAcademics, createAcademicSlug };
