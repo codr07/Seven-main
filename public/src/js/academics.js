@@ -3,11 +3,30 @@ const academics = [
     category: "Academic Programs & Support",
     items: [
       {
+        cover: "public/assets/images/img/thumb.png",
         title: "Classes 1-4",
         shortDescription:
           "Foundational tutoring with personalized attention to build strong basics in core subjects for Classes 1 to 4.",
         price: "Contact for details",
         link: "/contact.html",
+        viewDetails: {
+          cover: "public/assets/images/img/thumb.png",
+          title: "Classes 1-4 - Foundational Tutoring",
+          short_desc:
+            "Our Classes 1-4 program focuses on building a strong foundation in core subjects like Math, English, and Science. With personalized attention and engaging teaching methods, we help young learners develop essential skills and confidence for their academic journey.",
+          details: [
+            "Personalized Attention: Small class sizes and one-on-one sessions to cater to individual learning needs.",
+            "Engaging Curriculum: Interactive lessons and activities designed to make learning fun and effective.",
+            "Experienced Educators: Skilled teachers with expertise in early childhood education.",
+            "Progress Tracking: Regular assessments and feedback to monitor growth and areas for improvement.",
+          ],
+          why_choose_this_course:
+            "Our Classes 1-4 program is designed to nurture young minds with a strong academic foundation. We focus on personalized learning, engaging content, and expert guidance to ensure every child thrives in their early educational years.",
+          certification_available: false,
+          certification_cost: "₹1,999",
+          public_review:
+            "This program has been a game-changer for my child! The personalized attention and engaging lessons have made a huge difference in their confidence and academic performance. Highly recommend for parents looking to give their kids a strong start!",
+        }
       },
       {
         title: "Classes 5-10",
