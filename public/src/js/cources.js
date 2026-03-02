@@ -725,7 +725,7 @@ const COURSE_CATEGORY_META = {
   "Web Development": { icon: "ri-layout-4-line", label: "Web" },
   "Mathematical Aptitude": { icon: "ri-function-line", label: "Math" },
   "ML/AI": { icon: "ri-cpu-line", label: "AI" },
-  Design: { icon: "ri-palette-line", label: "Design" },
+  "Design": { icon: "ri-palette-line", label: "Design" },
   "Self Enchancment Zone": { icon: "ri-rocket-line", label: "Growth" },
 };
 

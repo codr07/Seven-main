@@ -49,6 +49,169 @@ function renderMissing(container) {
   `;
 }
 
+function initServiceDetailRequestForm(container, service) {
+  const form = container.querySelector("#serviceDetailRequestForm");
+  if (!form) {
+    return;
+  }
+
+  const title = service.title || "";
+  const mockRockFields = form.querySelector("#detailMockRockFields");
+  const projectDocFields = form.querySelector("#detailProjectDocFields");
+  const thesisFields = form.querySelector("#detailThesisFields");
+  const desktopFields = form.querySelector("#detailDesktopFields");
+  const posterFields = form.querySelector("#detailPosterFields");
+  const albumFields = form.querySelector("#detailAlbumFields");
+
+  const mockTestCount = form.querySelector("#detailMockTestCount");
+  const subjectCount = form.querySelector("#detailSubjectCount");
+  const projectDocType = form.querySelector("#detailProjectDocType");
+  const thesisPageRange = form.querySelector("#detailThesisPageRange");
+  const desktopCount = form.querySelector("#detailDesktopCount");
+  const posterPackage = form.querySelector("#detailPosterPackage");
+  const albumPackage = form.querySelector("#detailAlbumPackage");
+
+  const estimatedPriceLabel = form.querySelector("#detailEstimatedPrice");
+  const estimatedPriceInput = form.querySelector("#detailEstimatedPriceInput");
+  const bookSessionButton = form.querySelector("#detailBookSession");
+  const actionLinkInput = form.querySelector("#detailActionLink");
+
+  function hideAllConditionBlocks() {
+    mockRockFields.classList.add("hidden");
+    projectDocFields.classList.add("hidden");
+    thesisFields.classList.add("hidden");
+    desktopFields.classList.add("hidden");
+    posterFields.classList.add("hidden");
+    albumFields.classList.add("hidden");
+
+    subjectCount.required = false;
+    projectDocType.required = false;
+    thesisPageRange.required = false;
+    desktopCount.required = false;
+    posterPackage.required = false;
+    albumPackage.required = false;
+  }
+
+  function setEstimatedPrice(priceText) {
+    estimatedPriceLabel.textContent = priceText;
+    estimatedPriceInput.value = priceText;
+  }
+
+  function setBookingLink() {
+    const safeLink = sanitizeUrl("contact.html");
+    bookSessionButton.href = safeLink;
+    actionLinkInput.value = safeLink;
+  }
+
+  function recalculatePrice() {
+    if (title === "Mock and Rock (Mock Exams)") {
+      const tests = Math.min(4, Math.max(1, Number(mockTestCount.value) || 1));
+      const subjects = Math.max(1, Number(subjectCount.value) || 1);
+      const total = tests * subjects * 500;
+      setEstimatedPrice(`₹${total} (${tests} test(s) × ${subjects} subject(s) × ₹500)`);
+      return;
+    }
+
+    if (title === "Project Documentation") {
+      const selectedOption = projectDocType.options[projectDocType.selectedIndex];
+      const price = selectedOption?.dataset?.price;
+
+      if (!price) {
+        setEstimatedPrice("Select documentation type to calculate price");
+        return;
+      }
+
+      setEstimatedPrice(`₹${Number(price)}`);
+      return;
+    }
+
+    if (title === "Thesis Documentation") {
+      const selectedOption = thesisPageRange.options[thesisPageRange.selectedIndex];
+      const price = selectedOption?.dataset?.price;
+
+      if (!price) {
+        setEstimatedPrice("Select thesis page range to calculate price");
+        return;
+      }
+
+      if (price === "discussion") {
+        setEstimatedPrice("Discussion Required (40+ pages)");
+        return;
+      }
+
+      setEstimatedPrice(`₹${Number(price)}`);
+      return;
+    }
+
+    if (title === "Custom Desktop Design") {
+      const count = Math.max(1, Number(desktopCount.value) || 1);
+      const total = count * 2000;
+      setEstimatedPrice(`₹${total} (${count} setup(s) × ₹2000)`);
+      return;
+    }
+
+    if (title === "Poster and Related Design") {
+      const selectedOption = posterPackage.options[posterPackage.selectedIndex];
+      const price = selectedOption?.dataset?.price;
+
+      if (!price) {
+        setEstimatedPrice("Select poster package to calculate price");
+        return;
+      }
+
+      setEstimatedPrice(`₹${Number(price)}`);
+      return;
+    }
+
+    if (title === "Album Design") {
+      const selectedOption = albumPackage.options[albumPackage.selectedIndex];
+      const price = selectedOption?.dataset?.price;
+
+      if (!price) {
+        setEstimatedPrice("Select album package to calculate price");
+        return;
+      }
+
+      setEstimatedPrice(`₹${Number(price)}`);
+      return;
+    }
+
+    setEstimatedPrice(service.price || "TBD");
+  }
+
+  hideAllConditionBlocks();
+
+  if (title === "Mock and Rock (Mock Exams)") {
+    mockRockFields.classList.remove("hidden");
+    subjectCount.required = true;
+    mockTestCount.addEventListener("change", recalculatePrice);
+    subjectCount.addEventListener("input", recalculatePrice);
+  } else if (title === "Project Documentation") {
+    projectDocFields.classList.remove("hidden");
+    projectDocType.required = true;
+    projectDocType.addEventListener("change", recalculatePrice);
+  } else if (title === "Thesis Documentation") {
+    thesisFields.classList.remove("hidden");
+    thesisPageRange.required = true;
+    thesisPageRange.addEventListener("change", recalculatePrice);
+  } else if (title === "Custom Desktop Design") {
+    desktopFields.classList.remove("hidden");
+    desktopCount.required = true;
+    desktopCount.addEventListener("input", recalculatePrice);
+  } else if (title === "Poster and Related Design") {
+    posterFields.classList.remove("hidden");
+    posterPackage.required = true;
+    posterPackage.addEventListener("change", recalculatePrice);
+  } else if (title === "Album Design") {
+    albumFields.classList.remove("hidden");
+    albumPackage.required = true;
+    albumPackage.addEventListener("change", recalculatePrice);
+  }
+
+  setBookingLink();
+  recalculatePrice();
+}
+
 function renderServiceDetails(container, service) {
   const detailPoints = Array.isArray(service.details) ? service.details : [];
   const safeCover = sanitizeUrl(service.coverImage || "public/assets/images/img/thumb.png", {
@@ -63,7 +226,7 @@ function renderServiceDetails(container, service) {
   const safePublicReview = escapeHtml(service.publicReview);
   const safePrice = escapeHtml(service.price || "TBD");
   const safeRank = escapeHtml(service.rank);
-  const safeLink = sanitizeUrl(service.link || "#");
+  const safeContactLink = sanitizeUrl("contact.html");
   const safeDetailPoints = detailPoints.map((point) => `<li>${escapeHtml(point)}</li>`).join("");
   const addonMarkup = service.addons.length
     ? `<ul class="mt-3 list-disc space-y-2 pl-5 text-sm text-gray-700">${service.addons
@@ -119,13 +282,91 @@ function renderServiceDetails(container, service) {
             <p class="mt-1 text-base font-bold text-gray-900">SV-${safeRank}</p>
           </div>
 
-          <a href="${safeLink}" target="_blank" rel="noopener noreferrer" class="inline-flex w-full items-center justify-center rounded-lg border border-black/20 bg-black px-4 py-3 text-sm font-semibold text-white hover:bg-white hover:text-black transition-colors">
-            Buy Service
+          <a href="${safeContactLink}" target="_blank" rel="noopener noreferrer" class="inline-flex w-full items-center justify-center rounded-lg border border-black/20 bg-black px-4 py-3 text-sm font-semibold text-white hover:bg-white hover:text-black transition-colors">
+            Book Session
           </a>
         </aside>
       </div>
+
+      <div class="border-t border-black/10 p-5 sm:p-7">
+        <h2 class="text-xl font-bold text-gray-900">Request This Service</h2>
+        <p class="mt-1 text-sm text-gray-700">Fill out the form and we will reach out to you.</p>
+
+        <form id="serviceDetailRequestForm" class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4" action="https://formsubmit.co/orders.seveninst@gmail.com" method="post" autocomplete="off">
+          <input type="hidden" name="_template" value="table">
+          <input type="text" name="Full Name" required placeholder="Full Name" class="rounded-lg border border-black/20 px-4 py-2 text-sm bg-white">
+          <input type="email" name="Email" required placeholder="Email Address" class="rounded-lg border border-black/20 px-4 py-2 text-sm bg-white">
+          <input type="tel" name="Phone" required placeholder="Phone Number" class="rounded-lg border border-black/20 px-4 py-2 text-sm bg-white">
+          <input type="text" name="Category" value="${safeCategory}" readonly class="rounded-lg border border-black/20 px-4 py-2 text-sm bg-gray-50 text-gray-700">
+          <input type="text" name="Service Type" value="${safeTitle}" readonly class="md:col-span-2 rounded-lg border border-black/20 px-4 py-2 text-sm bg-gray-50 text-gray-700">
+
+          <div id="detailMockRockFields" class="hidden md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-4 rounded-lg border border-black/15 p-3 bg-white">
+            <select id="detailMockTestCount" name="Mock Tests" class="rounded-lg border border-black/20 px-4 py-2 text-sm bg-white">
+              <option value="1">1 Mock Test</option>
+              <option value="2">2 Mock Tests</option>
+              <option value="3">3 Mock Tests</option>
+              <option value="4">4 Mock Tests</option>
+            </select>
+            <input id="detailSubjectCount" type="number" min="1" name="Number of Subjects" placeholder="Number of Subjects" class="rounded-lg border border-black/20 px-4 py-2 text-sm bg-white">
+          </div>
+
+          <div id="detailProjectDocFields" class="hidden md:col-span-2 rounded-lg border border-black/15 p-3 bg-white">
+            <select id="detailProjectDocType" name="Project Documentation Type" class="w-full rounded-lg border border-black/20 px-4 py-2 text-sm bg-white">
+              <option value="">Select Documentation Type</option>
+              <option value="Word Document" data-price="500">Word Document - ₹500</option>
+              <option value="LaTeX Documentation" data-price="1000">LaTeX Documentation - ₹1000</option>
+              <option value="Customized Publisher Based Documentation" data-price="2000">Customized Publisher Based Documentation - ₹2000</option>
+            </select>
+          </div>
+
+          <div id="detailThesisFields" class="hidden md:col-span-2 rounded-lg border border-black/15 p-3 bg-white">
+            <select id="detailThesisPageRange" name="Thesis Page Range" class="w-full rounded-lg border border-black/20 px-4 py-2 text-sm bg-white">
+              <option value="">Select Page Range (LaTeX only)</option>
+              <option value="4-7 pages" data-price="2000">4-7 pages - ₹2000</option>
+              <option value="8-20 pages" data-price="5000">8-20 pages - ₹5000</option>
+              <option value="20-40 pages" data-price="8000">20-40 pages - ₹8000</option>
+              <option value="40+ pages" data-price="discussion">40 onwards - Discussion Required</option>
+            </select>
+          </div>
+
+          <div id="detailDesktopFields" class="hidden md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-4 rounded-lg border border-black/15 p-3 bg-white">
+            <input id="detailDesktopCount" type="number" min="1" value="1" name="Desktop Setups" placeholder="Number of Desktop Setups" class="rounded-lg border border-black/20 px-4 py-2 text-sm bg-white">
+            <input type="text" name="Desktop Preference" placeholder="Theme / Style Preference" class="rounded-lg border border-black/20 px-4 py-2 text-sm bg-white">
+          </div>
+
+          <div id="detailPosterFields" class="hidden md:col-span-2 rounded-lg border border-black/15 p-3 bg-white">
+            <select id="detailPosterPackage" name="Poster Package" class="w-full rounded-lg border border-black/20 px-4 py-2 text-sm bg-white">
+              <option value="">Select Poster Package</option>
+              <option value="Standard" data-price="500">Standard - ₹500</option>
+              <option value="Premium" data-price="1000">Premium - ₹1000</option>
+            </select>
+          </div>
+
+          <div id="detailAlbumFields" class="hidden md:col-span-2 rounded-lg border border-black/15 p-3 bg-white">
+            <select id="detailAlbumPackage" name="Album Package" class="w-full rounded-lg border border-black/20 px-4 py-2 text-sm bg-white">
+              <option value="">Select Album Package</option>
+              <option value="Standard" data-price="2000">Standard - ₹2000</option>
+              <option value="Premium" data-price="5000">Premium - ₹5000</option>
+            </select>
+          </div>
+
+          <div class="md:col-span-2 rounded-lg border border-black/15 p-3 bg-white flex flex-col gap-2">
+            <p class="text-sm font-semibold text-gray-900">Estimated Price</p>
+            <p id="detailEstimatedPrice" class="text-lg font-bold text-gray-900">Select options to calculate price</p>
+            <input id="detailEstimatedPriceInput" type="hidden" name="Estimated Price" value="Not selected">
+            <input id="detailActionLink" type="hidden" name="Service Action Link" value="contact.html">
+          </div>
+
+          <textarea name="Requirements" rows="4" placeholder="Add details about your requirement" class="md:col-span-2 rounded-lg border border-black/20 px-4 py-2 text-sm bg-white"></textarea>
+
+          <a id="detailBookSession" href="${safeContactLink}" target="_blank" rel="noopener noreferrer" class="md:col-span-2 inline-flex items-center justify-center rounded-lg border border-black/20 bg-black px-4 py-3 text-sm font-semibold text-white hover:bg-white hover:text-black transition-colors">Book Session</a>
+          <button type="submit" class="md:col-span-2 inline-flex items-center justify-center rounded-lg border border-black/20 px-4 py-3 text-sm font-semibold text-gray-900 hover:bg-black hover:text-white transition-colors">Submit Request</button>
+        </form>
+      </div>
     </section>
   `;
+
+  initServiceDetailRequestForm(container, service);
 }
 
 function initServiceDetailsPage() {
