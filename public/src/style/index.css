@@ -364,3 +364,140 @@ article{
   
   z-index: 99;
 }
+
+.mix-lab{
+  background: radial-gradient(circle at center, rgba(255,255,255,0.62), rgba(255,245,228,0.35));
+}
+
+.mix-stage{
+  position: relative;
+  width: 100%;
+  min-height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.mix-orb,
+.mix-core{
+  position: absolute;
+  width: 78px;
+  height: 78px;
+  border-radius: 999px;
+  border: 2px dashed var(--primary-bg);
+  background: rgba(255,255,255,0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mix-orb img,
+.mix-core img{
+  width: 100%;
+  height: 100%;
+  border-radius: 999px;
+  object-fit: cover;
+}
+
+.mix-earth{
+  left: 18%;
+  animation: earth-merge 7s ease-in-out infinite;
+}
+
+.mix-chakra{
+  right: 18%;
+  animation: chakra-merge 7s ease-in-out infinite;
+}
+
+.mix-chakra img{
+  object-fit: contain;
+  object-position: center;
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.mix-core{
+  transform: scale(0.25);
+  opacity: 0;
+  animation: logo-form 7s ease-in-out infinite;
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
+}
+
+.mix-plus,
+.mix-equals{
+  position: absolute;
+  font-size: 1.5rem;
+  font-weight: 800;
+  opacity: 0.8;
+}
+
+.mix-plus{
+  left: 50%;
+  top: 42%;
+  transform: translate(-50%, -50%);
+  animation: symbol-fade 7s ease-in-out infinite;
+}
+
+.mix-equals{
+  left: 50%;
+  top: 62%;
+  transform: translate(-50%, -50%);
+  animation: symbol-fade 7s ease-in-out infinite;
+}
+
+@keyframes earth-merge{
+  0%, 25%{ transform: translateX(0) scale(1); opacity: 1; }
+  45%, 55%{ transform: translateX(145px) scale(0.82); opacity: 0.7; }
+  70%, 100%{ transform: translateX(0) scale(1); opacity: 1; }
+}
+
+@keyframes chakra-merge{
+  0%, 25%{ transform: translateX(0) scale(1) rotate(0deg); opacity: 1; }
+  45%, 55%{ transform: translateX(-145px) scale(0.82) rotate(90deg); opacity: 0.7; }
+  70%, 100%{ transform: translateX(0) scale(1) rotate(0deg); opacity: 1; }
+}
+
+@keyframes logo-form{
+  0%, 36%{ transform: scale(0.25); opacity: 0; }
+  50%, 65%{ transform: scale(1.1); opacity: 1; box-shadow: 0 0 0 15px rgba(0,0,0,0.08); }
+  80%, 100%{ transform: scale(1); opacity: 1; box-shadow: 0 0 0 0 rgba(0,0,0,0); }
+}
+
+@keyframes symbol-fade{
+  0%, 32%{ opacity: 0.85; }
+  45%, 65%{ opacity: 0.15; }
+  80%, 100%{ opacity: 0.85; }
+}
+
+@media (max-width: 768px){
+  .mix-earth{ left: 10%; }
+  .mix-chakra{ right: 10%; }
+
+  @keyframes earth-merge{
+    0%, 25%{ transform: translateX(0) scale(1); opacity: 1; }
+    45%, 55%{ transform: translateX(95px) scale(0.82); opacity: 0.7; }
+    70%, 100%{ transform: translateX(0) scale(1); opacity: 1; }
+  }
+
+  @keyframes chakra-merge{
+    0%, 25%{ transform: translateX(0) scale(1) rotate(0deg); opacity: 1; }
+    45%, 55%{ transform: translateX(-95px) scale(0.82) rotate(90deg); opacity: 0.7; }
+    70%, 100%{ transform: translateX(0) scale(1) rotate(0deg); opacity: 1; }
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .mix-earth,
+  .mix-chakra,
+  .mix-core,
+  .mix-plus,
+  .mix-equals{
+    animation: none !important;
+  }
+
+  .mix-core{
+    opacity: 1;
+    transform: scale(1);
+  }
+}
