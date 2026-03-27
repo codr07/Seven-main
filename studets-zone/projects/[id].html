@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Work Details</title>
+  <link rel="stylesheet" href="/public/src/style/index.css">
+  <script type="module">
+    import { studentWorks } from '/public/src/js/studentProjects.js';
+    // Get project id from URL
+    const urlParts = window.location.pathname.split('/');
+    const projectId = urlParts[urlParts.length - 1].replace('.html', '');
+    const work = studentWorks.find(w => w.id === projectId);
+    if (work) {
+      document.getElementById('work-title').textContent = work.title;
+      document.getElementById('work-author').textContent = `By ${work.author}`;
+      document.getElementById('work-image').src = work.image;
+      document.getElementById('work-summary').textContent = work.summary;
+      document.getElementById('work-description').textContent = work.description;
+    } else {
+      document.getElementById('work-title').textContent = 'Not Found';
+      document.getElementById('work-author').textContent = '';
+      document.getElementById('work-image').style.display = 'none';
+      document.getElementById('work-summary').textContent = '';
+      document.getElementById('work-description').textContent = 'No details available.';
+    }
+  </script>
+</head>
+<body class="bg-gray-50 min-h-screen flex flex-col items-center justify-center">
+  <div class="max-w-2xl w-full bg-white shadow-lg rounded-lg p-8 mt-10 flex flex-col items-center">
+    <img id="work-image" class="w-40 h-40 object-cover rounded-full mb-6" alt="Work Image">
+    <h1 id="work-title" class="text-3xl font-bold mb-2">Loading...</h1>
+    <p id="work-author" class="text-lg text-gray-600 mb-4"></p>
+    <p id="work-summary" class="text-gray-500 mb-6 text-center"></p>
+    <div id="work-description" class="text-base text-gray-700 text-center"></div>
+    <a href="/student-zone.html" class="mt-8 text-blue-600 hover:underline">&#8592; Back to Student Zone</a>
+  </div>
+</body>
+</html>
